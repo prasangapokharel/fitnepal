@@ -166,7 +166,7 @@ footer {
 </div>
 
 <div class="container" id="container">
-    <h2 style="text-align: center;">Protein Tracker</h2>
+    <h2 style="text-align: center;">PROTEIN TRACKER</h2>
 
     <form id="proteinForm">
         <label for="mealName">Meal Name:</label>
