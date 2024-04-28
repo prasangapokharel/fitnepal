@@ -112,8 +112,7 @@
             transform: translate(-50%, -50%);
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensures the video covers the whole area */
-        } */
+            object-fit: cover; /* Ensures the video covers the whole area }*/
     </style>
 </head>
 <body>

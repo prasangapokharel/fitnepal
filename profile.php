@@ -74,6 +74,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['profile_picture'])) {
     }
 }
 ?>
+
+<?php
+    include 'header\header.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -87,27 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['profile_picture'])) {
 
 <body>
     <section class="hero-section">
-        <nav class="navbar">
-            <div class="data-container">
-                <!-- Logo Section -->
-               <a class="lg">FITNEPAL</a>
-                
-                <!-- Menu Section -->
-                <div id="menu-time" class="menu-data animate__animated">
-                    <!-- Close Button for Mobile -->
-                    <a onclick="closebar()"><i id="close" class="size fa-solid fa-xmark"></i></a>
-                    
-                    <!-- Navigation Links -->
-                    <a href="profile.php">Profile</a>
-                    <a href="goal.php">Goal</a>
-                    <a href="diet.php">Diet</a>
-                    <a class ="log" href="logout.php">Logout</a>
-                </div>
-                
-                <!-- Menu Bar for Mobile -->
-                <a id="Menu-bar" onclick="menubar()"><i class="size-icon fa-solid fa-bars"></i></a>
-            </div>
-        </nav>
+
 <div class="container">
     <div class="profile-info">
         <!-- Display profile picture and handle file input -->

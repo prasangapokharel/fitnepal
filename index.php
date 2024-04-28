@@ -26,6 +26,10 @@ if (isset($_GET['logout'])) {
 }
 ?>
 
+<?php
+    include 'header\header.php';
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -38,43 +42,15 @@ if (isset($_GET['logout'])) {
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #1F6FFF;
+            /* background-color: #1F6FFF; */
             color: #fff;
         }
- 
-.navbar {
-    background-color: #1F6FFF;
-    overflow: hidden;
-    text-align: right;
-    padding: 30px; /* Increased height */
-}
-
-.navbar a {
-    display: inline-block;
-    color: #fff;
-    text-align: center;
-    padding: 14px ;
-    padding-left: 50px; /* Increased height */
-    text-decoration: none;
-    font-size: 19px;
-    text-shadow: 0 0 3px #1F6FFF;
-
-}
-
-.navbar .logo {
-    float: left;
-    padding: 8px 0px;
-    font-size: 30px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-    text-shadow: 0 0 10px #1F6FFF;
-}
-
 
 		main {
 			margin: 2rem auto;
 			width: 60%;
+			padding: 2rem;
+			background-color: #1F6FFF;
 		}
 
 		main article {
@@ -186,15 +162,6 @@ if (isset($_GET['logout'])) {
 </head>
 <body>
 
-
-<div class="navbar">
-    <a href="#" class="logo">Fitness Tracker</a>
-    <a href="profile.php">Profile</a>
-    <a href="goal.php">Goals</a>
-    <a href="diet.php">Diet</a>
-    <a href="index.php">Workout</a>
-    <a href="?logout=true">Logout</a>
-</div>
     <main>
         <form action="post.php" method="post">
             <input type="text" placeholder="#" style="width:9%" name="amt" />

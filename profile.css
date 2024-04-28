@@ -5,21 +5,6 @@ body {
     background-color:#ffffff;
 }
 
-
-
-
-.navbar {
-    display: flex;
-    background-color:#ffffff;
-
-    padding: 15px 20px;
-    color: #291f69;
-    width: 92%;
-    margin: 0px 0px;
-    align-items: center;
-    justify-content: center;
-}
-
 .data-container {
     width: 100%;
     display: flex;
@@ -36,7 +21,7 @@ body {
     background-color: transparent;
    
 }
-a {
+/* a {
     text-decoration: none;
     color: #fcfcfc;
     padding: 10px 15px;
@@ -48,7 +33,7 @@ a {
     font-family: 'Inter', sans-serif;
     background-color: white;
     color: #291f69;
-}
+} */
 
 .log{
     color: red;
@@ -59,10 +44,10 @@ a {
     align-items: center;
 }
 
-a:hover {
+/* a:hover {
     background-color: white;
     color: rgb(0, 12, 34);
-}
+} */
 
 .size-icon {
     font-size: 26px;

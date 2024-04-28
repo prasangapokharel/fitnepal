@@ -75,6 +75,9 @@ $stmt->execute();
 $result = $stmt->get_result();
 ?>
 
+<?php
+    include 'header\header.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -91,33 +94,6 @@ $result = $stmt->get_result();
             color: #fff;
         }
 
-        .navbar {
-            background-color: #1F6FFF;
-            overflow: hidden;
-            text-align: right;
-            padding: 30px; /* Increased height */
-        }
-
-        .navbar a {
-            display: inline-block;
-            color: #fff;
-            text-align: center;
-            padding: 14px ;
-            padding-left: 50px; /* Increased height */
-            text-decoration: none;
-            font-size: 19px;
-            text-shadow: 0 0 3px #1F6FFF;
-        }
-
-        .navbar .logo {
-            float: left;
-            padding: 8px 0px;
-            font-size: 30px;
-            font-weight: bold;
-            text-decoration: none;
-            color: #fff;
-            text-shadow: 0 0 10px #1F6FFF;
-        }
 
         .container {
             max-width: 90%;
@@ -210,14 +186,6 @@ $result = $stmt->get_result();
     </style>
 </head>
 <body>
-<div class="navbar">
-    <a href="dashboard.php" class="logo">Fitness Tracker</a>
-    <a href="profile.php">Profile</a>
-    <a href="goal.php">Goals</a>
-    <a href="diet.php">Diet</a>
-    <a href="index.php">Workout</a>
-    <a href="?logout=true">Logout</a>
-</div>
 
 <div class="container">
     <button id="showMyDietBtn">My Diet</button>

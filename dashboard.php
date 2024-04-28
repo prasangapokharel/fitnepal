@@ -168,6 +168,10 @@ if ($protein_result->num_rows > 0) {
 $conn->close();
 ?>
 
+<?php
+    include 'header\header.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -185,35 +189,6 @@ $conn->close();
             background-color: #3e4684;
             color: #fff;
         }
- 
-.navbar {
-    background-color: #3e4684; /* Accent color */;
-    overflow: hidden;
-    text-align: right;
-    padding: 30px; /* Increased height */
-}
-
-.navbar a {
-    display: inline-block;
-    color: #fff;
-    text-align: center;
-    padding: 0px ;
-    padding-left: 30px; /* Increased height */
-    text-decoration: none;
-    font-size: 25px;
-    text-shadow: 0 0 3px #1F6FFF;
-
-}
-
-.navbar .logo {
-    float: left;
-    padding: 8px 0px;
-    font-size: 30px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #fff;
-    text-shadow: 0 0 10px #1F6FFF;
-}
 
         .container {
             max-width: 800px;
@@ -370,14 +345,7 @@ $conn->close();
 </head>
 <body>
 
-<div class="navbar">
-    <a href="#" class="logo">Fitness Tracker</a>
-    <a href="profile.php">Profile</a>
-    <a href="goal.php">Goals</a>
-    <a href="diet.php">Diet</a>
-    <a href="index.php">Workout</a>
-    <a href="?logout=true">Logout</a>
-</div>
+
 
 <!-- <div class="container">
     <h2><?php echo $name; ?></h2>
