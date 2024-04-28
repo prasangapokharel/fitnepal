@@ -197,15 +197,6 @@ footer {
 
     <p>Total Protein Grams: <span id="totalProteinGrams">0</span></p>
 
-    <h5> asdfghjkl asdhj sdfakdsf jidsfjiwrenf 9jf sdjf 90er fierfn isd nfiksdjfkdgsd
-    fg sdfkgj lsdfkjg df
-    gdsflkg jsdflkg jsd
-    fg dklfg sldfkg 
-    sdgkdfgjsdf
-    gsdlfg
-    sdfghdsfgjsdkfhgsd
-    fghsdfg
-    skdfg</h5>
 </div>
 
 
