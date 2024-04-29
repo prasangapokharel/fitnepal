@@ -61,12 +61,12 @@ if (isset($_GET['logout'])) {
 
 		h2 {
 			margin: 0 0 0.5rem 0;
-			color: #fff;
+			/* color: #fff; */
 		}
 
 		table {
 			width: 100%;
-            color:  #fff;
+            /* color:  #fff; */
 		}
 
 		td,
@@ -74,7 +74,7 @@ if (isset($_GET['logout'])) {
 			vertical-align: top;
 			border-bottom: 1px solid #eee;
 			padding: 10px 3px;
-            color: #fff;
+            /* color: #fff; */
 		}
 
 		tr th:first-of-type,
@@ -89,13 +89,15 @@ if (isset($_GET['logout'])) {
 
 		td:last-of-type {
 			padding-right: 0;
+			background-color: white;
+			
 		}
 
 		tr:last-of-type td {
 			border: 0;
 			border-top: 2px solid #aaa;
 			font-weight: bold;
-			color: #fff;
+			background-color: white;
 		}
 
 		.tr {
@@ -122,6 +124,7 @@ if (isset($_GET['logout'])) {
 			border-radius: 3px 3px;
 			height: 30px;
 			width: 20%;
+			/* color: black; */
 
 		}
         input::placeholder{
@@ -139,18 +142,17 @@ if (isset($_GET['logout'])) {
 			padding: 5px 20px;
 			border-radius: 3px 3px;
 			cursor: pointer;
-			color: #222;
+			background-color: white;
 		}
 
 		input[type=submit]:hover {
-			color: #fff;
-			background-color: #333;
+			  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
 		}
 
 		small,
 		small * {
 			font-size: x-small;
-            color: #1F6FFF;
+            color: black;
 		}
 
 		@media only screen and (max-width: 700px) {
