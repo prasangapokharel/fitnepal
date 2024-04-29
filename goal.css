@@ -1,8 +1,8 @@
+/* 
    body {
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            /* background-color: #1F6FFF; */
             color: #fff;
         }
 
@@ -18,7 +18,7 @@
         label {
             display: block;
             margin-bottom: 5px;
-            color: #F0F6FC;
+            color: #000000;
         }
 
         input {
@@ -67,17 +67,17 @@
 
         th,
         td {
-            border: 1px;
+            border: 2px solid #dff5ff;
             border-radius: 2px;
             padding: 14px;
             text-align: left;
-            background-color: #0D1117;
-            color: #F0F6FC;
+            background-color: #ffffff;
+            color: #ffffff;
             box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         th {
-            background-color: #1F6FFF;
+            background-color: #467cde;
             color: #fff;
             box-shadow: none;
         }
@@ -91,4 +91,4 @@
             bottom: 0;
             width: 100%;
             border-top: 2px solid #1F6FFF;
-        }
+        } */

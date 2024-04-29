@@ -29,7 +29,7 @@
     justify-content: space-between;
     overflow: hidden;
     text-align: right;
-    padding: 7px 9px;
+    padding: 9px 20px;
   }
 
   .navbar a {
