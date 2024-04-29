@@ -23,7 +23,7 @@ if (isset($_GET['logout'])) {
 ?>
 
 <?php
-    include 'header\header.php'
+include 'header\header.php';
 ?>
 
 
@@ -35,11 +35,108 @@ if (isset($_GET['logout'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Protein Tracker</title>
 
-    <!-- Why this bootstraplink was added  -->
+    <!-- WHY THIS LINK WAS ADDED -->
     <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="goal.css">
+    <link rel="stylesheet" href="./goal.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            /* background-color: #1F6FFF; */
+            color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #1F6FFF;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #F0F6FC;
+        }
+
+        input {
+            width: calc(100% - 16px);
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #F0F6FC;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: transparent;
+            color: #F0F6FC;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #1F6FFF;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+        button {
+            background-color: #1F6FFF;
+            color: #fff;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        button:hover {
+            background-color: #0D6BFF;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            border: 1px;
+            border-radius: 2px;
+            padding: 14px;
+            text-align: left;
+            background-color: #0D1117;
+            color: #F0F6FC;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        th {
+            background-color: #1F6FFF;
+            color: #fff;
+            box-shadow: none;
+        }
+
+        footer {
+            background-color: #1F6FFF;
+            color: #F0F6FC;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top: 2px solid #1F6FFF;
+        }
+    </style>
 </head>
 
 <body>

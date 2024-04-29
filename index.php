@@ -42,7 +42,7 @@ if (isset($_GET['logout'])) {
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            /* background-color: #1F6FFF; */
+            background-color: #dff5ff	;
             color: #fff;
         }
 
@@ -51,6 +51,7 @@ if (isset($_GET['logout'])) {
 			width: 60%;
 			padding: 2rem;
 			background-color: #1F6FFF;
+			border-radius: 15px;
 		}
 
 		main article {
