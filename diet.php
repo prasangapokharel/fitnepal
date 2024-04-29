@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['delete_id'])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get user ID from the session
     $user_id = $_SESSION['user_id'];
-    
+
     // Retrieve form data
     $foodName = $_POST["foodName"];
     $category = $_POST["category"];
@@ -76,11 +76,12 @@ $result = $stmt->get_result();
 ?>
 
 <?php
-    include 'header\header.php';
+include 'header\header.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -90,8 +91,7 @@ $result = $stmt->get_result();
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #1F6FFF;
-            color: #fff;
+            /* color: #fff; */
         }
 
 
@@ -101,7 +101,7 @@ $result = $stmt->get_result();
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            background-color: #f9f9f9;
+            background-color: #DFF5FF;
         }
 
         .input-section {
@@ -113,8 +113,10 @@ $result = $stmt->get_result();
             margin-top: 20px;
         }
 
-        input[type="text"], select, input[type="number"] {
-            width: 100%;
+        input[type="text"],
+        select,
+        input[type="number"] {
+            width: 98%;
             padding: 10px;
             margin-bottom: 10px;
             border: 1px solid #ccc;
@@ -122,25 +124,29 @@ $result = $stmt->get_result();
         }
 
         button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: #fff;
+            padding: 9px 20px;
+            margin-right: 10px;
+            background-color: #67C6E3;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            margin-right: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
         }
 
         button:hover {
-            background-color: #0056b3;
+            box-shadow: 5px 7px 8px rgba(255, 255, 255, 0.5);
+            
         }
 
         .close-btn {
-            background-color: #dc3545;
+            background-color: #67C6E3;
+            color: white;
         }
 
         .close-btn:hover {
-            background-color: #bd2130;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+
         }
 
         table {
@@ -151,12 +157,12 @@ $result = $stmt->get_result();
             border-radius: 8px;
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
-            color: #fff;
-            background-color: #1F6FFF;
+            background-color: #67C6E3;
 
         }
 
@@ -165,115 +171,117 @@ $result = $stmt->get_result();
             color: #333;
         }
 
-        th:first-child, td:first-child {
+        th:first-child,
+        td:first-child {
             border-left: none;
         }
 
-        th:last-child, td:last-child {
+        th:last-child,
+        td:last-child {
             border-right: none;
         }
 
         tr:nth-child(even) {
             background-color: #f2f2f2;
         }
-        .act{
-            color: red;
 
-            text-decoration: none;
+        .delete{
+            background-color: #DFF5FF;
         }
 
-        
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <button id="showMyDietBtn">My Diet</button>
-    <button id="showInputBtn">Create Diet+</button>
-    <div class="input-section" id="inputSection">
-        <form id="dietForm" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-            <input type="text" name="foodName" placeholder="Name of food">
-            <select name="category">
-                <option value="">Select Category</option>
-                <option value="Veg">Veg</option>
-                <option value="Non-Veg">Non-Veg</option>
-                <option value="Ayurvedic">Ayurvedic</option>
-                <option value="Dairy">Dairy</option>
-            </select>
-            <input type="number" name="calories" placeholder="Calories">
-            <input type="number" name="serving" placeholder="Serving">
-            <input type="text" name="description" placeholder="Description">
-            <button type="submit">Create</button>
-            <button type="button" class="close-btn" id="closeInputBtn">Close</button>
-        </form>
-    </div>
-    <div id="myDietSection" style="display: none;">
-    <div class="total-calories">Total Calories: <?php echo $totalCalories; ?></div>
+    <div class="container">
+        <button id="showMyDietBtn">My Diet</button>
+        <button id="showInputBtn">Create Diet+</button>
+        <div class="input-section" id="inputSection">
+            <form id="dietForm" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                <input type="text" name="foodName" placeholder="Name of food">
+                <select name="category">
+                    <option value="">Select Category</option>
+                    <option value="Veg">Veg</option>
+                    <option value="Non-Veg">Non-Veg</option>
+                    <option value="Ayurvedic">Ayurvedic</option>
+                    <option value="Dairy">Dairy</option>
+                </select>
+                <input type="number" name="calories" placeholder="Calories">
+                <input type="number" name="serving" placeholder="Serving">
+                <input type="text" name="description" placeholder="Description">
+                <button type="submit">Create</button>
+                <button type="button" class="close-btn" id="closeInputBtn">Close</button>
+            </form>
+        </div>
+        <div id="myDietSection" style="display: none;">
+            <div class="total-calories">Total Calories: <?php echo $totalCalories; ?></div>
 
-        <h2>My Diet</h2>
+            <h2>My Diet</h2>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Food Name</th>
-                    <th>Category</th>
-                    <th>Calories</th>
-                    <th>Serving</th>
-                    <th>Description</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php while ($row = $result->fetch_assoc()) : ?>
+            <table>
+                <thead>
                     <tr>
-                        <td><?php echo $row['food_name']; ?></td>
-                        <td><?php echo $row['category']; ?></td>
-                        <td><?php echo $row['calories']; ?></td>
-                        <td><?php echo $row['serving']; ?></td>
-                        <td><?php echo $row['description']; ?></td>
-                        <td>
-                            <button class="delete-btn" data-id="<?php echo $row['id']; ?>">Delete</button>
-                        </td>
+                        <th>Food Name</th>
+                        <th>Category</th>
+                        <th>Calories</th>
+                        <th>Serving</th>
+                        <th>Description</th>
+                        <th>Actions</th>
                     </tr>
-                <?php endwhile; ?>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <?php while ($row = $result->fetch_assoc()) : ?>
+                        <tr>
+                            <td><?php echo $row['food_name']; ?></td>
+                            <td><?php echo $row['category']; ?></td>
+                            <td><?php echo $row['calories']; ?></td>
+                            <td><?php echo $row['serving']; ?></td>
+                            <td><?php echo $row['description']; ?></td>
+                            <td>
+                                <button class="delete" data-id="<?php echo $row['id']; ?>">Delete</button>
+                            </td>
+                        </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
 
-<script>
-    document.getElementById('showInputBtn').addEventListener('click', function() {
-        document.getElementById('inputSection').classList.toggle('active');
-    });
-
-    document.getElementById('showMyDietBtn').addEventListener('click', function() {
-        document.getElementById('myDietSection').style.display = 'block';
-    });
-
-    // Attach click event listener to delete buttons
-    var deleteButtons = document.querySelectorAll('.delete-btn');
-    deleteButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            var delete_id = this.getAttribute('data-id');
-            if (confirm("Are you sure you want to delete this item?")) {
-                // Send AJAX request to delete the diet item
-                var xhr = new XMLHttpRequest();
-                xhr.open("GET", "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>?delete_id=" + delete_id, true);
-                xhr.onload = function() {
-                    if (xhr.readyState === xhr.DONE) {
-                        if (xhr.status === 200) {
-                            alert(xhr.responseText);
-                            // Refresh the page or update the UI as needed
-                            location.reload(); // You may want to update the UI without reloading the page
-                        } else {
-                            alert('Error deleting diet item');
-                        }
-                    }
-                };
-                xhr.send();
-            }
+    <script>
+        document.getElementById('showInputBtn').addEventListener('click', function() {
+            document.getElementById('inputSection').classList.toggle('active');
         });
-    });
-</script>
+
+        document.getElementById('showMyDietBtn').addEventListener('click', function() {
+            document.getElementById('myDietSection').style.display = 'block';
+        });
+
+        // Attach click event listener to delete buttons
+        var deleteButtons = document.querySelectorAll('.delete-btn');
+        deleteButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                var delete_id = this.getAttribute('data-id');
+                if (confirm("Are you sure you want to delete this item?")) {
+                    // Send AJAX request to delete the diet item
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("GET", "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>?delete_id=" + delete_id, true);
+                    xhr.onload = function() {
+                        if (xhr.readyState === xhr.DONE) {
+                            if (xhr.status === 200) {
+                                alert(xhr.responseText);
+                                // Refresh the page or update the UI as needed
+                                location.reload(); // You may want to update the UI without reloading the page
+                            } else {
+                                alert('Error deleting diet item');
+                            }
+                        }
+                    };
+                    xhr.send();
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
