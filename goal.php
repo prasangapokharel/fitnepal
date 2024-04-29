@@ -23,7 +23,7 @@ if (isset($_GET['logout'])) {
 ?>
 
 <?php
-include 'header\header.php';
+    include 'header\header.php'
 ?>
 
 
@@ -34,15 +34,18 @@ include 'header\header.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Protein Tracker</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Why this bootstraplink was added  -->
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./goal.css">
+    <link rel="stylesheet" href="goal.css">
 </head>
 
 <body>
 
     <div class="container" id="container">
-        <h2 style="text-align: center;"></h2>
+        <h2 style="text-align: center;">Protein Tracker</h2>
 
         <form id="proteinForm">
             <label for="mealName">Meal Name:</label>
