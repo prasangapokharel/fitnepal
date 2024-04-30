@@ -294,17 +294,6 @@ include 'header\header.php';
             font-size: 20px;
         }
 
-        /* .card-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin: 20px;
-            padding: 20px;
-            border: 2px solid #ccc;
-            border-radius: 10px;
-            background-color: transparent;
-        } */
-
         .container {
             display: flex;
             justify-content: space-around;
@@ -411,6 +400,13 @@ include 'header\header.php';
             display: flex;
             float: center;
             margin: auto 40%;
+        }
+
+        .bmi_image {
+            height: 80%;
+            width: 80%;
+            background-color: green;
+            
         }
     </style>
 </head>
@@ -520,11 +516,14 @@ include 'header\header.php';
             <!-- Add more rows as needed -->
         </tbody>
     </table>
-   
+
+   <!-- image -->  
     </div>
-    <!-- <div class="image">
-        <img src="./image.png" alt="image">
-    </div> -->
+    <div class="bmi_image">
+        <img src="./img.png" alt="image">
+    </div>
+
+
 
     <script>
  function openModal() {
