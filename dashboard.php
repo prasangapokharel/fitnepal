@@ -402,11 +402,54 @@ include 'header\header.php';
             margin: auto 40%;
         }
 
-        .bmi_image {
-            height: 80%;
-            width: 80%;
+        img{
+            height: 600px;
+            width: 1000px;
+            margin: 10% 10%;
             background-color: green;
+            border: 2px;
+            border-radius: 6px;
             
+        }
+
+        
+        
+        .container2 {
+            display: flex; /* Use Flexbox to create a row */
+            justify-content: space-between; /* Evenly space the cards */
+            gap: 16px; /* Add space between cards */
+            padding: 20px;
+        }
+
+        .card {
+            flex: 1; /* Each card takes an equal portion of the row */
+            border: 1px solid #ccc; /* Light gray border */
+            border-radius: 8px; /* Rounded corners */
+            background-color: #f9f9f9; /* Light background color */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+            padding: 16px; /* Padding within the card */
+            text-align: center; /* Center-align text content */
+        }
+
+        .card iframe {
+            width: 100%; /* The video takes the full width of the card */
+            height: 200px; /* Fixed height for consistency */
+            border: none; /* Remove border around the iframe */
+            border-radius: 8px; /* Matches card's border radius */
+        }
+
+        .card h3 {
+            margin: 12px 0; /* Space above and below the title */
+            color: #333; /* Title text color */
+        }
+
+        .card p {
+            margin: 0; /* Remove default paragraph margin */
+            color: #666; /* Subtitle text color */
+        }
+        button,a{
+            text-decoration: none;
+            color:white;
         }
     </style>
 </head>
@@ -443,7 +486,7 @@ include 'header\header.php';
 </div>
     </div>
     <div class="part2">
-<button class="styled-button" >Start tracking!</button>
+<button class="styled-button" ><a href="goal.php">Start tracking</a></button>
 
 </div>
     <div class="range">
@@ -519,12 +562,29 @@ include 'header\header.php';
 
    <!-- image -->  
     </div>
-    <div class="bmi_image">
+    <!-- <div class="bmi_image">
         <img src="./img.png" alt="image">
+    </div> -->
+
+
+    <div class="container2">
+    <div class="card">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/9o0UPuDBM8M?si=EAOOICuhg_9SpJQ2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>            <h3>Full Body Workout for Men and Women</h3>
+            <p>This is the first video card with embedded YouTube content.</p>
+        </div>
+
+        <div class="card">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/YnUmJkicK3c?si=TyRb76qcRCc7YiuQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3>Best Exercises To Reduce Belly Fat</h3>
+            <p>This is the second video card with embedded YouTube content.</p>
+        </div>
+
+        <div class="card">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/-hSERcBUsGY?si=nPAJz2LDFO5xORhp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3>HOW TO DO THE 16-8 INTERMITTENT FASTING DIET | Weight loss, blood sugar control</h3>
+            <p>This is the third video card with embedded YouTube content.</p>
+        </div>
     </div>
-
-
-
     <script>
  function openModal() {
             document.getElementById("myModal").style.display = "flex"; // Show the modal
