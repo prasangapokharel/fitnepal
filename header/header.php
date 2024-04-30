@@ -57,7 +57,7 @@
 <body>
   <header class="navbar">
     <div>
-      <a href="#" class="logo">FitNepal</a>
+      <a href="dashboard.php" class="logo">FitNepal</a>
 
     </div>
     <div class="nav-links">
