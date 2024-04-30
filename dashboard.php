@@ -132,25 +132,19 @@ $dayCount = 1;
 
 // Loop through the weeks of the month
 for ($i = 0; $i < 6; $i++) {
-    // Initialize the week array
     $week = array();
 
-    // Fill in the days of the week
     for ($j = 1; $j <= 7; $j++) {
         if (($i === 0 && $j < $firstDayOfMonth) || $dayCount > $daysInMonth) {
-            // Add empty string for days before the first day of the month or after the last day of the month
             $week[] = '';
         } else {
-            // Add the day number
             $week[] = $dayCount++;
         }
     }
 
-    // Add the week to the weeks array
     $weeks[] = $week;
 }
 
-// Query to fetch total protein consumed by the user
 $protein_query = "SELECT SUM(protein_grams) AS total_protein FROM entries WHERE user_id = ?";
 $protein_stmt = $conn->prepare($protein_query);
 $protein_stmt->bind_param("s", $user_id);
@@ -179,7 +173,7 @@ include 'header\header.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -195,11 +189,9 @@ include 'header\header.php';
             max-width: 800px;
             margin: 20px auto;
             background-color: #DFF5FF;
-            /* Dark container background */
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-            /* White shadow for futuristic effect */
         }
 
         .container h2 {
@@ -267,22 +259,18 @@ include 'header\header.php';
 
         .underweight {
             color: blue;
-            /* Color for underweight */
         }
 
         .normal {
             color: green;
-            /* Color for normal weight */
         }
 
         .overweight {
             color: orange;
-            /* Color for overweight */
         }
 
         .obese {
             color: red;
-            /* Color for obesity */
         }
 
         .content {
@@ -291,143 +279,31 @@ include 'header\header.php';
             font-size: 20px;
         }
 
-        /* .proteinGoalChart {
-            height: 10px;
-            width: 10px;
-        } */
-
-        /* Container to hold the cards with a gap, border, and margin */
-        .card-container {
+        /* .card-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            /* Three columns of equal width */
             gap: 20px;
-            /* Gap between the cards */
             margin: 20px;
-            /* Margin around the entire container */
             padding: 20px;
-            /* Padding within the container */
             border: 2px solid #ccc;
-            /* Border for the container */
             border-radius: 10px;
-            /* Rounded corners for the container */
             background-color: transparent;
-            /* Light gray background */
-        }
+        } */
 
-        /* Styling for individual card */
-        .card {
-            background-color: white;
-            /* Background color for the card */
-            border: 1px solid #ddd;
-            /* Border for the card */
-            border-radius: 10px;
-            /* Rounded corners for the card */
-            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
-            /* Box shadow for a subtle 3D effect */
-            text-align: center;
-            /* Center text within the card */
-            padding: 10px;
-            /* Padding within the card */
-        }
-
-        /* Styling for the image within the card */
-        .card img {
-            width: 100%;
-            /* Make the image fill the width of the card */
-            height: 150px;
-            /* Fixed height for the image */
-            object-fit: cover;
-            /* Ensures the image doesn't overflow and fills the area with proper aspect ratio */
-            border-radius: 10px;
-            /* Rounded corners for the image */
-        }
-
-        /* Styling for the card content */
-        .card h1 {
-            font-size: 1.5em;
-            /* Larger font size for the title */
-            margin: 10px 0;
-            color: #3e4684;
-            /* Margin around the title */
-        }
-
-        .card .price {
-            color: green;
-            /* Color for the price text */
-            font-size: 1.2em;
-            color: #3e4684;
-            /* Larger font size for the price */
-        }
-
-        .card button {
-            border: none;
-            /* No border on the button */
-            padding: 10px;
-            /* Padding within the button */
-            background-color: #3e4684;
-            /* Green background for the button */
-            color: white;
-            /* White text on the button */
-            text-align: center;
-            /* Center the text */
-            font-size: 1em;
-            /* Font size for the button */
-            border-radius: 5px;
-            /* Rounded corners for the button */
-            cursor: pointer;
-            /* Change cursor to indicate it's clickable */
-        }
-
-        .card button:hover {
-            background-color: #45a049;
-            /* Darken button on hover */
-        }
-        .container{
+        .container {
             display: flex;
             justify-content: space-around;
+        }
 
+        .image {
+            margin: 0 50px 0 100px;
+            height: 60%;
+            width: 60%;
         }
     </style>
 </head>
 
 <body>
-
-
-
-    <!-- <div class="container">
-    <h2><?php echo $name; ?></h2>
-    <p><strong>BMI:</strong> <?php echo $bmi; ?></p>
-    <p><strong>Username</strong> <?php echo $user_id; ?></p>
-
-            <?php foreach ($totalCaloriesPerUser as $userId => $totalCalories) : ?>
-                <p><strong>Total Calories: <?php echo $totalCalories; ?> calories</strong></p> 
-
-            <?php endforeach; ?>
-            <p><strong>Total Protein Consumed:</strong> <?php echo $total_protein; ?> grams</p>
-
-
-    <p><?php echo $ideal_weight_message; ?></p>
-</div> -->
-    <!-- <div class="data">
-    <ul class="weekdays">
-        <li>Mo</li>
-        <li>Tu</li>
-        <li>We</li>
-        <li>Th</li>
-        <li>Fr</li>
-        <li>Sa</li>
-        <li>Su</li>
-    </ul>
-
-    <ul class="days">
-        <?php foreach ($weeks as $week) : ?>
-            <?php foreach ($week as $day) : ?>
-                <li><?php echo ($day != '') ? '<span>' . $day . '</span>' : ''; ?></li>
-            <?php endforeach; ?>
-        <?php endforeach; ?>
-    </ul>
-</div> -->
 
     <div class="container">
 
@@ -438,42 +314,15 @@ include 'header\header.php';
             <p>Protein Goal : <?php echo $protein_intake; ?></p>
         </div>
 
-        <!-- <canvas id="proteinGoalChart" width="200" height="200"></canvas> -->
-
         <div id="chart">
             <canvas id="proteinGoalChart" height="220px" width="220px"></canvas>
         </div>
 
     </div>
-
-
-
-    <!-- <div class="card-container">
-    <div class="card">
-        <img src="https://imgs.search.brave.com/hNtL4jv1vyrukPTBAEKduhp1PNnm40OhPV29C8QW4g8/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuc3F1YXJlc3Bh/Y2UtY2RuLmNvbS9j/b250ZW50L3YxLzU5/NDQyZDZiMzZlNWQz/MzdiZTVkYTExYy8x/NjAyMjAwMjg4NTMw/LVRJSFdZRDhYMlg4/NFJMUDNURUlGL01h/a2VfYWhlYWRfZGlu/bmVyX2tpdC5qcGc" alt="Denim Jeans">
-        <h1>Fat loss</h1>
-        <p class="price">$19.99</p>
-        <p>Some text about the jeans..</p>
-        <p><button>Get diet</button></p>
+    <div class="image">
+        <img src="./image.png" alt="image">
     </div>
 
-    <div class="card">
-        <img src="https://imgs.search.brave.com/83BL7L2f5NPpY935K8M0TyUCcV-hkl_MqK9fWW8yzAI/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuZXBpY3VyaW91/cy5jb20vcGhvdG9z/LzYzMGFhZWQxZWJi/MWM5YmZhMDRmYjgw/NC9tYXN0ZXIvd18x/NjAwLGNfbGltaXQv/TWV0aG9kb2xvZ3kr/c2hvb3QrMDEtMDct/MjAyMS02MSsxLmpw/Zw" alt="Denim Jeans">
-        <h1>Muscle Gain</h1>
-        <p class="price">$29.99</p>
-        <p>Some more text about the jeans..</p>
-        <p><button>Get diet</button></p>
-    </div>
-
-    <div class="card">
-        <img src="https://imgs.search.brave.com/BwpI4LNI0XKSTYPLgtn4105smVQggdvk6ysAZv31VXo/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuZXBpY3VyaW91/cy5jb20vcGhvdG9z/LzU5OWM0ZDFmYzdi/MzhjN2MxNzU3ZTVm/MC9tYXN0ZXIvd18x/NjAwLGNfbGltaXQv/ZGlubmVybHkuanBn" alt="Denim Jeans">
-        <h1>Kito diet</h1>
-        <p class="price">$39.99</p>
-        <p>Even more text about the jeans..</p>
-        <p><button>Get diet</button></p>
-    </div>
-</div> -->
-    <!-- hi i am prasanga -->
     <script>
         // Data for the protein goal
         const proteinGoal = <?php echo $protein_intake; ?>; // Set your total protein goal
