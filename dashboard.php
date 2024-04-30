@@ -201,6 +201,12 @@ include 'header\header.php';
 
         .container p {
             margin-bottom: 10px;
+            padding: 9px 12px;
+            background-color: white;
+            font-size: 20px;
+            border-radius: 7px;
+             border: 2px;
+            font-weight: 700;
         }
 
         .weekdays {
@@ -214,6 +220,12 @@ include 'header\header.php';
             font-weight: bold;
             border-radius: 12px;
             overflow: hidden;
+        }
+        ul li{
+            display: flex;
+            margin-left: 30px;
+            padding: 8px 12px;
+            float: center;
         }
 
         .weekdays li {
@@ -297,8 +309,39 @@ include 'header\header.php';
 
         .image {
             margin: 0 50px 0 100px;
+            height: 40%;
+            width: 40%;
+            border: 2px;
+            border-radius: 9px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+
+        .underweight {
+            background-color: #f0f8ff;
+        }
+
+        .normal {
+            background-color: #d1e7dd;
+        }
+
+        .overweight {
+            background-color: #ffe6b2;
+        }
+
+        .obese {
+            background-color: #f5c6cb;
+        }
+        .range{
             height: 60%;
-            width: 60%;
         }
     </style>
 </head>
@@ -319,9 +362,81 @@ include 'header\header.php';
         </div>
 
     </div>
-    <div class="image">
-        <img src="./image.png" alt="image">
+    <div class="range">
+    <ul>
+        <li><span class="underweight">Underweight</span></li>
+        <li><span class="normal">Normal</span></li>
+        <li><span class="overweight">Overweight</span></li>
+        <li><span class="obese">Obese</span></li>
+    </ul>
+    <table>
+        <thead>
+            <tr>
+                <th>Height (in/cm)</th>
+                <th>Weight (lbs)</th>
+                <th>Weight (kgs)</th>
+                <th>BMI Range</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Example row for 5'0" -->
+            <tr class="underweight">
+                <td>5'0" / 152.4 cm</td>
+                <td>100 - 115</td>
+                <td>45.5 - 52.3</td>
+                <td>Underweight</td>
+            </tr>
+            <tr class="normal">
+                <td>5'0" / 152.4 cm</td>
+                <td>120 - 140</td>
+                <td>54.5 - 63.6</td>
+                <td>Normal</td>
+            </tr>
+            <tr class="overweight">
+                <td>5'0" / 152.4 cm</td>
+                <td>145 - 160</td>
+                <td>65.9 - 72.7</td>
+                <td>Overweight</td>
+            </tr>
+            <tr class="obese">
+                <td>5'0" / 152.4 cm</td>
+                <td>165 - 205</td>
+                <td>74.8 - 93.2</td>
+                <td>Obese</td>
+            </tr>
+            <!-- Example row for 5'1" -->
+            <tr class="underweight">
+                <td>5'1" / 154.9 cm</td>
+                <td>100 - 115</td>
+                <td>45.5 - 52.3</td>
+                <td>Underweight</td>
+            </tr>
+            <tr class="normal">
+                <td>5'1" / 154.9 cm</td>
+                <td>120 - 145</td>
+                <td>54.5 - 65.9</td>
+                <td>Normal</td>
+            </tr>
+            <tr class="overweight">
+                <td>5'1" / 154.9 cm</td>
+                <td>150 - 165</td>
+                <td>68.2 - 74.8</td>
+                <td>Overweight</td>
+            </tr>
+            <tr class="obese">
+                <td>5'1" / 154.9 cm</td>
+                <td>170 - 205</td>
+                <td>77.3 - 93.2</td>
+                <td>Obese</td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+   
     </div>
+    <!-- <div class="image">
+        <img src="./image.png" alt="image">
+    </div> -->
 
     <script>
         // Data for the protein goal
