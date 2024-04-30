@@ -223,9 +223,12 @@ include 'header\header.php';
         }
         ul li{
             display: flex;
-            margin-left: 30px;
-            padding: 8px 12px;
-            float: center;
+            margin-left: 90px;
+            margin: 50px;
+            padding: 8px 0px;
+            float: left;
+            border: 2px;
+            border-radius: 8px;
         }
 
         .weekdays li {
@@ -342,6 +345,72 @@ include 'header\header.php';
         }
         .range{
             height: 60%;
+            margin: 50px 10%;
+            /* background-color: #DFF5FF; */
+            border: 2px;
+            border-radius: 9px;
+
+        }
+
+        /* Styling for the button */
+        .styled-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .styled-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Styling for the modal (pop-up box) */
+        .modal {
+            display: none; /* Initially hidden */
+            position: fixed; /* Stay fixed in place */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            z-index: 1; /* Ensure it appears above other content */
+        }
+
+        /* Styling for the modal content */
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px; /* Fixed width */
+        }
+
+        /* Close button for the modal */
+        .close-button {
+            background-color: #f44336; /* Red */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .close-button:hover {
+            background-color: #e53935; /* Darker red on hover */
+        }
+        .part2{
+            margin-top: 20px;
+            display: flex;
+            float: center;
+            margin: auto 40%;
         }
     </style>
 </head>
@@ -360,8 +429,27 @@ include 'header\header.php';
         <div id="chart">
             <canvas id="proteinGoalChart" height="220px" width="220px"></canvas>
         </div>
+<div class="second">
+ <!-- Button that triggers the modal -->
+ <button class="styled-button" onclick="openModal()">Open Pop-Up</button>
 
+<!-- The modal -->
+<div class="modal" id="myModal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        
+        <p> <?php echo $name; ?></p>
+       <p> <a href="diet.php">view diet</a></p>
+        <button class="close-button" onclick="closeModal()">Close</button>
     </div>
+</div>
+
+</div>
+    </div>
+    <div class="part2">
+<button class="styled-button" >Start tracking!</button>
+
+</div>
     <div class="range">
     <ul>
         <li><span class="underweight">Underweight</span></li>
@@ -439,6 +527,24 @@ include 'header\header.php';
     </div> -->
 
     <script>
+ function openModal() {
+            document.getElementById("myModal").style.display = "flex"; // Show the modal
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none"; // Hide the modal
+        }
+
+        // Close the modal when clicking outside the content
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+
+
         // Data for the protein goal
         const proteinGoal = <?php echo $protein_intake; ?>; // Set your total protein goal
         const currentProtein = 10; // Current protein intake
