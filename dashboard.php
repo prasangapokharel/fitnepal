@@ -55,14 +55,14 @@ if ($result->num_rows > 0) {
 
 
     // // Define the baseline protein recommendation (0.8 grams per kilogram of body weight)
-$protein_per_kg = 0.8;
+    $protein_per_kg = 0.8;
 
-// Calculate the recommended protein intake
-$protein_intake = $weight * $protein_per_kg;
+    // Calculate the recommended protein intake
+    $protein_intake = $weight * $protein_per_kg;
 
-// // Display the result
-// echo "Recommended daily protein intake for $name (age $age, weight $weight kg, height $height cm): ";
-// echo "$protein_intake grams per day.";
+    // // Display the result
+    // echo "Recommended daily protein intake for $name (age $age, weight $weight kg, height $height cm): ";
+    // echo "$protein_intake grams per day.";
 
     // Calculate BMI
     if ($height > 0 && $weight > 0) {
@@ -71,16 +71,16 @@ $protein_intake = $weight * $protein_per_kg;
     } else {
         $bmi = "N/A";
     }
-// Determine the BMI category
-if ($bmi < 18.5) {
-    $bmi_category = "underweight";
-} elseif ($bmi >= 18.5 && $bmi <= 24.9) {
-    $bmi_category = "normal";
-} elseif ($bmi >= 25.0 && $bmi <= 29.9) {
-    $bmi_category = "overweight";
-} else {
-    $bmi_category = "obese";
-}
+    // Determine the BMI category
+    if ($bmi < 18.5) {
+        $bmi_category = "underweight";
+    } elseif ($bmi >= 18.5 && $bmi <= 24.9) {
+        $bmi_category = "normal";
+    } elseif ($bmi >= 25.0 && $bmi <= 29.9) {
+        $bmi_category = "overweight";
+    } else {
+        $bmi_category = "obese";
+    }
 
     // Calculate ideal weight range
     if ($bmi !== "N/A") {
@@ -164,16 +164,17 @@ if ($protein_result->num_rows > 0) {
     $total_protein = 0;
 }
 
-  
+
 $conn->close();
 ?>
 
 <?php
-    include 'header\header.php';
+include 'header\header.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -186,18 +187,21 @@ $conn->close();
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #3e4684;
-            color: #fff;
+            background-color: white;
+            color: black;
         }
 
         .container {
             max-width: 800px;
             margin: 20px auto;
-            background-color:#3e4684; /* Dark container background */
+            background-color: #DFF5FF;
+            /* Dark container background */
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* White shadow for futuristic effect */
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            /* White shadow for futuristic effect */
         }
+
         .container h2 {
             color: #fff;
             margin-bottom: 10px;
@@ -260,99 +264,143 @@ $conn->close();
         span {
             font-size: 18px;
         }
+
         .underweight {
-    color: blue; /* Color for underweight */
-}
+            color: blue;
+            /* Color for underweight */
+        }
 
-.normal {
-    color: green; /* Color for normal weight */
-}
+        .normal {
+            color: green;
+            /* Color for normal weight */
+        }
 
-.overweight {
-    color: orange; /* Color for overweight */
-}
+        .overweight {
+            color: orange;
+            /* Color for overweight */
+        }
 
-.obese {
-    color: red; /* Color for obesity */
-}
-.content{
-    justify-content: center;
-    margin-left: 100px;
-    font-size: 23px;
-}
-.proteinGoalChart{
-    height: 400px;
-    width: 400px;
-}
-    /* Container to hold the cards with a gap, border, and margin */
-    .card-container {
+        .obese {
+            color: red;
+            /* Color for obesity */
+        }
+
+        .content {
+            justify-content: center;
+            margin-left: 10px;
+            font-size: 20px;
+        }
+
+        /* .proteinGoalChart {
+            height: 10px;
+            width: 10px;
+        } */
+
+        /* Container to hold the cards with a gap, border, and margin */
+        .card-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Three columns of equal width */
-            gap: 20px; /* Gap between the cards */
-            margin: 20px; /* Margin around the entire container */
-            padding: 20px; /* Padding within the container */
-            border: 2px solid #ccc; /* Border for the container */
-            border-radius: 10px; /* Rounded corners for the container */
-            background-color: transparent; /* Light gray background */
+            grid-template-columns: repeat(3, 1fr);
+            /* Three columns of equal width */
+            gap: 20px;
+            /* Gap between the cards */
+            margin: 20px;
+            /* Margin around the entire container */
+            padding: 20px;
+            /* Padding within the container */
+            border: 2px solid #ccc;
+            /* Border for the container */
+            border-radius: 10px;
+            /* Rounded corners for the container */
+            background-color: transparent;
+            /* Light gray background */
         }
 
         /* Styling for individual card */
         .card {
-            background-color: white; /* Background color for the card */
-            border: 1px solid #ddd; /* Border for the card */
-            border-radius: 10px; /* Rounded corners for the card */
-            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2); /* Box shadow for a subtle 3D effect */
-            text-align: center; /* Center text within the card */
-            padding: 10px; /* Padding within the card */
+            background-color: white;
+            /* Background color for the card */
+            border: 1px solid #ddd;
+            /* Border for the card */
+            border-radius: 10px;
+            /* Rounded corners for the card */
+            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.2);
+            /* Box shadow for a subtle 3D effect */
+            text-align: center;
+            /* Center text within the card */
+            padding: 10px;
+            /* Padding within the card */
         }
 
         /* Styling for the image within the card */
         .card img {
-            width: 100%; /* Make the image fill the width of the card */
-            height: 150px; /* Fixed height for the image */
-            object-fit: cover; /* Ensures the image doesn't overflow and fills the area with proper aspect ratio */
-            border-radius: 10px; /* Rounded corners for the image */
+            width: 100%;
+            /* Make the image fill the width of the card */
+            height: 150px;
+            /* Fixed height for the image */
+            object-fit: cover;
+            /* Ensures the image doesn't overflow and fills the area with proper aspect ratio */
+            border-radius: 10px;
+            /* Rounded corners for the image */
         }
 
         /* Styling for the card content */
         .card h1 {
-            font-size: 1.5em; /* Larger font size for the title */
+            font-size: 1.5em;
+            /* Larger font size for the title */
             margin: 10px 0;
-            color:#3e4684; /* Margin around the title */
+            color: #3e4684;
+            /* Margin around the title */
         }
 
         .card .price {
-            color: green; /* Color for the price text */
+            color: green;
+            /* Color for the price text */
             font-size: 1.2em;
-            color: #3e4684; /* Larger font size for the price */
+            color: #3e4684;
+            /* Larger font size for the price */
         }
 
         .card button {
-            border: none; /* No border on the button */
-            padding: 10px; /* Padding within the button */
-            background-color: #3e4684; /* Green background for the button */
-            color: white; /* White text on the button */
-            text-align: center; /* Center the text */
-            font-size: 1em; /* Font size for the button */
-            border-radius: 5px; /* Rounded corners for the button */
-            cursor: pointer; /* Change cursor to indicate it's clickable */
+            border: none;
+            /* No border on the button */
+            padding: 10px;
+            /* Padding within the button */
+            background-color: #3e4684;
+            /* Green background for the button */
+            color: white;
+            /* White text on the button */
+            text-align: center;
+            /* Center the text */
+            font-size: 1em;
+            /* Font size for the button */
+            border-radius: 5px;
+            /* Rounded corners for the button */
+            cursor: pointer;
+            /* Change cursor to indicate it's clickable */
         }
 
         .card button:hover {
-            background-color: #45a049; /* Darken button on hover */
+            background-color: #45a049;
+            /* Darken button on hover */
+        }
+        .container{
+            display: flex;
+            justify-content: space-around;
+
         }
     </style>
 </head>
+
 <body>
 
 
 
-<!-- <div class="container">
+    <!-- <div class="container">
     <h2><?php echo $name; ?></h2>
     <p><strong>BMI:</strong> <?php echo $bmi; ?></p>
     <p><strong>Username</strong> <?php echo $user_id; ?></p>
 
-            <?php foreach ($totalCaloriesPerUser as $userId => $totalCalories): ?>
+            <?php foreach ($totalCaloriesPerUser as $userId => $totalCalories) : ?>
                 <p><strong>Total Calories: <?php echo $totalCalories; ?> calories</strong></p> 
 
             <?php endforeach; ?>
@@ -361,7 +409,7 @@ $conn->close();
 
     <p><?php echo $ideal_weight_message; ?></p>
 </div> -->
-<!-- <div class="data">
+    <!-- <div class="data">
     <ul class="weekdays">
         <li>Mo</li>
         <li>Tu</li>
@@ -373,23 +421,34 @@ $conn->close();
     </ul>
 
     <ul class="days">
-        <?php foreach ($weeks as $week): ?>
-            <?php foreach ($week as $day): ?>
+        <?php foreach ($weeks as $week) : ?>
+            <?php foreach ($week as $day) : ?>
                 <li><?php echo ($day != '') ? '<span>' . $day . '</span>' : ''; ?></li>
             <?php endforeach; ?>
         <?php endforeach; ?>
     </ul>
 </div> -->
-<div class="content">
-<p><strong>BMI:</strong> <span class="<?php echo $bmi_category; ?>"><?php echo $bmi; ?></span></p>
-<p>You are in the <span class="<?php echo $bmi_category; ?>"><?php echo ucfirst($bmi_category); ?></span> category.</p>
 
-<p>Protein Goal :  <?php echo $protein_intake; ?></p>
-</div>
-<canvas id="proteinGoalChart" width="200" height="200"></canvas>
+    <div class="container">
+
+        <div class="content">
+            <p><strong>BMI :</strong> <span class="<?php echo $bmi_category; ?>"><?php echo $bmi; ?></span></p>
+            <p>You are in the <span class="<?php echo $bmi_category; ?>"><?php echo ucfirst($bmi_category); ?></span> category.</p>
+
+            <p>Protein Goal : <?php echo $protein_intake; ?></p>
+        </div>
+
+        <!-- <canvas id="proteinGoalChart" width="200" height="200"></canvas> -->
+
+        <div id="chart">
+            <canvas id="proteinGoalChart" height="220px" width="220px"></canvas>
+        </div>
+
+    </div>
 
 
-<div class="card-container">
+
+    <!-- <div class="card-container">
     <div class="card">
         <img src="https://imgs.search.brave.com/hNtL4jv1vyrukPTBAEKduhp1PNnm40OhPV29C8QW4g8/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuc3F1YXJlc3Bh/Y2UtY2RuLmNvbS9j/b250ZW50L3YxLzU5/NDQyZDZiMzZlNWQz/MzdiZTVkYTExYy8x/NjAyMjAwMjg4NTMw/LVRJSFdZRDhYMlg4/NFJMUDNURUlGL01h/a2VfYWhlYWRfZGlu/bmVyX2tpdC5qcGc" alt="Denim Jeans">
         <h1>Fat loss</h1>
@@ -413,11 +472,11 @@ $conn->close();
         <p>Even more text about the jeans..</p>
         <p><button>Get diet</button></p>
     </div>
-</div>
-<!-- hi i am prasanga -->
-<script>
+</div> -->
+    <!-- hi i am prasanga -->
+    <script>
         // Data for the protein goal
-        const proteinGoal = <?php echo $protein_intake;?>; // Set your total protein goal
+        const proteinGoal = <?php echo $protein_intake; ?>; // Set your total protein goal
         const currentProtein = 10; // Current protein intake
         const remainingProtein = proteinGoal - currentProtein;
 
@@ -444,7 +503,7 @@ $conn->close();
                     },
                     tooltip: {
                         callbacks: {
-                            label: function (context) {
+                            label: function(context) {
                                 const label = context.label || '';
                                 const value = context.raw;
                                 const total = context.chart._metasets[context.datasetIndex].total;
@@ -458,4 +517,5 @@ $conn->close();
         });
     </script>
 </body>
+
 </html>
