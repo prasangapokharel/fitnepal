@@ -1,10 +1,11 @@
 <?php
-    include './header/header.php'
+include './header/header.php'
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
@@ -18,17 +19,20 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #DFF5FF; /* Accent color */
+            background-color: #DFF5FF;
+            /* Accent color */
             color: black;
         }
 
         .container {
             max-width: 400px;
             margin: 90px auto;
-            background-color: white; /* White container background */
+            background-color: white;
+            /* White container background */
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Shadow for premium effect */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            /* Shadow for premium effect */
         }
 
         h2 {
@@ -47,19 +51,30 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            left: 10px;
+            left: 12px;
             color: #888;
-            font-size: 14px; /* Smaller icon size */
+            font-size: 14px;
+            /* Smaller icon size */
+        }
+
+        .see .icon-right {
+            position: absolute;
+            cursor: pointer;
+            left: 90%;
+
         }
 
         input {
             width: 100%;
-            padding: 12px 10px 12px 36px; /* Adjust padding for icons */
+            padding: 12px 10px 12px 36px;
+            /* Adjust padding for icons */
             border: 1px solid #ddd;
             border-radius: 8px;
             font-size: 16px;
-            background-color: #f9f9f9; /* Light background for input fields */
-            color: #333; /* Dark text */
+            background-color: #f9f9f9;
+            /* Light background for input fields */
+            color: #333;
+            /* Dark text */
             box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
@@ -69,8 +84,8 @@
         }
 
         .log {
-            background-color: #67C6E3; 
-            color: #fff; 
+            background-color: #67C6E3;
+            color: #fff;
             padding: 14px 20px;
             border: none;
             border-radius: 8px;
@@ -80,7 +95,8 @@
         }
 
         .log:hover {
-            background-color: #378CE7; /* Darker accent color on hover */
+            background-color: #378CE7;
+            /* Darker accent color on hover */
         }
 
         .register-link {
@@ -90,7 +106,7 @@
         }
 
         .register-link a {
-            color: #67C6E3; 
+            color: #67C6E3;
             text-decoration: none;
         }
 
@@ -112,9 +128,9 @@
         input::placeholder {
             opacity: 0.6;
         }
-   
     </style>
 </head>
+
 <body>
 
     <div class="container">
@@ -129,7 +145,13 @@
             <div class="input-wrapper">
                 <i class="fa fa-lock icon" style="color: #3e4684"></i>
                 <input type="password" id="password" name="password" placeholder="Password" required>
+
+                <div class="see">
+                    <i class="fa fa-eye icon icon-right" onclick="togglePasswordVisibility()"></i>
+
+                </div>
             </div>
+
 
             <input class="log" type="submit" value="Login">
         </form>
@@ -138,5 +160,22 @@
             Don't have an account ? <a href="registration.php">Register Now</a>
         </div>
     </div>
+
+    <script>
+        function togglePasswordVisibility() {
+            const passwordField = document.getElementById("password");
+            const eyeIcon = document.querySelector(".input-wrapper .fa-eye");
+            const isPasswordHidden = passwordField.type === "password";
+
+            if (isPasswordHidden) {
+                passwordField.type = "text";
+                eyeIcon.classList.replace("fa-eye", "fa-eye-slash");
+            } else {
+                passwordField.type = "password";
+                eyeIcon.classList.replace("fa-eye-slash", "fa-eye");
+            }
+        }
+    </script>
 </body>
+
 </html>
