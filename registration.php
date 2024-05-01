@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Signup Form</title>
@@ -13,8 +14,9 @@
 
         body {
             font-family: 'Inter', sans-serif;
-background-color: #3e4684;
-            color: #333; /* Dark text */
+            background-color: #3e4684;
+            color: #333;
+            /* Dark text */
         }
 
         .container {
@@ -50,12 +52,14 @@ background-color: #3e4684;
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 14px; /* Smaller icon size */
+            font-size: 14px;
+            /* Smaller icon size */
             color: #888;
         }
 
         .input-wrapper .icon-left {
-            left: 10px; /* Adjusted for consistent spacing */
+            left: 10px;
+            /* Adjusted for consistent spacing */
         }
 
         .input-wrapper .icon-right {
@@ -65,7 +69,8 @@ background-color: #3e4684;
 
         input {
             width: 100%;
-            padding: 12px 10px 12px 36px; /* Adjusted for icon spacing */
+            padding: 12px 10px 12px 36px;
+            /* Adjusted for icon spacing */
             border: 1px solid #ddd;
             border-radius: 8px;
             margin: 4px;
@@ -101,7 +106,7 @@ background-color: #3e4684;
         .register-link {
             text-align: center;
             margin-top: 20px;
-            color: #3e4684; 
+            color: #3e4684;
         }
 
         .register-link a {
@@ -121,6 +126,7 @@ background-color: #3e4684;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h2>Signup</h2>
@@ -190,4 +196,5 @@ background-color: #3e4684;
         }
     </script>
 </body>
+
 </html>

@@ -1,3 +1,8 @@
+<?php
+    include './header/header.php'
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +18,8 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #3e4684; /* Accent color */
-            color: #333; /* Dark text */
+            background-color: #DFF5FF; /* Accent color */
+            color: black;
         }
 
         .container {
@@ -28,7 +33,7 @@
 
         h2 {
             text-align: center;
-            color: #3e4684; /* Accent color */
+            /* color: #3e4684; Accent color */
             font-size: 30px;
             margin-bottom: 30px;
         }
@@ -60,12 +65,11 @@
 
         input:focus {
             outline: none;
-            border-color: #1F6FFF;
             box-shadow: 0 0 8px rgba(31, 111, 255, 0.3);
         }
 
         .log {
-            background-color: #3e4684; 
+            background-color: #67C6E3; 
             color: #fff; 
             padding: 14px 20px;
             border: none;
@@ -76,17 +80,17 @@
         }
 
         .log:hover {
-            background-color: #0D6BFF; /* Darker accent color on hover */
+            background-color: #378CE7; /* Darker accent color on hover */
         }
 
         .register-link {
             text-align: center;
             margin-top: 20px;
-            color: #3e4684; 
+            /* color: #3e4684;  */
         }
 
         .register-link a {
-            color: #3e4684; 
+            color: #67C6E3; 
             text-decoration: none;
         }
 
@@ -104,15 +108,11 @@
             border: 3px;
             border-radius: 100%;
         }
+
+        input::placeholder {
+            opacity: 0.6;
+        }
    
-        /* .background-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Ensures the video covers the whole area }*/
     </style>
 </head>
 <body>
@@ -135,7 +135,7 @@
         </form>
 
         <div class="register-link">
-            Don't have an account? <a href="registration.php">Register Now</a>
+            Don't have an account ? <a href="registration.php">Register Now</a>
         </div>
     </div>
 </body>

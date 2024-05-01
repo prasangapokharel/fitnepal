@@ -205,8 +205,8 @@ include 'header\header.php';
             background-color: white;
             font-size: 20px;
             border-radius: 7px;
-             border: 2px;
-            font-weight: 700;
+            border: 2px;
+            /* font-weight: 700; */
         }
 
         .weekdays {
@@ -221,10 +221,11 @@ include 'header\header.php';
             border-radius: 12px;
             overflow: hidden;
         }
-        ul li{
+
+        ul li {
             display: flex;
             margin-left: 90px;
-            margin: 50px;
+            /* margin: 50px; */
             padding: 8px 0px;
             float: left;
             border: 2px;
@@ -306,13 +307,15 @@ include 'header\header.php';
             border: 2px;
             border-radius: 9px;
         }
+
         table {
             border-collapse: collapse;
             width: 100%;
             text-align: center;
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid #ccc;
             padding: 8px;
         }
@@ -332,7 +335,17 @@ include 'header\header.php';
         .obese {
             background-color: #f5c6cb;
         }
-        .range{
+
+        .range h2{
+            font-weight: 700;
+            color: #67C6E3;
+            size: 15px;
+            margin-bottom: 0px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .range {
             height: 60%;
             margin: 50px 10%;
             /* background-color: #DFF5FF; */
@@ -360,16 +373,22 @@ include 'header\header.php';
 
         /* Styling for the modal (pop-up box) */
         .modal {
-            display: none; /* Initially hidden */
-            position: fixed; /* Stay fixed in place */
+            display: none;
+            /* Initially hidden */
+            position: fixed;
+            /* Stay fixed in place */
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            z-index: 1; /* Ensure it appears above other content */
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent black background */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            z-index: 1;
+            /* Ensure it appears above other content */
         }
 
         /* Styling for the modal content */
@@ -378,12 +397,14 @@ include 'header\header.php';
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            width: 300px; /* Fixed width */
+            width: 300px;
+            /* Fixed width */
         }
 
         /* Close button for the modal */
         .close-button {
-            background-color: #f44336; /* Red */
+            background-color: #f44336;
+            /* Red */
             color: white;
             padding: 10px;
             border: none;
@@ -393,64 +414,90 @@ include 'header\header.php';
         }
 
         .close-button:hover {
-            background-color: #e53935; /* Darker red on hover */
+            background-color: #e53935;
+            /* Darker red on hover */
         }
-        .part2{
+
+        .part2 {
             margin-top: 20px;
             display: flex;
             float: center;
             margin: auto 40%;
         }
 
-        img{
+        img {
             height: 600px;
             width: 1000px;
             margin: 10% 10%;
             background-color: green;
             border: 2px;
             border-radius: 6px;
-            
+
         }
 
-        
-        
+
+
         .container2 {
-            display: flex; /* Use Flexbox to create a row */
-            justify-content: space-between; /* Evenly space the cards */
-            gap: 16px; /* Add space between cards */
+            display: flex;
+            /* Use Flexbox to create a row */
+            justify-content: space-between;
+            /* Evenly space the cards */
+            gap: 16px;
+            /* Add space between cards */
             padding: 20px;
         }
 
         .card {
-            flex: 1; /* Each card takes an equal portion of the row */
-            border: 1px solid #ccc; /* Light gray border */
-            border-radius: 8px; /* Rounded corners */
-            background-color: #f9f9f9; /* Light background color */
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-            padding: 16px; /* Padding within the card */
-            text-align: center; /* Center-align text content */
+            flex: 1;
+            /* Each card takes an equal portion of the row */
+            border: 1px solid #ccc;
+            /* Light gray border */
+            border-radius: 8px;
+            /* Rounded corners */
+            background-color: #f9f9f9;
+            /* Light background color */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+            /* Soft shadow for depth */
+            padding: 16px;
+            /* Padding within the card */
+            text-align: center;
+            /* Center-align text content */
         }
 
         .card iframe {
-            width: 100%; /* The video takes the full width of the card */
-            height: 200px; /* Fixed height for consistency */
-            border: none; /* Remove border around the iframe */
-            border-radius: 8px; /* Matches card's border radius */
+            width: 100%;
+            /* The video takes the full width of the card */
+            height: 200px;
+            /* Fixed height for consistency */
+            border: none;
+            /* Remove border around the iframe */
+            border-radius: 8px;
+            /* Matches card's border radius */
         }
 
         .card h3 {
-            margin: 12px 0; /* Space above and below the title */
-            color: #333; /* Title text color */
+            margin: 12px 0;
+            /* Space above and below the title */
+            color: #333;
+            /* Title text color */
         }
 
         .card p {
-            margin: 0; /* Remove default paragraph margin */
-            color: #666; /* Subtitle text color */
+            margin: 0;
+            color: #666;
         }
-        button,a{
+
+        button,
+        a {
             text-decoration: none;
-            color:white;
+            color: black;
         }
+
+        .video h2 {
+            margin-left: 24px;
+            margin-bottom: 0px;
+        }
+
     </style>
 </head>
 
@@ -468,125 +515,130 @@ include 'header\header.php';
         <div id="chart">
             <canvas id="proteinGoalChart" height="220px" width="220px"></canvas>
         </div>
-<div class="second">
- <!-- Button that triggers the modal -->
- <button class="styled-button" onclick="openModal()">Open Pop-Up</button>
+        <div class="second">
+            <!-- Button that triggers the modal -->
+            <button class="styled-button" onclick="openModal()">Open Pop-Up</button>
 
-<!-- The modal -->
-<div class="modal" id="myModal">
-    <!-- Modal content -->
-    <div class="modal-content">
-        
-        <p> <?php echo $name; ?></p>
-       <p> <a href="diet.php">view diet</a></p>
-        <button class="close-button" onclick="closeModal()">Close</button>
-    </div>
-</div>
+            <!-- The modal -->
+            <div class="modal" id="myModal">
+                <!-- Modal content -->
+                <div class="modal-content">
 
-</div>
+                    <p> <?php echo $name; ?></p>
+                    <p> <a href="diet.php">view diet</a></p>
+                    <button class="close-button" onclick="closeModal()">Close</button>
+                </div>
+            </div>
+
+        </div>
     </div>
     <div class="part2">
-<button class="styled-button" ><a href="goal.php">Start tracking</a></button>
+        <button class="styled-button"><a href="goal.php">Start tracking</a></button>
 
-</div>
-    <div class="range">
-    <ul>
-        <li><span class="underweight">Underweight</span></li>
-        <li><span class="normal">Normal</span></li>
-        <li><span class="overweight">Overweight</span></li>
-        <li><span class="obese">Obese</span></li>
-    </ul>
-    <table>
-        <thead>
-            <tr>
-                <th>Height (in/cm)</th>
-                <th>Weight (lbs)</th>
-                <th>Weight (kgs)</th>
-                <th>BMI Range</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Example row for 5'0" -->
-            <tr class="underweight">
-                <td>5'0" / 152.4 cm</td>
-                <td>100 - 115</td>
-                <td>45.5 - 52.3</td>
-                <td>Underweight</td>
-            </tr>
-            <tr class="normal">
-                <td>5'0" / 152.4 cm</td>
-                <td>120 - 140</td>
-                <td>54.5 - 63.6</td>
-                <td>Normal</td>
-            </tr>
-            <tr class="overweight">
-                <td>5'0" / 152.4 cm</td>
-                <td>145 - 160</td>
-                <td>65.9 - 72.7</td>
-                <td>Overweight</td>
-            </tr>
-            <tr class="obese">
-                <td>5'0" / 152.4 cm</td>
-                <td>165 - 205</td>
-                <td>74.8 - 93.2</td>
-                <td>Obese</td>
-            </tr>
-            <!-- Example row for 5'1" -->
-            <tr class="underweight">
-                <td>5'1" / 154.9 cm</td>
-                <td>100 - 115</td>
-                <td>45.5 - 52.3</td>
-                <td>Underweight</td>
-            </tr>
-            <tr class="normal">
-                <td>5'1" / 154.9 cm</td>
-                <td>120 - 145</td>
-                <td>54.5 - 65.9</td>
-                <td>Normal</td>
-            </tr>
-            <tr class="overweight">
-                <td>5'1" / 154.9 cm</td>
-                <td>150 - 165</td>
-                <td>68.2 - 74.8</td>
-                <td>Overweight</td>
-            </tr>
-            <tr class="obese">
-                <td>5'1" / 154.9 cm</td>
-                <td>170 - 205</td>
-                <td>77.3 - 93.2</td>
-                <td>Obese</td>
-            </tr>
-            <!-- Add more rows as needed -->
-        </tbody>
-    </table>
-
-   <!-- image -->  
     </div>
+
+    
+    <div class="range">
+    <h2>BMI CHART</h2>
+    <ul>
+            <li><span class="underweight">Underweight</span></li>
+            <li><span class="normal">Normal</span></li>
+            <li><span class="overweight">Overweight</span></li>
+            <li><span class="obese">Obese</span></li>
+        </ul>
+        <table>
+            <thead>
+                <tr>
+                    <th>Height (in/cm)</th>
+                    <th>Weight (lbs)</th>
+                    <th>Weight (kgs)</th>
+                    <th>BMI Range</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example row for 5'0" -->
+                <tr class="underweight">
+                    <td>5'0" / 152.4 cm</td>
+                    <td>100 - 115</td>
+                    <td>45.5 - 52.3</td>
+                    <td>Underweight</td>
+                </tr>
+                <tr class="normal">
+                    <td>5'0" / 152.4 cm</td>
+                    <td>120 - 140</td>
+                    <td>54.5 - 63.6</td>
+                    <td>Normal</td>
+                </tr>
+                <tr class="overweight">
+                    <td>5'0" / 152.4 cm</td>
+                    <td>145 - 160</td>
+                    <td>65.9 - 72.7</td>
+                    <td>Overweight</td>
+                </tr>
+                <tr class="obese">
+                    <td>5'0" / 152.4 cm</td>
+                    <td>165 - 205</td>
+                    <td>74.8 - 93.2</td>
+                    <td>Obese</td>
+                </tr>
+                <!-- Example row for 5'1" -->
+                <tr class="underweight">
+                    <td>5'1" / 154.9 cm</td>
+                    <td>100 - 115</td>
+                    <td>45.5 - 52.3</td>
+                    <td>Underweight</td>
+                </tr>
+                <tr class="normal">
+                    <td>5'1" / 154.9 cm</td>
+                    <td>120 - 145</td>
+                    <td>54.5 - 65.9</td>
+                    <td>Normal</td>
+                </tr>
+                <tr class="overweight">
+                    <td>5'1" / 154.9 cm</td>
+                    <td>150 - 165</td>
+                    <td>68.2 - 74.8</td>
+                    <td>Overweight</td>
+                </tr>
+                <tr class="obese">
+                    <td>5'1" / 154.9 cm</td>
+                    <td>170 - 205</td>
+                    <td>77.3 - 93.2</td>
+                    <td>Obese</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+
     <!-- <div class="bmi_image">
         <img src="./img.png" alt="image">
     </div> -->
 
-
+    <div class="video">
+        <h2>Video Demonstration</h2>
+    </div>
     <div class="container2">
-    <div class="card">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/9o0UPuDBM8M?si=EAOOICuhg_9SpJQ2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>            <h3>Full Body Workout for Men and Women</h3>
+        <div class="card">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/9o0UPuDBM8M?si=EAOOICuhg_9SpJQ2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <h3>Full Body Workout for Men and Women</h3>
             <p>This is the first video card with embedded YouTube content.</p>
         </div>
 
         <div class="card">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/YnUmJkicK3c?si=TyRb76qcRCc7YiuQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YnUmJkicK3c?si=TyRb76qcRCc7YiuQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <h3>Best Exercises To Reduce Belly Fat</h3>
             <p>This is the second video card with embedded YouTube content.</p>
         </div>
 
         <div class="card">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/-hSERcBUsGY?si=nPAJz2LDFO5xORhp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/-hSERcBUsGY?si=nPAJz2LDFO5xORhp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <h3>HOW TO DO THE 16-8 INTERMITTENT FASTING DIET | Weight loss, blood sugar control</h3>
             <p>This is the third video card with embedded YouTube content.</p>
         </div>
     </div>
     <script>
- function openModal() {
+        function openModal() {
             document.getElementById("myModal").style.display = "flex"; // Show the modal
         }
 
