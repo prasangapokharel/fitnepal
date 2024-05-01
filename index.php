@@ -120,7 +120,7 @@ if (isset($_GET['logout'])) {
 		input[type=text],
 		input[type=date] {
 			padding: 5px 7px 4px 10px;
-			border: 1px solid #ffffff;
+			border: 1px solid white;
 			border-radius: 3px 3px;
 			height: 30px;
 			width: 20%;
@@ -129,11 +129,14 @@ if (isset($_GET['logout'])) {
 		}
         input::placeholder{
             color: black;
+			opacity: 0.4;
+			
+
         }
 
 		input[type=text]:focus,
 		input[type=date]:focus {
-			background-color: rgb(255, 255, 255);
+			background-color: white;
 			border: 1px solid #ffffff;
 		}
 
@@ -143,6 +146,8 @@ if (isset($_GET['logout'])) {
 			border-radius: 3px 3px;
 			cursor: pointer;
 			background-color: white;
+			border: 1px solid white;
+			margin: 6px;
 		}
 
 		input[type=submit]:hover {
