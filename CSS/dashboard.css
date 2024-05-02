@@ -1,0 +1,319 @@
+body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            color: black;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: #DFF5FF;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .container h2 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .container p {
+            margin-bottom: 10px;
+            padding: 9px 12px;
+            background-color: white;
+            font-size: 20px;
+            border-radius: 7px;
+            border: 2px;
+            /* font-weight: 700; */
+        }
+
+        .weekdays {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: space-around;
+            background-color: #1F6FFF;
+            color: white;
+            font-weight: bold;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        ul li {
+            display: flex;
+            margin-left: 90px;
+            /* margin: 50px; */
+            padding: 8px 0px;
+            float: left;
+            border: 2px;
+            border-radius: 8px;
+        }
+
+        .weekdays li {
+            text-align: center;
+            padding: 10px 0;
+            flex: 1;
+        }
+
+        .days {
+            padding: 15px;
+            list-style-type: none;
+            margin: 20px 0 0 0;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+
+        .days li {
+            text-align: center;
+            padding: 20px 0;
+            border-radius: 18px;
+            background-color: #fff;
+            border: 2px solid #1F6FFF;
+            color: #1F6FFF;
+            font-weight: bold;
+        }
+
+        .days li span.active {
+            color: #1F6FFF;
+        }
+
+        .data {
+            border: 2px;
+            border-radius: 12px;
+            background-color: #1F6FFF;
+            margin: 30px 5px;
+            margin-top: 100px;
+        }
+
+        span {
+            font-size: 18px;
+        }
+
+        .underweight {
+            color: blue;
+        }
+
+        .normal {
+            color: green;
+        }
+
+        .overweight {
+            color: orange;
+        }
+
+        .obese {
+            color: red;
+        }
+
+        .content {
+            justify-content: center;
+            margin-left: 10px;
+            font-size: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .image {
+            margin: 0 50px 0 100px;
+            height: 40%;
+            width: 40%;
+            border: 2px;
+            border-radius: 9px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+
+        .underweight {
+            background-color: #f0f8ff;
+        }
+
+        .normal {
+            background-color: #d1e7dd;
+        }
+
+        .overweight {
+            background-color: #ffe6b2;
+        }
+
+        .obese {
+            background-color: #f5c6cb;
+        }
+
+        .range h2 {
+            font-weight: 700;
+            color: #67C6E3;
+            size: 15px;
+            margin-bottom: 0px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .range {
+            height: 60%;
+            margin: 50px 10%;
+            /* background-color: #DFF5FF; */
+            border: 2px;
+            border-radius: 9px;
+
+        }
+
+        /* Styling for the button */
+        .styled-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .styled-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Styling for the modal (pop-up box) */
+        .modal {
+            display: none;
+            /* Initially hidden */
+            position: fixed;
+            /* Stay fixed in place */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Semi-transparent black background */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            z-index: 1;
+            /* Ensure it appears above other content */
+        }
+
+        /* Styling for the modal content */
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+            /* Fixed width */
+        }
+
+        /* Close button for the modal */
+        .close-button {
+            background-color: #f44336;
+            /* Red */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .close-button:hover {
+            background-color: #e53935;
+            /* Darker red on hover */
+        }
+
+        .part2 {
+            margin-top: 20px;
+            float: center;
+            margin: auto 43%;
+        }
+
+        img {
+            height: 600px;
+            width: 1000px;
+            margin: 10% 10%;
+            background-color: green;
+            border: 2px;
+            border-radius: 6px;
+
+        }
+
+
+
+        .container2 {
+            display: flex;
+            /* Use Flexbox to create a row */
+            justify-content: space-between;
+            /* Evenly space the cards */
+            gap: 16px;
+            /* Add space between cards */
+            padding: 20px;
+        }
+
+        .card {
+            flex: 1;
+            /* Each card takes an equal portion of the row */
+            border: 1px solid #ccc;
+            /* Light gray border */
+            border-radius: 8px;
+            /* Rounded corners */
+            background-color: #f9f9f9;
+            /* Light background color */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+            /* Soft shadow for depth */
+            padding: 16px;
+            /* Padding within the card */
+            text-align: center;
+            /* Center-align text content */
+        }
+
+        .card iframe {
+            width: 100%;
+            /* The video takes the full width of the card */
+            height: 200px;
+            /* Fixed height for consistency */
+            border: none;
+            /* Remove border around the iframe */
+            border-radius: 8px;
+            /* Matches card's border radius */
+        }
+
+        .card h3 {
+            margin: 12px 0;
+            /* Space above and below the title */
+            color: #333;
+            /* Title text color */
+        }
+
+        .card p {
+            margin: 0;
+            color: #666;
+        }
+
+        button,
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .video h2 {
+            margin-left: 24px;
+            margin-bottom: 0px;
+        }

@@ -64,7 +64,7 @@
       <a href="profile.php">Profile</a>
       <a href="goal.php">Goals</a>
       <a href="diet.php">Diet</a>
-      <a href="index.php">Workout</a>
+      <a href="workout.php">Workout</a>
       <a href="?logout=true">Logout</a>
 
     </div>
