@@ -7,7 +7,7 @@ $query = "SELECT * FROM np_nutrition";
 $stmt = $pdo->prepare($query);
 $stmt->execute();
 $nutrition_data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-// include 'navbar.php'; // Include the navbar
+include 'navbar.php'; // Include the navbar
 
 ?>
 
@@ -28,12 +28,13 @@ $nutrition_data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         /* Futuristic styling for the table */
         table {
-            width: 100%; /* Full width */
+            width: 80%; /* Full width */
             border-collapse: collapse; /* No space between cells */
             background-color: #2c2c2c; /* Dark background for the table */
             border-radius: 10px; /* Rounded corners */
             overflow: hidden; /* Hide overflow for rounded corners */
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Add a shadow */
+            margin-left: 10%;
         }
 
         th {

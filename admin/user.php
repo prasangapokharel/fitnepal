@@ -1,4 +1,3 @@
-<!-- user.php -->
 <?php
 include 'db_connection.php';
 
@@ -14,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt_update->execute([
         ':name' => $name,
         ':email' => $email,
-        ':user_id' => $user_id
+        ':user_id' => $user_id,
     ]);
 }
 
@@ -30,8 +29,7 @@ function daysAgo($timestamp) {
     return round($days);
 }
 
-
-// include 'navbar.php'; // Include the navbar
+include 'navbar.php'; // Include the navbar
 ?>
 
 <!DOCTYPE html>
@@ -40,163 +38,21 @@ function daysAgo($timestamp) {
     <meta charset="UTF-8">
     <title>User Management</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"> <!-- Inter font -->
-    <link rel="stylesheet" href="./cssadmin/user.css">
-
-</head>
-<body>
-<div class="main-container">
-        <!-- Button to open the registration modal -->
-
-        <div id="userRegistrationModal" class="modal-overlay">
-    <div class="modal-window">
-        <span class="modal-close">&times;</span> <!-- Close button -->
-
-        <h2>Register a New User</h2>
-        <form action="register.php" method="post"> <!-- Link to your register.php -->
-                <div class="input-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="input-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="input-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <div class="input-group">
-                    <label for="age">Age:</label>
-                    <input type="number" id="age" name="age" required>
-                </div>
-                <div class="input-group">
-                    <label for="weight">Weight (kg):</label>
-                    <input type="number" id="weight" name="weight" step="0.01" required>
-                </div>
-                <div class="input-group">
-                    <label for="height">Height (cm):</label>
-                    <input type="number" id="height" name="height" required>
-                </div>
-
-                <div class="input-group">
-                <label for="activity">Weekly Activity Level:</label>
-                <select id="activity" name="activity" required>
-                    <option value="normal">Normal</option>
-                    <option value="intermediate">Intermediate</option>
-                    <option value="highly active">Highly Active</option>
-                </select>
-                </div>
-
-              
-             
-                <button type="submit">Register</button> <!-- Submit Button -->
-            </form>
-
-    </div>
-        </div>
-    </div>
-    <div class="container"> <!-- Flexbox layout -->
-        <!-- Content area for user management -->
-
-        <div class="content">
-            <h1>User Management</h1>
-            <button class="usr"id="openRegisterModal">Create User</button>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Registered</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Loop through users and display them -->
-                    <?php foreach ($users as $user): ?>
-                        <tr>
-                            <td><?php echo $user['user_id']; ?></td>
-                            <td><?php echo htmlspecialchars($user['name']); ?></td>
-                            <td><?php echo htmlspecialchars($user['email']); ?></td>
-                            <td><?php echo daysAgo($user['user_id']) . ' days ago'; ?></td>
-                            <td>
-                                <!-- Edit button triggers modal -->
-                                <button class="action-button edit-button" onclick="openEditModal(<?php echo $user['user_id']; ?>, '<?php echo htmlspecialchars($user['name']); ?>', '<?php echo htmlspecialchars($user['email']); ?>')">Edit</button>
-                                <a class="action-button delete-button" href="userdelete.php?user_id=<?php echo htmlspecialchars($user['user_id']); ?>">Delete</a> <!-- Link to userdelete.php -->                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Modal for editing user details -->
-        <div id="editModal" class="modal">
-            <div class="modal-content">
-                <h2>Edit User</h2>
-                <form method="POST">
-                    <input type="hidden" id="user_id" name="user_id" value=""> <!-- User ID -->
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" value="" required><br><br>
-
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" value="" required><br><br>
-
-                    <button type="submit">Update</button>
-                    <button type="button" class="close-button" onclick="closeEditModal()">Close</button>
-                </form>
-            </div>
-        </div>
-    </div>
+    <link rel="stylesheet" href="./cssadmin/user.css"> <!-- Custom CSS -->
 
     <script>
-
-function registerUser() {
-    var form = document.getElementById("registrationForm");
-    var formData = new FormData(form); // Collect form data
-
-    // AJAX request to submit the form asynchronously
-    fetch("register.php", {
-        method: "POST",
-        body: formData
-    })
-    .then(response => response.json()) // Expect JSON response
-    .then(data => {
-        if (data.success) {
-            // Show success message in a popup or modal
-            alert("Registration successful!");
-            // Optionally close the modal
-            closeModal();
-        } else {
-            // Display error message from the server
-            alert("Error: " + data.message);
+        // Function to open the registration modal
+        function openRegisterModal() {
+            var modal = document.getElementById("userRegistrationModal");
+            modal.style.display = "block"; // Show the modal
         }
-    })
-    .catch(error => {
-        console.error("Error:", error);
-        alert("An unexpected error occurred. Please try again.");
-    });
-}
 
-var modal = document.getElementById("userRegistrationModal");
-        var openButton = document.getElementById("openRegisterModal");
-        var closeButton = modal.querySelector(".modal-close");
+        // Function to close the registration modal
+        function closeRegisterModal() {
+            var modal = document.getElementById("userRegistrationModal");
+            modal.style.display = "none"; // Hide the modal
+        }
 
-        // Open modal when button is clicked
-        openButton.onclick = function() {
-            modal.style.display = "block";
-        };
-
-        // Close modal when 'X' or outside area is clicked
-        closeButton.onclick = function() {
-            modal.style.display = "none";
-        };
-
-        window.onclick = function(event) {
-            if (event.target === modal) {
-                modal.style.display = "none";
-            }
-        };
         // Function to open the edit modal
         function openEditModal(userId, name, email) {
             var modal = document.getElementById("editModal");
@@ -208,7 +64,7 @@ var modal = document.getElementById("userRegistrationModal");
             document.getElementById("email").value = email;
         }
 
-        // Function to close the modal
+        // Function to close the edit modal
         function closeEditModal() {
             var modal = document.getElementById("editModal");
             modal.style.display = "none"; // Hide the modal
@@ -216,11 +72,121 @@ var modal = document.getElementById("userRegistrationModal");
 
         // Close the modal when clicking outside the content
         window.onclick = function(event) {
-            var modal = document.getElementById("editModal");
-            if (event.target == modal) {
-                modal.style.display = "none";
+            var modal = document.getElementById("userRegistrationModal");
+            if (event.target === modal) {
+                modal.style.display = "none"; // Hide the modal when clicked outside
+            }
+
+            modal = document.getElementById("editModal");
+            if (event.target === modal) {
+                modal.style.display = "none"; // Hide the modal when clicked outside
             }
         };
     </script>
+</head>
+<body>
+    <div class="main-container">
+        <div class="container"> <!-- Flexbox layout -->
+            <div class="content">
+                <h1>User Management</h1>
+                <button class="usr" id="openRegisterModal" onclick="openRegisterModal()">Create User</button>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Registered</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Loop through users and display them -->
+                        <?php foreach ($users as $user): ?>
+                            <tr>
+                                <td><?php echo $user['user_id']; ?></td>
+                                <td><?php echo htmlspecialchars($user['name']); ?></td>
+                                <td><?php echo htmlspecialchars($user['email']); ?></td>
+                                <td><?php echo daysAgo($user['user_id']) . ' days ago'; ?></td>
+                                <td>
+                                    <!-- Edit button triggers modal -->
+                                    <button class="action-button edit-button" onclick="openEditModal(<?php echo $user['user_id']; ?>, '<?php echo htmlspecialchars($user['name']); ?>', '<?php echo htmlspecialchars($user['email']); ?>')">Edit</button>
+                                    <a class="action-button delete-button" href="userdelete.php?user_id=<?php echo htmlspecialchars($user['user_id']); ?>">Delete</a> <!-- Link to userdelete.php -->
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Modal for registering a new user -->
+            <div id="userRegistrationModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button" onclick="closeRegisterModal()">&times;</span> <!-- Close button -->
+                    <h2>Register a New User</h2>
+                    <!-- Registration form -->
+                    <form id="registrationForm" action="register.php" method="post">
+                        <div class="input-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="age">Age:</label>
+                            <input type="number" id="age" name="age" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="weight">Weight (kg):</label>
+                            <input type="number" id="weight" name="weight" step="0.01" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="height">Height (cm):</label>
+                            <input type="number" id="height" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="activity">Weekly Activity Level:</label>
+                            <select id="activity" name="activity" required>
+                                <option value="normal">Normal</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="highly active">Highly Active</option>
+                            </select>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit">Register</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Modal for editing user details -->
+            <div id="editModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-button" onclick="closeEditModal()">&times;</span> <!-- Close button -->
+                    <h2>Edit User</h2>
+                    <form action="user.php" method="post">
+                        <input type="hidden" id="user_id" name="user_id" value="">
+                        <div class="input-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <button type="submit">Update</button>
+                        <button type="button" class="close-button" onclick="closeEditModal()">Close</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
