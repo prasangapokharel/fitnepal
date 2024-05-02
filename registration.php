@@ -159,6 +159,13 @@
                 <label for="height">Height (cm):</label>
                 <input type="number" id="height" name="height" required>
 
+                <br>
+                <label for="activity">Weekly Activity Level:</label>
+                <select id="activity" name="activity" required>
+                    <option value="normal">Normal</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="highly active">Highly Active</option>
+                </select>
             </fieldset>
             <input type="submit" value="Register">
         </form>

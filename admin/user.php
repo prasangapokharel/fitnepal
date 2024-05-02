@@ -228,28 +228,52 @@ label {
 <div class="main-container">
         <!-- Button to open the registration modal -->
 
-        <!-- The modal (popup box) -->
         <div id="userRegistrationModal" class="modal-overlay">
-            <!-- Modal content -->
-            <div class="modal-window">
-                <span class="modal-close">&times;</span> <!-- Close button -->
-                <h2>Register a New User</h2>
-                <form action="register.php" method="post"> <!-- Action and method for server-side processing -->
-                    <div class="input-group">
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" required>
-                    </div>
-                    <button type="submit">Register</button> <!-- Submit button -->
-                </form>
-            </div>
+    <div class="modal-window">
+        <span class="modal-close">&times;</span> <!-- Close button -->
+
+        <h2>Register a New User</h2>
+        <form action="register.php" method="post"> <!-- Link to your register.php -->
+                <div class="input-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="input-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" required>
+                </div>
+                <div class="input-group">
+                    <label for="weight">Weight (kg):</label>
+                    <input type="number" id="weight" name="weight" step="0.01" required>
+                </div>
+                <div class="input-group">
+                    <label for="height">Height (cm):</label>
+                    <input type="number" id="height" name="height" required>
+                </div>
+
+                <div class="input-group">
+                <label for="activity">Weekly Activity Level:</label>
+                <select id="activity" name="activity" required>
+                    <option value="normal">Normal</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="highly active">Highly Active</option>
+                </select>
+                </div>
+
+              
+             
+                <button type="submit">Register</button> <!-- Submit Button -->
+            </form>
+
+    </div>
         </div>
     </div>
     <div class="container"> <!-- Flexbox layout -->
@@ -280,8 +304,7 @@ label {
                             <td>
                                 <!-- Edit button triggers modal -->
                                 <button class="action-button edit-button" onclick="openEditModal(<?php echo $user['user_id']; ?>, '<?php echo htmlspecialchars($user['name']); ?>', '<?php echo htmlspecialchars($user['email']); ?>')">Edit</button>
-                                <button class="action-button delete-button">Delete</button>
-                            </td>
+                                <a class="action-button delete-button" href="userdelete.php?user_id=<?php echo htmlspecialchars($user['user_id']); ?>">Delete</a> <!-- Link to userdelete.php -->                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -308,6 +331,33 @@ label {
     </div>
 
     <script>
+
+function registerUser() {
+    var form = document.getElementById("registrationForm");
+    var formData = new FormData(form); // Collect form data
+
+    // AJAX request to submit the form asynchronously
+    fetch("register.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json()) // Expect JSON response
+    .then(data => {
+        if (data.success) {
+            // Show success message in a popup or modal
+            alert("Registration successful!");
+            // Optionally close the modal
+            closeModal();
+        } else {
+            // Display error message from the server
+            alert("Error: " + data.message);
+        }
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        alert("An unexpected error occurred. Please try again.");
+    });
+}
 
 var modal = document.getElementById("userRegistrationModal");
         var openButton = document.getElementById("openRegisterModal");
