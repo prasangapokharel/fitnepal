@@ -20,20 +20,17 @@ include './header/header.php'
         body {
             font-family: 'Inter', sans-serif;
             background-color: #DFF5FF;
-            /* Accent color */
-            color: black;
+             color: black;
         }
 
         .container {
             max-width: 400px;
             margin: 90px auto;
             background-color: white;
-            /* White container background */
-            padding: 20px;
+             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            /* Shadow for premium effect */
-        }
+         }
 
         h2 {
             text-align: center;
