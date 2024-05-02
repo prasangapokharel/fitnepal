@@ -24,14 +24,14 @@ $stmt_users = $pdo->prepare($query_users);
 $stmt_users->execute();
 $users = $stmt_users->fetchAll(PDO::FETCH_ASSOC);
 
-// Function to calculate the number of days since user registration
 function daysAgo($timestamp) {
     $current_time = time(); // Current timestamp
     $days = ($current_time - $timestamp) / (60 * 60 * 24); // Calculate days
     return round($days);
 }
 
-include 'navbar.php'; // Include the navbar
+
+// include 'navbar.php'; // Include the navbar
 ?>
 
 <!DOCTYPE html>
@@ -40,189 +40,8 @@ include 'navbar.php'; // Include the navbar
     <meta charset="UTF-8">
     <title>User Management</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"> <!-- Inter font -->
-    <style>
-        body{
-            background-color: #FFF; /* Light blue */
+    <link rel="stylesheet" href="./cssadmin/user.css">
 
-        }
-        /* Use flexbox for the container */
-        .container {
-            display: flex;
-            background-color: #DFF5FF; /* Light blue */
- /* Use flexbox for layout */
-        }
-
-        /* Content area with proper margin to avoid overlapping with the navbar */
-        .content {
-            flex-grow: 1; /* Allow content to grow */
-            margin-left: 220px; /* Avoid overlapping with navbar */
-            padding: 20px; /* Padding around content */
-            font-family: 'Inter', sans-serif; /* Apply Inter font */
-        }
-
-        /* Style the table to display users */
-        table {
-            width: 100%; /* Full width */
-            border-collapse: collapse; /* Collapse table borders */
-        }
-
-        /* Style for table headers */
-        th {
-            background-color: green; /* Dark background */
-            color: white; /* White text */
-            padding: 10px; /* Padding */
-            text-align: left; /* Left alignment */
-        }
-
-        /* Style for table rows */
-        td {
-            padding: 10px; /* Padding */
-            border-bottom: 1px solid #ddd; /* Border at the bottom of each row */
-        }
-
-        /* Alternate row background for readability */
-        tr:nth-child(even) {
-            background-color: #f2f2f2; /* Light gray */
-        }
-
-        /* Hover effect for rows */
-        tr:hover {
-            background-color: #ddd; /* Gray on hover */
-        }
-
-        /* Style for action buttons (edit, delete) */
-        .action-button {
-            padding: 5px 10px; /* Padding */
-            border-radius: 5px; /* Rounded corners */
-            font-size: 14px; /* Font size */
-            transition: background-color 0.3s; /* Transition on hover */
-            cursor: pointer; /* Pointer cursor */
-        }
-
-        /* Edit and delete button styles */
-        .edit-button {
-            background-color: #4CAF50; /* Green */
-            color: white; /* White text */
-        }
-
-        .edit-button:hover {
-            background-color: #45a049; /* Darker green on hover */
-        }
-
-        .delete-button {
-            background-color: #f44336; /* Red */
-            color: white; /* White text */
-        }
-
-        .delete-button:hover {
-            background-color: #e53935; /* Darker red on hover */
-        }
-
-        /* Modal styles */
-        .modal {
-            display: none; /* Initially hidden */
-            position: fixed; /* Fixed position */
-            top: 0;
-            left: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-            justify-content: center; /* Center the modal horizontally */
-            align-items: center; /* Center the modal vertically */
-            z-index: 1002; /* Above other content */
-        }
-
-        /* Modal content styles */
-        .modal-content {
-            background-color: white; /* White background */
-            padding: 20px; /* Padding */
-            border-radius: 10px; /* Rounded corners */
-            width: 400px; /* Fixed width */
-            text-align: center; /* Center text */
-        }
-
-        /* Close button for the modal */
-        .close-button {
-            background-color: #f44336; /* Red */
-            color: white; /* White text */
-            padding: 10px; /* Padding */
-            border: none; /* No border */
-            border-radius: 5px; /* Rounded corners */
-            cursor: pointer; /* Pointer cursor */
-        }
-
-        
-.main-container {
-    padding: 20px; /* Padding for the main container */
-    text-align: center; /* Center-align the content */
-}
-
-.usr {
-    padding: 10px 20px; /* Padding for the button */
-    border: none; /* No border */
-    border-radius: 4px; /* Rounded corners */
-    background-color: green; /* Blue background */
-    color: white; /* White text */
-    cursor: pointer; /* Pointer cursor */
-    transition: background-color 0.3s; 
-    float: right;
-    display: flex;
-    margin: 20px;
-}
-
-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-}
-
-.modal-overlay {
-    display: none; /* Hidden by default */
-    position: fixed; /* Fixed position relative to viewport */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    justify-content: center; /* Center the modal content */
-    align-items: center; /* Center the modal content vertically */
-}
-
-.modal-window {
-    background: white;
-    color: #333; /* White background for modal content */
-    padding: 20px; /* Padding inside the modal */
-    border-radius: 8px; /* Rounded corners */
-    max-width: 70%; /* Limit width of the modal */
-    text-align: left;
-    margin: 50px 20%; /* Left-align content */
-}
-
-.modal-close {
-    color: #333; /* Dark text color */
-    float: right; /* Float to the right corner */
-    font-size: 1.5rem; /* Larger font size */
-    cursor: pointer; /* Pointer cursor */
-}
-
-.input-group {
-    margin-bottom: 16px; /* Space between input groups */
-}
-
-input {
-    width: 100%; /* Ensure input fills the group */
-    padding: 8px; /* Padding for input fields */
-    border: 1px solid #ccc; /* Light border */
-    border-radius: 4px; /* Rounded corners */
-}
-
-input:focus {
-    border-color: #007bff; /* Blue border on focus */
-}
-
-label {
-    display: block; /* Labels on separate lines */
-    margin-bottom: 8px; /* Space between label and input */
-}
-    </style>
 </head>
 <body>
 <div class="main-container">

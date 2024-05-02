@@ -1,0 +1,140 @@
+/* Body styling */
+body {
+    background-color: #1e1e1e; /* Dark background for a futuristic look */
+    color: #f0f0f0; /* Light text for contrast */
+    font-family: 'Inter', sans-serif; /* Modern font */
+    padding: 20px; /* Padding around the edges */
+}
+
+/* Flexbox container with futuristic colors */
+.container {
+    display: flex;
+    background-color: #2c2c2c; /* Darker background for contrast */
+    border-radius: 10px; /* Rounded corners for smoothness */
+    padding: 20px; /* Padding for spacing */
+}
+
+/* Content area with proper margin and padding */
+.content {
+    flex-grow: 1; /* Allow content to grow */
+    padding: 20px; /* Padding around content */
+}
+
+/* Styling for the table to display data */
+table {
+    width: 100%; /* Full width */
+    border-collapse: collapse; /* Collapse table borders */
+    background-color: #2c2c2c; /* Dark table background */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow for rounded corners */
+}
+
+/* Styling for table headers */
+th {
+    background-color: #3e3e3e; /* Slightly darker background */
+    color: #f0f0f0; /* Light text */
+    padding: 15px; /* Padding for spacing */
+    text-align: left; /* Align text to the left */
+    text-transform: uppercase; /* Uppercase text for emphasis */
+    border-bottom: 2px solid #4e4e4e; /* Border for separation */
+}
+
+/* Styling for table rows */
+td {
+    padding: 15px; /* Padding for spacing */
+    border-bottom: 1px solid #4e4e4e; /* Border for separation */
+}
+
+/* Alternate row background for better readability */
+tr:nth-child(even) {
+    background-color: #3e3e3e; /* Alternating background color */
+}
+
+/* Hover effect for table rows */
+tr:hover {
+    background-color: #4e4e4e; /* Change background on hover */
+}
+
+/* Styling for action buttons */
+.action-button {
+    padding: 10px 20px; /* Padding for buttons */
+    border-radius: 5px; /* Rounded corners for smoothness */
+    font-size: 14px; /* Font size for readability */
+    transition: background-color 0.3s; /* Smooth transition on hover */
+    cursor: pointer; /* Pointer cursor for interactivity */
+}
+
+/* Specific styles for edit and delete buttons */
+.edit-button {
+    background-color: #4CAF50; /* Green for edit */
+    color: white; /* White text for contrast */
+}
+
+.edit-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.delete-button {
+    background-color: #f44336; /* Red for delete */
+    color: white; /* White text for contrast */
+}
+
+.delete-button:hover {
+    background-color: #e53935; /* Darker red on hover */
+}
+
+/* Modal styling with futuristic design */
+.modal {
+    display: none; /* Initially hidden */
+    position: fixed; /* Fixed position for modal */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    justify-content: center; /* Center the modal horizontally */
+    align-items: center; /* Center the modal vertically */
+    z-index: 1002; /* Ensure it's above other content */
+}
+
+/* Modal content with padding and rounded corners */
+.modal-content {
+    background-color: white; /* White background for contrast */
+    padding: 20px; /* Padding inside the modal */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Center-align text */
+}
+
+/* Close button styling for modal */
+.close-button {
+    background-color: #f44336; /* Red for close button */
+    color: white; /* White text */
+    padding: 10px; /* Padding */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; 
+    float: right;/* Pointer cursor */
+}
+
+/* Styling for input groups */
+.input-group {
+    margin-bottom: 16px; /* Spacing between input groups */
+}
+
+/* Input styling with padding and rounded corners */
+input {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding for comfort */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Focus style for input fields */
+input:focus {
+    border-color: #007bff; /* Blue border on focus */
+}
+
+/* Label styling */
+label {
+    display: block; /* Display on separate lines */
+    margin-bottom: 8px; /* Space between label and input */
+}
