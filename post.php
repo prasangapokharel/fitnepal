@@ -43,8 +43,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Execute query
     if ($statement->execute()) {
-        // Redirect to index.php after successful insertion
-        header("Location: index.php");
+        // Redirect to workout.php after successful insertion
+        header("Location: workout.php");
         exit();
     } else {
         // Error handling

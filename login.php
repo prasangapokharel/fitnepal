@@ -1,3 +1,7 @@
+<?php
+    include './header/header.php'
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,122 +9,7 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #DFF5FF;
-             color: black;
-        }
-
-        .container {
-            max-width: 400px;
-            margin: 90px auto;
-            background-color: white;
-             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-         }
-
-        h2 {
-            text-align: center;
-            /* color: #3e4684; Accent color */
-            font-size: 30px;
-            margin-bottom: 30px;
-        }
-
-        .input-wrapper {
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        .input-wrapper .icon {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            left: 12px;
-            color: #888;
-            font-size: 14px;
-            /* Smaller icon size */
-        }
-
-        .see .icon-right {
-            position: absolute;
-            cursor: pointer;
-            left: 90%;
-
-        }
-
-        input {
-            width: 100%;
-            padding: 12px 10px 12px 36px;
-            /* Adjust padding for icons */
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            background-color: #f9f9f9;
-            /* Light background for input fields */
-            color: #333;
-            /* Dark text */
-            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        input:focus {
-            outline: none;
-            box-shadow: 0 0 8px rgba(31, 111, 255, 0.3);
-        }
-
-        .log {
-            background-color: #67C6E3;
-            color: #fff;
-            padding: 14px 20px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .log:hover {
-            background-color: #378CE7;
-            /* Darker accent color on hover */
-        }
-
-        .register-link {
-            text-align: center;
-            margin-top: 20px;
-            /* color: #3e4684;  */
-        }
-
-        .register-link a {
-            color: #67C6E3;
-            text-decoration: none;
-        }
-
-        .register-link a:hover {
-            text-decoration: underline;
-        }
-
-        .logo-container {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .logo {
-            width: auto;
-            border: 3px;
-            border-radius: 100%;
-        }
-
-        input::placeholder {
-            opacity: 0.6;
-        }
-    </style>
+    <link rel="stylesheet" href="./CSS/login.css">
 </head>
 
 <body>

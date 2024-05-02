@@ -1,0 +1,128 @@
+ body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            /* color: black; */
+        }
+
+		main {
+			margin: 2rem auto;
+			width: 60%;
+			padding: 2rem;
+			background-color: #DFF5FF;
+			border-radius: 10px;
+		}
+
+		main article {
+			padding: 0 0 1rem 0;
+			margin: 0 0 3rem 0;
+		}
+
+		h2 {
+			margin: 0 0 0.5rem 0;
+			/* color: #fff; */
+		}
+
+		table {
+			width: 100%;
+            /* color:  #fff; */
+		}
+
+		td,
+		th {
+			vertical-align: top;
+			border-bottom: 1px solid #ffffff;
+			padding: 10px 3px;
+            /* color: #fff; */
+		}
+
+		tr th:first-of-type,
+		tr td:first-of-type {
+			padding-left: 0;
+		}
+
+		/* tr:hover td {
+			background-color:#1F6FFF;;
+			color: black;
+		} */
+
+		td:last-of-type {
+			padding-right: 0;
+			background-color: white;
+			
+		}
+
+		tr:last-of-type td {
+			border: 0;
+			border-top: 2px solid #ffffff;
+			font-weight: bold;
+			background-color: white;
+		}
+
+		.tr {
+			text-align: right;
+			padding-right: 0;
+		}
+
+		th {
+			font-size: large;
+		}
+
+
+		form {
+			margin: 0 0 2rem 0;
+			padding: 0 0 1rem 0;
+			border-bottom: 2px solid #eee;
+			text-align: center;
+		}
+
+		input[type=text],
+		input[type=date] {
+			padding: 5px 7px 4px 10px;
+			border: 1px solid white;
+			border-radius: 3px 3px;
+			height: 30px;
+			width: 20%;
+			color: black;
+
+		}
+        input::placeholder{
+            color: black;
+			opacity: 0.4;
+			
+
+        }
+
+		input[type=text]:focus,
+		input[type=date]:focus {
+			background-color: white;
+			border: 1px solid #ffffff;
+		}
+
+		input[type=submit] {
+			height: 30px;
+			padding: 5px 20px;
+			border-radius: 3px 3px;
+			cursor: pointer;
+			background-color: white;
+			border: 1px solid white;
+			margin: 6px;
+		}
+
+		input[type=submit]:hover {
+			  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+		}
+
+		small,
+		small * {
+			font-size: x-small;
+            color: black;
+		}
+
+		@media only screen and (max-width: 700px) {
+			main {
+				width: auto;
+				margin: 1rem 10%;
+			}
+		}
