@@ -6,9 +6,9 @@
     <style>
         /* Full-height vertical navigation bar */
         .navbar {
+            background-color: #1e1e1e; /* Dark background */
             font-family: 'Inter', sans-serif;
             margin-top: 49px ;
-            background-color: green; /* Dark background */
             width: 0; /* Start collapsed */
             position: fixed; /* Fixed position */
             top: 0; /* Align to the top */
@@ -37,7 +37,7 @@
             letter-spacing: 0.4px;/* Horizontally center text */
             padding: 15px; /* Padding for spacing */
             text-decoration: none; /* No underline */
-            color: black; /* Light text */
+            color: #f0f0f0;
             transition: background-color 0.3s; /* Smooth transition */
             font-weight: 400;
             font-size: 20px; /* Bold font */
