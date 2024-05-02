@@ -1,8 +1,6 @@
-<?php
-include 'header\header.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Signup Form</title>
@@ -16,8 +14,8 @@ include 'header\header.php';
 
         body {
             font-family: 'Inter', sans-serif;
-background-color: #3e4684;
-            color: #333; /* Dark text */
+            background-color: #DFF5FF;
+            color: #333;
         }
 
         .container {
@@ -53,12 +51,14 @@ background-color: #3e4684;
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 14px; /* Smaller icon size */
+            font-size: 14px;
+            /* Smaller icon size */
             color: #888;
         }
 
         .input-wrapper .icon-left {
-            left: 10px; /* Adjusted for consistent spacing */
+            left: 17px;
+            /* Adjusted for consistent spacing */
         }
 
         .input-wrapper .icon-right {
@@ -68,24 +68,24 @@ background-color: #3e4684;
 
         input {
             width: 100%;
-            padding: 12px 10px 12px 36px; /* Adjusted for icon spacing */
-            border: 1px solid #ddd;
+            padding: 12px 10px 12px 36px;
+            /* Adjusted for icon spacing */
+            border: 1px solid white;
             border-radius: 8px;
             margin: 4px;
             font-size: 16px;
-            background-color: #f9f9f9;
+            background-color: #f9f9f9;  
             color: #333;
             box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         input:focus {
             outline: none;
-            border-color: #1F6FFF;
             box-shadow: 0 0 8px rgba(31, 111, 255, 0.3);
         }
 
         input[type="submit"] {
-            background-color: #3e4684;
+            background-color: #67C6E3;
             color: #fff;
             margin-top: 10px;
             padding: 14px 20px;
@@ -97,18 +97,18 @@ background-color: #3e4684;
         }
 
         input[type="submit"]:hover {
-            background-color: #0D6BFF;
+            background-color: #378CE7;
             box-shadow: 0 0 8px rgba(13, 107, 255, 0.3);
         }
 
         .register-link {
             text-align: center;
             margin-top: 20px;
-            color: #3e4684; 
+            /* color: #3e4684; */
         }
 
         .register-link a {
-            color: #3e4684;
+            color: #67C6E3;
             text-decoration: none;
         }
 
@@ -118,15 +118,16 @@ background-color: #3e4684;
 
         h2 {
             text-align: center;
-            color: #3e4684;
+            /* color: #3e4684; */
             font-size: 30px;
             margin-bottom: 30px;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h2>Signup</h2>
+        <h2>Sign Up</h2>
         <form id="signupForm" action="register.php" method="post">
             <fieldset id="firstPart" class="show">
                 <label for="name">Name:</label>
@@ -158,14 +159,7 @@ background-color: #3e4684;
                 <label for="height">Height (cm):</label>
                 <input type="number" id="height" name="height" required>
 
-                <label for="activity">Weekly Activity Level:</label>
-                <select id="activity" name="activity" required>
-                    <option value="normal">Normal</option>
-                    <option value="intermediate">Intermediate</option>
-                    <option value="highly active">Highly Active</option>
-                </select>
             </fieldset>
-
             <input type="submit" value="Register">
         </form>
 
@@ -193,4 +187,5 @@ background-color: #3e4684;
         }
     </script>
 </body>
+
 </html>

@@ -72,7 +72,7 @@ if (isset($_GET['logout'])) {
 		td,
 		th {
 			vertical-align: top;
-			border-bottom: 1px solid #eee;
+			border-bottom: 1px solid #ffffff;
 			padding: 10px 3px;
             /* color: #fff; */
 		}
@@ -82,10 +82,10 @@ if (isset($_GET['logout'])) {
 			padding-left: 0;
 		}
 
-		tr:hover td {
+		/* tr:hover td {
 			background-color:#1F6FFF;;
 			color: black;
-		}
+		} */
 
 		td:last-of-type {
 			padding-right: 0;
@@ -95,7 +95,7 @@ if (isset($_GET['logout'])) {
 
 		tr:last-of-type td {
 			border: 0;
-			border-top: 2px solid #aaa;
+			border-top: 2px solid #ffffff;
 			font-weight: bold;
 			background-color: white;
 		}
@@ -120,21 +120,24 @@ if (isset($_GET['logout'])) {
 		input[type=text],
 		input[type=date] {
 			padding: 5px 7px 4px 10px;
-			border: 1px solid #ccc;
+			border: 1px solid white;
 			border-radius: 3px 3px;
 			height: 30px;
 			width: 20%;
-			/* color: black; */
+			color: black;
 
 		}
         input::placeholder{
-            color: #1F6FFF;
+            color: black;
+			opacity: 0.4;
+			
+
         }
 
 		input[type=text]:focus,
 		input[type=date]:focus {
-			background-color: lightyellow;
-			border: 1px solid #aaa;
+			background-color: white;
+			border: 1px solid #ffffff;
 		}
 
 		input[type=submit] {
@@ -143,6 +146,8 @@ if (isset($_GET['logout'])) {
 			border-radius: 3px 3px;
 			cursor: pointer;
 			background-color: white;
+			border: 1px solid white;
+			margin: 6px;
 		}
 
 		input[type=submit]:hover {
@@ -167,7 +172,7 @@ if (isset($_GET['logout'])) {
 
     <main>
         <form action="post.php" method="post">
-            <input type="text" placeholder="#" style="width:9%" name="amt" />
+            <input type="text" placeholder="Amount" style="width:9%" name="amt" />
             <input type="text" placeholder="Description" name="description" />
             <input type="text" placeholder="Calories per serving" name="calories" />
             <input type="date" name="date" id="datetime" value="<?php echo date('Y-m-d'); ?>" />

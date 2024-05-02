@@ -41,6 +41,7 @@
     <div class="navbar">
         <a href="dashboard.php">Dashboard</a>
         <a href="user.php">Users</a>
+        <a href="diet.php">Diet</a>
         <a href="settings.php">Settings</a>
         <a href="logout.php">Logout</a>
     </div>
