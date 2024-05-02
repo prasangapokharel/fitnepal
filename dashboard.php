@@ -186,7 +186,7 @@ include 'header\header.php';
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 20px auto;
             background-color: #DFF5FF;
             padding: 20px;
@@ -396,10 +396,10 @@ include 'header\header.php';
             background-color: #e53935; /* Darker red on hover */
         }
         .part2{
-            margin-top: 20px;
             display: flex;
+            margin-top: 20px;
             float: center;
-            margin: auto 40%;
+            margin: auto 43%;
         }
 
         img{
@@ -451,13 +451,56 @@ include 'header\header.php';
             text-decoration: none;
             color:white;
         }
+        
+.categories {
+    padding: px; /* Padding around the container */
+    /* border: 2px solid #ddd; Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    background-color: transparent; /* White background inside the border */
+    max-width: 400px; /* Limit the width of the div */
+    margin: 20px auto; /* Center it horizontally with auto margin */
+    text-align: center; /* Center-align the content */
+}
+
+.categories label {
+    font-size: 1.2rem; /* Larger font size for the label */
+    color: #333; /* Dark text color for the label */
+    display: inline-block; /* Ensure the label is aligned with the select */
+    margin-bottom: 8px; /* Space between the label and the select */
+}
+
+.categories select {
+    padding: 8px 12px; /* Padding inside the select */
+    border: 1px solid #ccc; /* Border for the select */
+    border-radius: 4px; /* Rounded corners for the select */
+    font-size: 1rem; /* Font size for the select */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.categories select:focus {
+    border-color: #007bff; /* Change border color on focus */
+}
+
+.categories option {
+    font-size: 1rem; /* Font size for the options */
+}
+
+        
     </style>
 </head>
 
 <body>
-
+<div class="categories">
+        <label for="diet-options">Select a Category:</label>
+        <select id="diet-options" onchange="redirectBasedOnSelection()">
+            <option value="">-- Select --</option> <!-- Default option -->
+            <option value="lose-weight.html">Lose Weight</option>
+            <option value="fat-loss.html">Fat Loss</option>
+            <option value="muscle-gain.html">Muscle Gain</option>
+        </select>
+    </div>
     <div class="container">
-
+   
         <div class="content">
             <p><strong>BMI :</strong> <span class="<?php echo $bmi_category; ?>"><?php echo $bmi; ?></span></p>
             <p>You are in the <span class="<?php echo $bmi_category; ?>"><?php echo ucfirst($bmi_category); ?></span> category.</p>
@@ -489,6 +532,7 @@ include 'header\header.php';
 <button class="styled-button" ><a href="goal.php">Start tracking</a></button>
 
 </div>
+
     <div class="range">
     <ul>
         <li><span class="underweight">Underweight</span></li>
@@ -586,6 +630,17 @@ include 'header\header.php';
         </div>
     </div>
     <script>
+ function redirectBasedOnSelection() {
+        var select = document.getElementById("diet-options");
+        var selectedValue = select.value;
+
+        // If a valid option is selected, redirect to the corresponding page
+        if (selectedValue) {
+            window.location.href = selectedValue; // Redirect to the selected URL
+        }
+    }
+
+
  function openModal() {
             document.getElementById("myModal").style.display = "flex"; // Show the modal
         }

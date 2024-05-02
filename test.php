@@ -1,108 +1,101 @@
+
+<?php
+include 'header\header.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Admin Page with Vertical Navbar</title>
-    <!-- Import the Inter font from Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+    <title>Comparison Cards</title>
     <style>
-        /* Apply the imported font to the entire body */
         body {
-            font-family: 'Inter', sans-serif; /* Use the Inter font */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* Style for the fixed navbar toggle button */
-        .toggle-button {
-            position: fixed; /* Keep it in a fixed position */
-            top: 20px; /* Near the top of the page */
-            left: 10px; /* Slight offset */
-            background-color: #333; /* Dark background */
-            color: white; /* White text */
-            padding: 10px; /* Padding */
-            border: none; /* No border */
-            border-radius: 5px; /* Rounded corners */
-            cursor: pointer; /* Pointer cursor on hover */
-            z-index: 1001; /* Ensure it's above other elements */
-            font-size: 18px; /* Increase font size */
-        }
-
-        /* Container to manage the navbar and content layout */
         .container {
-            display: flex; /* Use flexbox for layout */
+            display: flex; /* Use Flexbox for horizontal layout */
+            justify-content: space-between; /* Ensure space between the cards */
+            gap: 16px; /* Space between the cards */
+            padding: 20px; /* Padding around the container */
         }
 
-        /* Vertical navigation bar */
-        .navbar {
-            background-color: #DFF5FF; /* Light blue background */
-            width: 200px; /* Fixed width */
-            border: 1px solid #aaa; /* Border around the navbar */
-            border-radius: 0 10px 10px 0; /* Rounded right side */
-            padding-top: 90px; /* Padding at the top */
-            position: fixed; /* Fixed position on the left side */
-            top: 0; /* From the top of the page */
-            left: -200px; /* Initially hidden (to slide in/out) */
-            height: 100%; /* Full height of the viewport */
-            transition: left 0.5s; /* Smooth transition for sliding */
-            font-size: 18px; /* Increase font size */
-            overflow-x: hidden; /* No horizontal overflow */
-            text-align: center; /* Center text within the navbar */
+        .card {
+            flex: 1; /* Equal width for both cards */
+            border: 1px solid #ccc; /* Light gray border */
+            border-radius: 8px; /* Rounded corners */
+            background-color: #f9f9f9; /* Light background color */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+            padding: 20px; /* Padding inside each card */
+            text-align: left; /* Left-align text content */
         }
 
-        /* Make navbar open on click */
-        .navbar.open {
-            left: 0; /* When open, it's fully visible */
+        .card h3 {
+            margin: 0 0 12px 0; /* Space below the title */
+            color: #333; /* Title text color */
+            font-size: 1.5rem; /* Increase font size */
         }
 
-        /* Style for links in the navbar */
-        .navbar a {
-            margin-top: 30px;
-            display: block; /* Make links block-level */
-            padding: 15px; /* Increase padding */
-            text-decoration: none; /* No underline */
-            color: #000; /* Black text color */
-            text-align: center; /* Center the text */
-            font-weight: 600; /* Bold font weight */
+        .card ul {
+            list-style-type: disc; /* Bullet points for list items */
+            padding-left: 20px; /* Indent for the bullet points */
         }
 
-        /* Hover effect for links in the navbar */
-        .navbar a:hover {
-            background-color: #cceeff; /* Lighter blue background on hover */
+        .card li {
+            margin-bottom: 8px; /* Space between list items */
+            color: #555; /* Slightly darker text for list items */
         }
 
-        /* Content area with margin top and adjustment to avoid overlap with navbar */
-        .content {
-            margin-left: 220px; /* Margin to account for the navbar width */
-            margin-top: 60px; /* Add margin to avoid overlap with toggle button */
-            padding: 20px; /* Additional padding */
-            font-size: 18px; /* Increase font size */
+        .card button {
+            margin-top: 16px; /* Space above the button */
+            padding: 10px 20px; /* Padding around the button */
+            border: none; /* No border */
+            border-radius: 4px; /* Slightly rounded corners */
+            background-color: #007bff; /* Blue background */
+            color: white; /* White text */
+            font-size: 1rem; /* Button text size */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s; /* Smooth transition */
+        }
+
+        .card button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        .card .free-symbol {
+            color: green; /* Green color for 'Free' text */
+            font-weight: bold; /* Bold text */
         }
     </style>
 </head>
 <body>
-    <!-- Button to toggle the navbar -->
-    <button class="toggle-button" onclick="toggleNavbar()">☰</button>
-
-    <!-- Main container for layout -->
     <div class="container">
-        <!-- Vertical navigation bar -->
-        <div class="navbar" id="myNavbar">
-            <a href="#home">Home</a>
-            <a href="#meal">Meal</a>
-            <a href="#user">User</a>
-            <a href="#contactus">Contact Us</a>
+        <div class="card">
+            <h3>Free Plan</h3>
+            <ul>
+                <li>Basic Features</li>
+                <li>Limited Support</li>
+                <li>5 GB Storage</li>
+            </ul>
+            <button>
+                <span class="free-symbol">Free</span>
+            </button>
         </div>
 
-        <!-- Main content area -->
-        <div class="content">
-           
+        <div class="card">
+            <h3>Pro Plan</h3>
+            <ul>
+                <li>All Free Features</li>
+                <li>24/7 Support</li>
+                <li>Unlimited Storage</li>
+                <li>Advanced Analytics</li>
+            </ul>
+            <button>
+                Upgrade Now
+            </button>
         </div>
     </div>
-
-    <script>
-        function toggleNavbar() {
-            var navbar = document.getElementById("myNavbar");
-            navbar.classList.toggle("open"); // Toggle the open class to show/hide
-        }
-    </script>
 </body>
 </html>

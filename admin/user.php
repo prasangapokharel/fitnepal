@@ -41,9 +41,15 @@ include 'navbar.php'; // Include the navbar
     <title>User Management</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"> <!-- Inter font -->
     <style>
+        body{
+            background-color: #FFF; /* Light blue */
+
+        }
         /* Use flexbox for the container */
         .container {
-            display: flex; /* Use flexbox for layout */
+            display: flex;
+            background-color: #DFF5FF; /* Light blue */
+ /* Use flexbox for layout */
         }
 
         /* Content area with proper margin to avoid overlapping with the navbar */
@@ -62,7 +68,7 @@ include 'navbar.php'; // Include the navbar
 
         /* Style for table headers */
         th {
-            background-color: #333; /* Dark background */
+            background-color: green; /* Dark background */
             color: white; /* White text */
             padding: 10px; /* Padding */
             text-align: left; /* Left alignment */
@@ -144,13 +150,115 @@ include 'navbar.php'; // Include the navbar
             border-radius: 5px; /* Rounded corners */
             cursor: pointer; /* Pointer cursor */
         }
+
+        
+.main-container {
+    padding: 20px; /* Padding for the main container */
+    text-align: center; /* Center-align the content */
+}
+
+.usr {
+    padding: 10px 20px; /* Padding for the button */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    background-color: green; /* Blue background */
+    color: white; /* White text */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s; 
+    float: right;
+    display: flex;
+    margin: 20px;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position relative to viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    justify-content: center; /* Center the modal content */
+    align-items: center; /* Center the modal content vertically */
+}
+
+.modal-window {
+    background: white;
+    color: #333; /* White background for modal content */
+    padding: 20px; /* Padding inside the modal */
+    border-radius: 8px; /* Rounded corners */
+    max-width: 70%; /* Limit width of the modal */
+    text-align: left;
+    margin: 50px 20%; /* Left-align content */
+}
+
+.modal-close {
+    color: #333; /* Dark text color */
+    float: right; /* Float to the right corner */
+    font-size: 1.5rem; /* Larger font size */
+    cursor: pointer; /* Pointer cursor */
+}
+
+.input-group {
+    margin-bottom: 16px; /* Space between input groups */
+}
+
+input {
+    width: 100%; /* Ensure input fills the group */
+    padding: 8px; /* Padding for input fields */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+}
+
+input:focus {
+    border-color: #007bff; /* Blue border on focus */
+}
+
+label {
+    display: block; /* Labels on separate lines */
+    margin-bottom: 8px; /* Space between label and input */
+}
     </style>
 </head>
 <body>
+<div class="main-container">
+        <!-- Button to open the registration modal -->
+
+        <!-- The modal (popup box) -->
+        <div id="userRegistrationModal" class="modal-overlay">
+            <!-- Modal content -->
+            <div class="modal-window">
+                <span class="modal-close">&times;</span> <!-- Close button -->
+                <h2>Register a New User</h2>
+                <form action="register.php" method="post"> <!-- Action and method for server-side processing -->
+                    <div class="input-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit">Register</button> <!-- Submit button -->
+                </form>
+            </div>
+        </div>
+    </div>
     <div class="container"> <!-- Flexbox layout -->
         <!-- Content area for user management -->
+
         <div class="content">
             <h1>User Management</h1>
+            <button class="usr"id="openRegisterModal">Create User</button>
+
             <table>
                 <thead>
                     <tr>
@@ -200,6 +308,26 @@ include 'navbar.php'; // Include the navbar
     </div>
 
     <script>
+
+var modal = document.getElementById("userRegistrationModal");
+        var openButton = document.getElementById("openRegisterModal");
+        var closeButton = modal.querySelector(".modal-close");
+
+        // Open modal when button is clicked
+        openButton.onclick = function() {
+            modal.style.display = "block";
+        };
+
+        // Close modal when 'X' or outside area is clicked
+        closeButton.onclick = function() {
+            modal.style.display = "none";
+        };
+
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        };
         // Function to open the edit modal
         function openEditModal(userId, name, email) {
             var modal = document.getElementById("editModal");
