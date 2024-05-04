@@ -1,88 +1,101 @@
-    /* Navbar and content container */
-    .container {
-        display: flex; /* Flexbox for layout */
-        justify-content: space-between; /* Space between elements */
-        align-items: center; /* Align items */
-    }
+/* Dark background with orange text and Inter font */
+body {
+    background-color: white; /* Dark background */
+    color: rgb(255, 255, 255); /* Orange text */
+    font-family: 'Inter', sans-serif; /* Inter font */
+    margin: 0; /* No default margin */
+    padding: 0; /* No default padding */
+}
 
-    /* Logout button at top right */
-    .logout-button {
-        padding: 10px 20px; /* Padding */
-        background-color: #f44336; /* Red background */
-        color: white; /* White text */
-        border: none; /* No border */
-        border-radius: 5px; /* Rounded corners */
-        cursor: pointer; /* Pointer cursor */
-        position: absolute; /* Position at top right */
-        top: 20px; /* Distance from the top */
-        right: 20px; /* Distance from the right */
-        transition: background-color 0.3s; /* Transition on hover */
-    }
+/* Flexbox container with uniform layout */
+.container {
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Vertical layout */
+    align-items: center; /* Center content */
+    justify-content: flex-start; /* Align content at the top */
+    height: 100vh; 
+    margin-left: 6%;
+    /* Full screen height */
+}
 
-    .logout-button:hover {
-        background-color: #e53935; /* Darker red on hover */
-    }
+/* Content area with consistent padding */
+.content {
+    flex-grow: 1; /* Allow content to grow */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Vertical arrangement */
+    align-items: center; /* Center items */
+    padding: 20px;
+    margin-top: 100px ; /* Uniform padding */
+    width: 90%;
+     /* Use full width */
+}
 
-    /* Content area with spacing and flexbox layout */
-    .content {
-        flex-grow: 1; /* Allow content to grow */
-        padding: 20px; /* Padding */
-        display: flex; /* Flexbox layout */
-        flex-direction: column; /* Vertical arrangement */
-        align-items: center; /* Center items */
-    }
+/* Content row for five cards with increased gaps */
+.content-row {
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Even space between cards */
+    align-items: stretch; /* Stretch to equal heights */
+    gap: 30px; /* Increased gap */
+    width: 90%; /* Full width */
+    padding: 20px; /* Consistent padding */
+}
 
-    /* Content row to arrange cards in a row */
-    .content-row {
-        display: flex; /* Flexbox for layout */
-        justify-content: space-between; /* Space between elements */
-        width: 80%; /* Content width */
-        margin-bottom: 20px; /* Space at the bottom */
-    }
+/* Information card styling with icons and consistent height */
+.info-box {
+    background-color: #124c8e; /* Dark background for cards */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Center text */
+    flex: 1; /* Allow flex growth */
+    padding: 20px; /* Consistent padding */
+    transition: background-color 0.3s; /* Smooth transition on hover */
+    height: 200px; /* Fixed height for uniformity */
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column; /* Vertical arrangement */
+    justify-content: center; /* Center content vertically */
+}
 
-    /* Information card styling */
-    .info-box {
-        background-color: #2c2c2c; /* Dark background for cards */
-        padding: 20px; /* Padding */
-        border-radius: 10px; /* Rounded corners */
-        text-align: center; /* Center text */
-        flex: 1; /* Allow flex growth */
-        margin-right: 10px; /* Spacing between cards */
-    }
+/* Hover effect for information boxes */
+.info-box:hover {
+    background-color: green; /* Darker on hover */
+}
 
-    /* Bar graph styling */
-    .bar-graph {
-        width: 80%; /* Adjusted width */
-        height: 300px; /* Fixed height */
-        padding-bottom: 20px; /* Padding at the bottom */
-        margin-top: 20px; /* Padding at the top */
-    }
+/* Icon styling */
+.icon {
+    font-size: 24px; /* Size for the icon */
+    color: #ffcc00; /* Orange color */
+    margin-bottom: 10px; /* Space below the icon */
+}
 
-    /* Modal styling for various modals */
-    .modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Fixed position */
-        top: 0;
-        left: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-        justify-content: center; /* Center the modal */
-        align-items: center; /* Center items vertically */
-    }
+/* Logout button styling with consistent placement */
+.logout-button {
+    padding: 10px 20px; /* Padding */
+    background-color: #124c8e; /* Dark background for cards */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    position: absolute; /* Absolute positioning */
+    top: 20px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+    transition: background-color 0.3s; /* Smooth transition on hover */
+}
 
-    .modal-content {
-        background-color: white; /* White background for modal */
-        padding: 20px; /* Padding */
-        border-radius: 10px; /* Rounded corners */
-        text-align: center; /* Center text */
-    }
+/* Hover effect for the logout button */
+.logout-button:hover {
+    background-color: #e53935; /* Darker red on hover */
+}
 
-    /* Close button styling for modals */
-    .close-button {
-        background-color: #f44336; /* Red for close button */
-        color: white; /* White text */
-        padding: 10px; /* Padding */
-        border-radius: 5px; /* Rounded corners */
-        cursor: pointer; /* Pointer cursor */
-    }
+/* Bar graph styling with consistent dimensions */
+.bar-graph {
+    width: 90%; /* Full width */
+    height: 300px; /* Fixed height */
+    margin: 20px 5%;
+    /* Consistent margin */
+
+}
+canvas{
+    padding: 8px 14px;
+    border-radius: 12px; /* Dark background for cards */
+    background-color: transparent; /* Darker red on hover */
+
+}

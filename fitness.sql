@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2024 at 03:34 AM
+-- Generation Time: May 04, 2024 at 02:02 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -47,6 +47,35 @@ INSERT INTO `calorie` (`id`, `user_id`, `date`, `amount`, `calories`, `descripti
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contactus`
+--
+
+CREATE TABLE `contactus` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `viewed` tinyint(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `contactus`
+--
+
+INSERT INTO `contactus` (`id`, `name`, `email`, `message`, `viewed`) VALUES
+(7, 'Rahim Morgan', 'libicasu@mailinator.com', 'Tempora velit error', 1),
+(8, 'Mariko Baker', 'zylaferyby@mailinator.com', 'Laborum Ullamco aut', 1),
+(9, 'Mariko Baker', 'zylaferyby@mailinator.com', 'Laborum Ullamco aut', 1),
+(10, 'Mariko Baker', 'zylaferyby@mailinator.com', 'Laborum Ullamco aut', 1),
+(11, 'Mariko Baker', 'zylaferyby@mailinator.com', 'Laborum Ullamco aut', 1),
+(12, 'Mariko Baker', 'zylaferyby@mailinator.com', 'Laborum Ullamco aut', 1),
+(13, 'Mariko Baker', 'zylaferyby@mailinator.com', 'Laborum Ullamco aut', 1),
+(14, 'Mariko Baker', 'zylaferyby@mailinator.com', 'Laborum Ullamco aut', 1),
+(15, 'Mariko Baker', 'zylaferyby@mailinator.com', 'Laborum Ullamco aut', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `diet_items`
 --
 
@@ -66,7 +95,9 @@ CREATE TABLE `diet_items` (
 
 INSERT INTO `diet_items` (`id`, `food_name`, `category`, `calories`, `serving`, `description`, `user_id`) VALUES
 (23, 'Martina Cardenas', 'non-veg', 46, 59, 'In qui anim harum ea', 4),
-(24, 'Cadman Fleming', 'dairy', 2, 71, 'Omnis explicabo Asp', 4);
+(24, 'Cadman Fleming', 'dairy', 2, 71, 'Omnis explicabo Asp', 4),
+(29, 'Sawyer Christensen', 'ayurvedic', 43, 28, 'In fugit sapiente e', 3),
+(30, 'Jamalia Bradford', 'dairy', 98, 5, 'Commodo pariatur Qu', 3);
 
 -- --------------------------------------------------------
 
@@ -171,6 +202,26 @@ INSERT INTO `np_nutrition` (`id`, `Food_name`, `Protein`, `Calories`, `Amount`) 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sitesettings`
+--
+
+CREATE TABLE `sitesettings` (
+  `id` int(11) NOT NULL,
+  `site_title` varchar(255) NOT NULL,
+  `header_image` varchar(255) NOT NULL,
+  `site_logo` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `sitesettings`
+--
+
+INSERT INTO `sitesettings` (`id`, `site_title`, `header_image`, `site_logo`) VALUES
+(1, 'Prasanga', 'C:/xampp/htdocs/fitnepal/home/assets/8.png', 'C:/xampp/htdocs/fitnepal/home/assets/3.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tracking`
 --
 
@@ -199,18 +250,20 @@ CREATE TABLE `users` (
   `weight` decimal(5,2) NOT NULL,
   `height` int(11) NOT NULL,
   `activity` enum('normal','intermediate','highly_active') NOT NULL,
-  `profile_picture` varchar(255) DEFAULT NULL
+  `profile_picture` varchar(255) DEFAULT NULL,
+  `registration_time` timestamp NOT NULL DEFAULT current_timestamp(),
+  `status` varchar(10) DEFAULT 'inactive'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `user_id`, `name`, `email`, `password`, `age`, `weight`, `height`, `activity`, `profile_picture`) VALUES
-(3, 11787, 'Cody Murphy', 'prasanga@gmail.com', '$2y$10$MY3oRnkfwUoE160D4jhoTuhYxzEQAuUm7J9Onv7AVSsrThPvOXIYO', 11, 68.00, 93, 'highly_active', 'profilepic/selena rare.jpg'),
-(4, 80453, 'Rhiannon Schroeder', 'jaya@gmail.com', '$2y$10$pKkcRTU/54TROeqcfvpaseKzXwTLttPtGRlqriCKBNQJS8OJQD8SS', 16, 15.00, 70, 'intermediate', 'profilepic/logo.png'),
-(5, 85182, 'Prasanga Raman Raman', 'godsupercell1@gmail.com', '$2y$10$lKx2T85GPAe2xketeJOboubyuC1iUfGVc2RMyAF8rLZLF9V3gVC7O', 22, 98.00, 172, 'intermediate', NULL),
-(6, 95956, 'Pratik Acharya', 'pratik@gmail.com', '$2y$10$l9zfu.KPEWmjGuiVGmVpjOUHirrU7B/GQ537WHxsm4.Vjs8DZkB1e', 28, 81.00, 168, 'intermediate', NULL);
+INSERT INTO `users` (`id`, `user_id`, `name`, `email`, `password`, `age`, `weight`, `height`, `activity`, `profile_picture`, `registration_time`, `status`) VALUES
+(3, 11787, 'Prasanga Pokharel', 'prasanga@gmail.com', '$2y$10$H2Y7f6Ph26npbfj0eG33wuyPcrEH/ews9B3YIdGMCclOUDgUNDxMa', 11, 68.00, 93, 'highly_active', 'profilepic/protein logo.png', '2024-05-02 18:09:41', 'active'),
+(15, 87465, 'Yetta Richmond', 'womajalok@mailinator.com', '$2y$10$IJtvj.Sgjm4XnWB.YZyg4.OZwKvQIdrBcfve5.Iu45p/ut9YTW9DW', 27, 13.00, 63, '', NULL, '2024-05-02 18:13:02', 'inactive'),
+(17, 11171, 'Hayley Colon', 'jegaky@mailinator.com', '$2y$10$Gryd2WSQgSB8VzyKx/HJVu1wIRqPCXuG1CMIXRHBqK3E6zfemzV56', 21, 59.00, 52, '', NULL, '2024-05-04 09:47:36', 'inactive'),
+(18, 24872, 'Roanna Mcfarland', 'tukanez@mailinator.com', '$2y$10$o//xJXFHa4saJ7QUIXs94uRE7uXh28Oy55Xin9TorwHQKLolBr5FC', 35, 29.00, 48, 'intermediate', NULL, '2024-05-04 09:48:00', 'inactive');
 
 --
 -- Indexes for dumped tables
@@ -224,6 +277,12 @@ ALTER TABLE `calorie`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Indexes for table `contactus`
+--
+ALTER TABLE `contactus`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `diet_items`
 --
 ALTER TABLE `diet_items`
@@ -233,6 +292,12 @@ ALTER TABLE `diet_items`
 -- Indexes for table `np_nutrition`
 --
 ALTER TABLE `np_nutrition`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sitesettings`
+--
+ALTER TABLE `sitesettings`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -259,16 +324,28 @@ ALTER TABLE `calorie`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `contactus`
+--
+ALTER TABLE `contactus`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT for table `diet_items`
 --
 ALTER TABLE `diet_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `np_nutrition`
 --
 ALTER TABLE `np_nutrition`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+
+--
+-- AUTO_INCREMENT for table `sitesettings`
+--
+ALTER TABLE `sitesettings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tracking`
@@ -280,7 +357,7 @@ ALTER TABLE `tracking`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables

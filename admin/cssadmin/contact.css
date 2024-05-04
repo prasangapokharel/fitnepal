@@ -1,6 +1,6 @@
 /* Futuristic styling for the page */
 body {
-    background-color: #1e1e1e; /* Dark background */
+    background-color: #ffffff; /* Dark background */
     color: #f0f0f0; /* Light text */
     font-family: 'Inter', sans-serif; /* Modern font */
     padding: 20px; /* Padding around the edges */
@@ -10,7 +10,7 @@ body {
 .container {
     display: flex; /* Use flexbox for layout */
     border-radius: 10px; /* Rounded corners */
-    background-color: #2c2c2c; /* Darker background */
+    background-color: #124c8e; /* Dark background for cards */
     padding: 20px; /* Padding around content */
 }
 
@@ -24,14 +24,15 @@ body {
 table {
     width: 100%; /* Full width */
     border-collapse: collapse; /* Collapse table borders */
-    background-color: #2c2c2c; /* Dark table background */
+    background-color: #ffffff;
+    color:#000000; /* Dark table background */
     border-radius: 10px; /* Rounded corners */
     overflow: hidden; /* Hide overflow for rounded corners */
 }
 
 /* Styling for table headers */
 th {
-    background-color: #3e3e3e; /* Slightly darker background */
+    background-color: #124c8e; /* Dark background for cards */
     color: #f0f0f0; /* Light text */
     padding: 15px; /* Padding */
     text-align: left; /* Align text to the left */
@@ -47,12 +48,12 @@ td {
 
 /* Alternate row background for readability */
 tr:nth-child(even) {
-    background-color: #3e3e3e; /* Alternating background */
+    background-color: #ffffff;
 }
 
 /* Hover effect for table rows */
 tr:hover {
-    background-color: #4e4e4e; /* Change background on hover */
+    background-color: red; /* Chanredge background on hover */
 }
 
 /* Action buttons with hover effects */

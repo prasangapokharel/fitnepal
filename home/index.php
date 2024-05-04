@@ -1,3 +1,19 @@
+<?php
+include 'db_connection.php';
+
+// Fetch site settings to get the image path
+$query = "SELECT * FROM sitesettings WHERE id = 1";
+$stmt = $pdo->prepare($query);
+$stmt->execute();
+$site_settings = $stmt->fetch(PDO::FETCH_ASSOC);
+
+$site_title = $site_settings['site_title'];
+$header_image = $site_settings['header_image'];
+$site_logo = $site_settings['site_logo'];
+
+$image_path = "home/assets/"; // Base path for images
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,13 +27,14 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico|Quicksand:400,600&display=swap">
   <link rel="stylesheet" href="styles.css" />
 
-  <title>FitNepal</title>
+  <title><?php echo $site_title; ?></title>
 </head>
 <header class="header">
   <nav>
     <div class="nav__header">
       <div class="nav__logo">
-        <a href="#">Fitnepal</a>
+
+        <a href="#"><?php echo $site_logo; ?><?php echo $site_title; ?></a>
       </div>
       <div class="nav__menu__btn" id="menu-btn">
         <span><i class="ri-menu-line"></i></span>

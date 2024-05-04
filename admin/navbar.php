@@ -6,9 +6,8 @@
     <style>
         /* Full-height vertical navigation bar */
         .navbar {
-            background-color: #1e1e1e; /* Dark background */
+            background-color: #124c8e; /* Dark background */
             font-family: 'Inter', sans-serif;
-            margin-top: 49px ;
             width: 0; /* Start collapsed */
             position: fixed; /* Fixed position */
             top: 0; /* Align to the top */
@@ -26,21 +25,19 @@
 
         /* Navbar when expanded */
         .navbar.expanded {
-            width: 200px; /* Expand to 200px */
+            width: 220px; /* Expanded width */
         }
 
         /* Style for navigation links */
         .navbar a {
             display: flex; /* Flex layout for links */
             align-items: center; /* Vertically center text */
-            justify-content: center; 
-            letter-spacing: 0.4px;/* Horizontally center text */
-            padding: 15px; /* Padding for spacing */
+            justify-content: flex-start; /* Horizontally align text */
+            padding: 15px; /* Padding */
             text-decoration: none; /* No underline */
-            color: #f0f0f0;
+            color: #f0f0f0; /* Light text color */
             transition: background-color 0.3s; /* Smooth transition */
-            font-weight: 400;
-            font-size: 20px; /* Bold font */
+            font-weight: 600; /* Bold font */
         }
 
         /* Hover effect for navigation links */
@@ -48,30 +45,22 @@
             background-color: #4e4e4e; /* Darker on hover */
         }
 
+        /* Icon styling in navbar */
+        .navbar i {
+            margin-right: 10px; /* Space between icon and text */
+        }
+
         /* Navbar toggle button styling */
         .navbar-toggle {
-            background-color: #2c2c2c; /* Match navbar background */
+            background-color: #124c8e; /* Match navbar background */
             color: #f0f0f0; /* Light text */
             padding: 10px; /* Padding */
             border-radius: 0 10px 10px 0; /* Rounded corners */
             position: fixed; /* Fixed position */
-            top: 10px; /* Position at the top */
+            top: 20px; /* Position at the top */
             left: 0; /* Align to the left edge */
             cursor: pointer; /* Pointer cursor */
             transition: background-color 0.3s; /* Smooth transition */
-        }
-
-        /* Close button for closing the navbar */
-        .navbar-close {
-            position: absolute; /* Relative to the navbar */
-            top: 10px; /* Align at the top */
-            right: 10px; /* Align at the right edge */
-            font-size: 1.5rem; /* Large font size */
-            cursor: pointer; /* Pointer cursor */
-            color: #f0f0f0; 
-            font-weight: 800;
-            margin-bottom: 30px;
-/* Light color */
         }
 
         /* Content area with margin adjustment for navbar */
@@ -83,7 +72,6 @@
         .navbar.expanded + .content {
             margin-left: 220px; /* Adjust margin when navbar is expanded */
         }
-       
     </style>
 </head>
 <body>
@@ -94,25 +82,15 @@
 
     <!-- Vertical navigation bar -->
     <div class="navbar" id="navbar">
-        <!-- Close button inside the navbar -->
-        <!-- <span class="navbar-close" onclick="toggleNavbar()">&times;</span> Close icon -->
-
-<!-- Navigation links evenly spaced -->
-<a href="dashboard.php">Dashboard</a>
-        <a href="user.php">Users</a>
-        <a href="diet.php">Diet</a>
-        <a href="contact.php">Contact Us</a>
-
-        <a href="settings.php">Settings</a>
-        <a href="logout.php">Logout</a>
-
-        
+        <!-- Navigation links with icons -->
+        <a href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="user.php"><i class="fas fa-users"></i> Users</a>
+        <a href="diet.php"><i class="fas fa-utensils"></i> Diet</a>
+        <a href="contact.php"><i class="fas fa-envelope"></i> Contact Us</a>
+        <a href="settings.php"><i class="fas fa-cogs"></i> Settings</a>
+        <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </div>
 
-    <!-- Content area -->
-    <div class="content">
-        <!-- Your content goes here -->
-    </div>
 
     <!-- JavaScript to toggle the navbar -->
     <script>

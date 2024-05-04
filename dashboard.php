@@ -19,6 +19,7 @@ if (isset($_GET['logout'])) {
     // Redirect to login page
     header("Location: login.php");
     exit;
+    
 }
 
 // Database configuration

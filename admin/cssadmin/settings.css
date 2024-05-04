@@ -1,0 +1,72 @@
+/* Common body styling */
+body {
+    background-color: #ffffff; /* Dark background for consistency */
+    color: white; /* Light text color */
+    font-family: 'Inter', sans-serif; /* Consistent font */
+    margin: 0; /* No default margin */
+    padding: 0; /* No default padding */
+}
+
+
+
+/* Form styling for the settings page */
+form {
+    float:center;
+    margin: 5% 20%;
+    background-color: #124c8e; /* Dark background for consistency */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Consistent padding */
+    width: 60%; /* Set a specific width */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+    text-align: left; /* Left-align the content */
+}
+
+/* Form group styling */
+.form-group {
+    margin-bottom: 20px; /* Space between form groups */
+}
+
+/* Label styling */
+label {
+    font-size: 16px; /* Consistent font size */
+    color: white; /* Light text color */
+    font-weight: 600; /* Bold text */
+}
+
+/* Input styling */
+input {
+    padding: 10px; /* Padding for comfort */
+    font-size: 14px; /* Consistent font size */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #3e3e3e; /* Background color */
+    color: white; /* Light text color */
+}
+
+/* Button styling */
+button {
+    padding: 10px 20px; /* Padding for comfort */
+    background-color: #124c8e; /* Consistent background color */
+    color: white; /* Light text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+/* Hover effect for buttons */
+button:hover {
+    background-color: #e53935; /* Darker on hover */
+}
+
+/* Legend styling for current image info */
+p {
+    color: #f0f0f0; /* Consistent text color */
+    font-size: 14px; /* Consistent font size */
+    margin: 5px 0; /* Add some margin */
+}
+
+/* Transition effects for smooth UI */
+.transition {
+    transition: all 0.3s ease; /* Smooth transitions for interactive elements */
+}
