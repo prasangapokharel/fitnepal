@@ -3,13 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Contact Us</title>
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Feather Icons -->
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico|Quicksand:400,600&display=swap">
-    <!-- Inline Styles -->
     <style>
         body{
             background-color: #3e4684;
@@ -165,7 +161,6 @@
     feather.replace();
 </script>
 
-<!-- Bootstrap JS and Dependencies -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>
