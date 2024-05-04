@@ -1,4 +1,6 @@
 <?php
+include 'session.php'; // Include the session check
+
 include 'db_connection.php';
 
 // Ensure the assets folder exists
@@ -57,11 +59,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("Location: settings.php");
     exit;
 }
-
-include 'navbar.php'; // Include the navbar
-
 ?>
 
+<?php include 'navbar.php'; // Include the navbar ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,11 +72,9 @@ include 'navbar.php'; // Include the navbar
     <link rel="stylesheet" href="./cssadmin/settings.css"> <!-- Custom CSS -->
 </head>
 <body>
-    <div class="container">
-        <h1>Site Settings</h1>
+    
         <form action="settings.php" method="post" enctype="multipart/form-data"> <!-- Ensure form is multi-part for file uploads -->
             <fieldset>
-                <legend>Site Settings</legend> <!-- Use legend for grouping -->
 
                 <div class="form-group">
                     <label for="site_title">Site Title</label>
@@ -98,6 +96,5 @@ include 'navbar.php'; // Include the navbar
                 <button type="submit">Update Settings</button>
             </fieldset>
         </form>
-    </div>
 </body>
 </html>

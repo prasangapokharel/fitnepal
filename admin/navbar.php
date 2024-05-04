@@ -20,7 +20,8 @@
             display: flex; /* Flexbox for even spacing */
             flex-direction: column; /* Vertical arrangement */
             justify-content: space-between; /* Even spacing */
-            padding: 20px 0; /* Padding top and bottom */
+            padding: 0px 0; /* Padding top and bottom */
+            margin-top: 50px;
         }
 
         /* Navbar when expanded */
@@ -57,7 +58,7 @@
             padding: 10px; /* Padding */
             border-radius: 0 10px 10px 0; /* Rounded corners */
             position: fixed; /* Fixed position */
-            top: 20px; /* Position at the top */
+            top: 0px; /* Position at the top */
             left: 0; /* Align to the left edge */
             cursor: pointer; /* Pointer cursor */
             transition: background-color 0.3s; /* Smooth transition */

@@ -1,39 +1,41 @@
 /* Futuristic styling for the page */
 body {
-    background-color: #ffffff; /* Dark background */
+    background-color: #124c8e; /* Dark background for cards */
     color: #f0f0f0; /* Light text */
     font-family: 'Inter', sans-serif; /* Modern font */
-    padding: 20px; /* Padding around the edges */
 }
 
-/* Flexbox container for layout */
 .container {
-    display: flex; /* Use flexbox for layout */
-    border-radius: 10px; /* Rounded corners */
+    display: flex;
     background-color: #124c8e; /* Dark background for cards */
-    padding: 20px; /* Padding around content */
+    border-radius: 10px; /* Rounded corners for smoothness */
+    padding: 20px;
+    
+
 }
 
 /* Content area */
 .content {
     flex-grow: 1; /* Allow content to grow */
-    padding: 20px; /* Padding */
+    padding: 20px;
+    margin-top: 1%;
+    margin-left: 12%; /* Padding */
 }
 
 /* Styling for the table */
 table {
     width: 100%; /* Full width */
     border-collapse: collapse; /* Collapse table borders */
-    background-color: #ffffff;
-    color:#000000; /* Dark table background */
+    background-color: #124c8e; /* Dark background for cards */
+    color:#ffffff; /* Dark table background */
     border-radius: 10px; /* Rounded corners */
     overflow: hidden; /* Hide overflow for rounded corners */
 }
 
 /* Styling for table headers */
 th {
-    background-color: #124c8e; /* Dark background for cards */
-    color: #f0f0f0; /* Light text */
+    background-color: #ffffff; /* Dark background for cards */
+    color: #124c8e; /* Light text */
     padding: 15px; /* Padding */
     text-align: left; /* Align text to the left */
     text-transform: uppercase; /* Uppercase text */
@@ -48,12 +50,12 @@ td {
 
 /* Alternate row background for readability */
 tr:nth-child(even) {
-    background-color: #ffffff;
+    background-color: #124c8e; /* Dark background for cards */
 }
 
 /* Hover effect for table rows */
 tr:hover {
-    background-color: red; /* Chanredge background on hover */
+    background-color: #4CAF50; /* Green */
 }
 
 /* Action buttons with hover effects */
@@ -78,12 +80,12 @@ tr:hover {
 }
 
 .pending-button {
-    background-color: orange; /* Red for pending */
-    color: rgb(0, 0, 0); /* White text */
+    background-color: #124c8e; /* Dark background for cards */
+    color: rgb(255, 255, 255); /* White text */
     border-radius: 5px; /* Rounded corners */
     transition: background-color 0.3s; /* Smooth transition */
 }
 
 .pending-button:hover {
-    background-color: orange; /* Darker red on hover */
+    background-color: #124c8e; /* Dark background for cards */
 }

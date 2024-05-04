@@ -1,4 +1,6 @@
 <?php
+include 'session.php'; // Include the session check
+
 include 'db_connection.php';
 
 // Handle form submission for user update

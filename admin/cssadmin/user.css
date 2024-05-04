@@ -1,9 +1,8 @@
 /* Body styling */
 body {
-    background-color: #ffffff; /* Dark background for cards */
+    background-color: #124c8e; /* Dark background for cards */
     color: #f0f0f0; /* Light text for contrast */
     font-family: 'Inter', sans-serif; /* Modern font */
-    padding: 20px; /* Padding around the edges */
 }
 
 /* Flexbox container with futuristic colors */
@@ -12,14 +11,16 @@ body {
     background-color: #124c8e; /* Dark background for cards */
     border-radius: 10px; /* Rounded corners for smoothness */
     padding: 20px;
-    margin-left: 10%; /* Padding for spacing */
+    margin-top: 1%;
+    margin-left: 12%;
 
 }
 
 /* Content area with proper margin and padding */
 .content {
     flex-grow: 1; /* Allow content to grow */
-    padding: 20px; /* Padding around content */
+    padding: 20px;
+    /* Padding around content */
 }
 
 /* Styling for the table to display data */

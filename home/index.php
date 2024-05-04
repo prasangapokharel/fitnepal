@@ -207,28 +207,27 @@ $image_path = "home/assets/"; // Base path for images
 </section>
 
 <div class="container">
-  <form action="subcontact.php" method="post">
-    <h1 class="title">Talk to Us</h1>
-    <div class="form-group">
-      <label for="formName">Name</label>
-      <input type="text" id="formName" name="name" class="form-control" placeholder="Name" required>
-    </div>
-    <div class="form-group">
-      <label for="formEmail">E-mail</label>
-      <input type="email" id="formEmail" name="email" class="form-control" placeholder="E-mail" required>
-    </div>
-    <div class="form-group">
-      <label for="formSubject">Subject</label>
-      <input type="text" id="formSubject" name="subject" class="form-control" placeholder="Subject" required>
-    </div>
-    <div class="form-group message">
-      <label for="formMessage">Message</label>
-      <textarea id="formMessage" name="message" class="form-control" rows="7" placeholder="Message" required></textarea>
-    </div>
-    <div class="text-center">
-      <button type="submit" class="btn btn-primary">Send Message</button>
-    </div>
-  </form>
+<form action="subcontact.php" method="post">
+            <div class="form-group">
+                <label for="formName">Name</label>
+                <input type="text" id="formName" name="name" class="form-control" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+                <label for="formEmail">E-mail</label>
+                <input type="email" id="formEmail" name="email" class="form-control" placeholder="E-mail" required>
+            </div>
+            <div class="form-group">
+                <label for="formSubject">Subject</label>
+                <input type="text" id="formSubject" name="subject" class="form-control" placeholder="Subject" required>
+            </div>
+            <div class="form-group">
+                <label for="formMessage">Message</label>
+                <textarea id="formMessage" name="message" class="form-control" rows="5" placeholder="Your message" required></textarea>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </div>
+        </form>
 
   <footer class="footer">
     <div class="section__container footer__container">

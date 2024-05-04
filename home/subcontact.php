@@ -1,26 +1,28 @@
-
-
 <?php
-include '../db_connection.php';
+include 'db_connection.php'; // Include your database connection
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST["name"];
-    $email = $_POST["email"];
-    $message = $_POST["message"];
+// Start session for feedback
+session_start();
 
-    // Insert into database
-    $stmt = $conn->prepare("INSERT INTO contactus (name, email, message) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $name, $email, $message);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];
 
-    if ($stmt->execute()) {
-        echo "Thank you for your message! We'll get back to you soon.";
-    } else {
-        echo "An error occurred: " . $stmt->error;
-    }
+    // Insert the contact message into the database
+    $query = "INSERT INTO contactus (name, email, message) VALUES (?, ?, ?)";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([$name, $email, $message]);
 
-    $stmt->close();
-    $conn->close();
+    // Set feedback message for successful submission
+    $_SESSION['feedback'] = "Thank you for contacting us. We will get back to you shortly.";
+
+    // Redirect back to the contact page
+    header("Location: contact.php");
+    exit;
 } else {
-    echo "Invalid request method.";
+    // If the request is not POST, redirect to contact page
+    header("Location: contact.php");
+    exit;
 }
-?>

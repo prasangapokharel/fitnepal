@@ -1,4 +1,6 @@
 <?php
+include 'session.php'; // Include the session check
+
 // Include your database connection script
 require_once 'db_connection.php';
 

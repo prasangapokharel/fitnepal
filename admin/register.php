@@ -1,4 +1,6 @@
 <?php
+include 'session.php'; // Include the session check
+
 require_once 'db_connection.php'; // Ensure this includes the correct connection variable
 
 // Retrieve form data

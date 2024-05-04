@@ -42,6 +42,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get user ID from the session
     $user_id = $_SESSION['user_id'];
 
+    // Calculate total calories for the user
+$totalCalories = 0;
+
+// Fetch the sum of calories for the logged-in user
+$total_calories_sql = "SELECT SUM(calories * serving) AS total_calories FROM diet_items WHERE user_id = ?";
+$total_calories_stmt = $conn->prepare(total_calories_sql);
+$total_calories_stmt->bind_param("i", $user_id);
+$total_calories_stmt->execute();
+$total_calories_result = $total_calories_stmt->get_result();
+if ($total_calories_result->num_rows > 0) {
+    $row = $total_calories_result->fetch_assoc();
+    $totalCalories = $row['total_calories'] ?? 0; // If null, set to 0
+}
+
     // Retrieve form data
     $foodName = $_POST["foodName"];
     $category = $_POST["category"];

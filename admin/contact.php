@@ -66,6 +66,7 @@ include 'navbar.php'; // Include the navbar
                             <th>ID</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Subject</th>
                             <th>Message</th>
                             <th>Status</th>
                             <th>Actions</th>
@@ -78,6 +79,7 @@ include 'navbar.php'; // Include the navbar
                                 <td><?php echo htmlspecialchars($message['id']); ?></td>
                                 <td><?php echo htmlspecialchars($message['name']); ?></td>
                                 <td><?php echo htmlspecialchars($message['email']); ?></td>
+                                <td><?php echo htmlspecialchars($message['subject'] ?? 'N/A'); ?></td> <!-- Subject might be optional -->
                                 <td><?php echo htmlspecialchars($message['message']); ?></td>
                                 <td id="status-<?php echo htmlspecialchars($message['id']); ?>">
                                     <?php

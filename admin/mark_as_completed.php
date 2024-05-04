@@ -1,4 +1,6 @@
 <?php
+include 'session.php'; // Include the session check
+
 include 'db_connection.php'; // Ensure this file sets up $pdo properly
 
 if (isset($_GET['id'])) {

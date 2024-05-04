@@ -1,4 +1,6 @@
 <?php
+include 'session.php'; // Include the session check
+
 include 'db_connection.php';
 
 // Query for the total number of users
@@ -109,6 +111,15 @@ include 'navbar.php'; // Include the navbar
            
         </div>
     </div>
+
+    <div class="device">
+        <tr>
+        <th>
+            i want history table data here and all other function should be same
+        </th>
+        </tr>
+        
+    </div>
     
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
@@ -146,10 +157,10 @@ include 'navbar.php'; // Include the navbar
             },
         });
 
-        // Function to logout
         function logout() {
-            window.location.href = "logout.php"; // Redirect to logout script
-        }
+        // Navigate to the logout script
+        window.location.href = "logout.php"; // Adjust path as needed
+    }
     </script>
 </body>
 </html>
