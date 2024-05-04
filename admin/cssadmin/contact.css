@@ -1,0 +1,88 @@
+/* Futuristic styling for the page */
+body {
+    background-color: #1e1e1e; /* Dark background */
+    color: #f0f0f0; /* Light text */
+    font-family: 'Inter', sans-serif; /* Modern font */
+    padding: 20px; /* Padding around the edges */
+}
+
+/* Flexbox container for layout */
+.container {
+    display: flex; /* Use flexbox for layout */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #2c2c2c; /* Darker background */
+    padding: 20px; /* Padding around content */
+}
+
+/* Content area */
+.content {
+    flex-grow: 1; /* Allow content to grow */
+    padding: 20px; /* Padding */
+}
+
+/* Styling for the table */
+table {
+    width: 100%; /* Full width */
+    border-collapse: collapse; /* Collapse table borders */
+    background-color: #2c2c2c; /* Dark table background */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow for rounded corners */
+}
+
+/* Styling for table headers */
+th {
+    background-color: #3e3e3e; /* Slightly darker background */
+    color: #f0f0f0; /* Light text */
+    padding: 15px; /* Padding */
+    text-align: left; /* Align text to the left */
+    text-transform: uppercase; /* Uppercase text */
+    border-bottom: 2px solid #4e4e4e; /* Border for separation */
+}
+
+/* Styling for table rows */
+td {
+    padding: 15px; /* Padding */
+    border-bottom: 1px solid #4e4e4e; /* Border at the bottom */
+}
+
+/* Alternate row background for readability */
+tr:nth-child(even) {
+    background-color: #3e3e3e; /* Alternating background */
+}
+
+/* Hover effect for table rows */
+tr:hover {
+    background-color: #4e4e4e; /* Change background on hover */
+}
+
+/* Action buttons with hover effects */
+.action-button {
+    background-color: #4CAF50; /* Green */
+
+    padding: 10px 20px; /* Padding */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 14px; /* Font size */
+    transition: background-color 0.3s; /* Smooth transition on hover */
+    cursor: pointer; /* Pointer cursor */
+}
+
+/* Edit and delete button styles */
+.edit-button {
+    background-color: #4CAF50; /* Green */
+    color: white; /* White text */
+}
+
+.edit-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.pending-button {
+    background-color: orange; /* Red for pending */
+    color: rgb(0, 0, 0); /* White text */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.pending-button:hover {
+    background-color: orange; /* Darker red on hover */
+}
