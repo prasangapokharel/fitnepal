@@ -1,14 +1,9 @@
 <?php
-session_start();
-
+include 'session.php'; // Include the session check
 // Include database connection
 include "db_connection.php";
 
-// Check if user is logged in
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit;
-}
+
 
 $user_id = $_SESSION['user_id'];
 

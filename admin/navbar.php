@@ -86,7 +86,7 @@
         <!-- Navigation links with icons -->
         <a href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
         <a href="user.php"><i class="fas fa-users"></i> Users</a>
-        <a href="diet.php"><i class="fas fa-utensils"></i> Diet</a>
+        <a href="meal.php"><i class="fas fa-utensils"></i> Meal</a>
         <a href="contact.php"><i class="fas fa-envelope"></i> Contact Us</a>
         <a href="settings.php"><i class="fas fa-cogs"></i> Settings</a>
         <a href="history.php"><i class="fa-solid fa-laptop"></i>Recent Devices</a>

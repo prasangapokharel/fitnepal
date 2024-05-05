@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2024 at 06:39 AM
+-- Generation Time: May 05, 2024 at 12:11 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -79,6 +79,46 @@ INSERT INTO `contactus` (`id`, `name`, `email`, `subject`, `message`, `viewed`) 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `diets`
+--
+
+CREATE TABLE `diets` (
+  `id` int(11) NOT NULL,
+  `category` enum('weight-loss','weight-gain','keto') NOT NULL,
+  `food_image` varchar(255) DEFAULT NULL,
+  `food_name` varchar(255) NOT NULL,
+  `protein` decimal(5,2) NOT NULL,
+  `calories` int(11) NOT NULL,
+  `meal_type` enum('breakfast','lunch','dinner') NOT NULL,
+  `description` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `diets`
+--
+
+INSERT INTO `diets` (`id`, `category`, `food_image`, `food_name`, `protein`, `calories`, `meal_type`, `description`) VALUES
+(1, 'weight-loss', 'uploads/6637330316dec-download.png', 'milk', 34.00, 300, 'breakfast', 'a milk'),
+(2, 'weight-loss', 'uploads/6637330a24874-download.png', 'milk', 34.00, 300, 'breakfast', 'a milk'),
+(3, 'weight-loss', 'uploads/6637337b9710c-download.png', 'milk', 34.00, 300, 'breakfast', 'a milk'),
+(4, 'weight-loss', 'uploads/66373458afbb8-download.png', 'milk', 34.00, 300, 'breakfast', 'a milk'),
+(5, 'weight-loss', 'uploads/66373460a170e-download.png', 'milk', 34.00, 300, 'breakfast', 'a milk'),
+(6, 'weight-loss', 'uploads/663734fcecbe4-download.png', 'milk', 34.00, 300, 'breakfast', 'a milk'),
+(7, 'weight-loss', 'uploads/66373555d0b40-tgg.jpg', 'chciken', 76.00, 22, 'lunch', 'a chicekn'),
+(8, 'weight-loss', 'uploads/663736ce0b362-tgg.jpg', 'chciken', 76.00, 22, 'lunch', 'a chicekn'),
+(9, 'weight-loss', 'uploads/6637371b90188-tgg.jpg', 'chciken', 76.00, 22, 'lunch', 'a chicekn'),
+(10, 'weight-loss', 'uploads/66373739ef8e2-tgg.jpg', 'chciken', 76.00, 22, 'lunch', 'a chicekn'),
+(11, 'weight-loss', 'uploads/6637374d502a9-tgg.jpg', 'chciken', 76.00, 22, 'lunch', 'a chicekn'),
+(12, 'weight-loss', 'uploads/66373eb54ac7b-tgg.jpg', 'chciken', 76.00, 22, 'lunch', 'a chicekn'),
+(13, 'weight-loss', 'uploads/66373eff8cb9a-tgg.jpg', 'chciken', 76.00, 22, 'lunch', 'a chicekn'),
+(14, 'weight-gain', 'C:/xampp/htdocs/fitnepal/uploads/6637433b982cf-Green Red Modern Christmas Voucher Coupon.png', 'Tasha Hoover', 78.00, 100, 'dinner', 'Minim dolor quis cum'),
+(15, 'weight-gain', 'C:/xampp/htdocs/fitnepal/uploads/66374b7913c48-Green Red Modern Christmas Voucher Coupon.png', 'Tasha Hoover', 78.00, 100, 'dinner', 'Minim dolor quis cum'),
+(16, 'weight-gain', 'C:/xampp/htdocs/fitnepal/uploads/66374bd89b4c3-Green Red Modern Christmas Voucher Coupon.png', 'Tasha Hoover', 78.00, 100, 'dinner', 'Minim dolor quis cum'),
+(17, 'weight-gain', 'C:/xampp/htdocs/fitnepal/uploads/66374c000bc02-Green Red Modern Christmas Voucher Coupon.png', 'Tasha Hoover', 78.00, 100, 'dinner', 'Minim dolor quis cum');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `diet_items`
 --
 
@@ -99,7 +139,6 @@ CREATE TABLE `diet_items` (
 INSERT INTO `diet_items` (`id`, `food_name`, `category`, `calories`, `serving`, `description`, `user_id`) VALUES
 (23, 'Martina Cardenas', 'non-veg', 46, 59, 'In qui anim harum ea', 4),
 (24, 'Cadman Fleming', 'dairy', 2, 71, 'Omnis explicabo Asp', 4),
-(29, 'Sawyer Christensen', 'ayurvedic', 43, 28, 'In fugit sapiente e', 3),
 (30, 'Jamalia Bradford', 'dairy', 98, 5, 'Commodo pariatur Qu', 3);
 
 -- --------------------------------------------------------
@@ -167,7 +206,12 @@ INSERT INTO `history` (`id`, `user_id`, `login_time`, `device`, `ip_address`) VA
 (11, 10002, '2024-05-04 22:10:01', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
 (12, 10002, '2024-05-04 22:10:22', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
 (13, 11787, '2024-05-04 22:12:56', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
-(14, 11787, '2024-05-04 22:15:17', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1');
+(14, 11787, '2024-05-04 22:15:17', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(15, 11787, '2024-05-05 12:37:15', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(16, 10002, '2024-05-05 12:50:06', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(17, 11787, '2024-05-05 13:57:06', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', '::1'),
+(18, 11787, '2024-05-05 14:57:41', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(19, 11787, '2024-05-05 14:59:44', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1');
 
 -- --------------------------------------------------------
 
@@ -351,6 +395,12 @@ ALTER TABLE `contactus`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `diets`
+--
+ALTER TABLE `diets`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `diet_items`
 --
 ALTER TABLE `diet_items`
@@ -412,6 +462,12 @@ ALTER TABLE `contactus`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
+-- AUTO_INCREMENT for table `diets`
+--
+ALTER TABLE `diets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
 -- AUTO_INCREMENT for table `diet_items`
 --
 ALTER TABLE `diet_items`
@@ -421,7 +477,7 @@ ALTER TABLE `diet_items`
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `np_nutrition`
