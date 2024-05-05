@@ -75,6 +75,7 @@ include 'navbar.php'; // Include the navbar
             <!-- Content row with user statistics -->
             <div class="content-row">
                 <!-- Total users -->
+                <
                 <div class="info-box">
                     <i data-feather="users" class="icon"></i> <!-- Icon before text -->
                     <h2>Total Users</h2>

@@ -14,6 +14,9 @@ $site_logo = $site_settings['site_logo'];
 $image_path = "home/assets/"; // Base path for images
 ?>
 
+<?php
+include 'navbar.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +33,7 @@ $image_path = "home/assets/"; // Base path for images
   <title><?php echo $site_title; ?></title>
 </head>
 <header class="header">
-  <nav>
+  <!-- <nav>
     <div class="nav__header">
       <div class="nav__logo">
 
@@ -48,7 +51,7 @@ $image_path = "home/assets/"; // Base path for images
       <li class="link"><a href="#">Contact</a></li>
 
     </ul>
-  </nav>
+  </nav> -->
   <div class="section__container header__container" id="home">
     <div class="header__image">
       <img src="assets/header.png" alt="header" />
@@ -63,7 +66,7 @@ $image_path = "home/assets/"; // Base path for images
         of!
       </p>
       <div class="header__btn">
-        <button class="btn">Join Today</button>
+      <a class="trsf" href="../registration.php"> <button class="btn">Join Today</a></button></a>
       </div>
     </div>
   </div>

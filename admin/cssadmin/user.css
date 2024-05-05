@@ -15,6 +15,9 @@ body {
     margin-left: 12%;
 
 }
+.next{
+    display: none;
+}
 
 /* Content area with proper margin and padding */
 .content {

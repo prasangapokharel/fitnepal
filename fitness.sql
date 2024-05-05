@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2024 at 02:02 PM
+-- Generation Time: May 05, 2024 at 06:39 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -54,6 +54,7 @@ CREATE TABLE `contactus` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `subject` varchar(255) DEFAULT NULL,
   `message` text NOT NULL,
   `viewed` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -62,16 +63,18 @@ CREATE TABLE `contactus` (
 -- Dumping data for table `contactus`
 --
 
-INSERT INTO `contactus` (`id`, `name`, `email`, `message`, `viewed`) VALUES
-(7, 'Rahim Morgan', 'libicasu@mailinator.com', 'Tempora velit error', 1),
-(8, 'Mariko Baker', 'zylaferyby@mailinator.com', 'Laborum Ullamco aut', 1),
-(9, 'Mariko Baker', 'zylaferyby@mailinator.com', 'Laborum Ullamco aut', 1),
-(10, 'Mariko Baker', 'zylaferyby@mailinator.com', 'Laborum Ullamco aut', 1),
-(11, 'Mariko Baker', 'zylaferyby@mailinator.com', 'Laborum Ullamco aut', 1),
-(12, 'Mariko Baker', 'zylaferyby@mailinator.com', 'Laborum Ullamco aut', 1),
-(13, 'Mariko Baker', 'zylaferyby@mailinator.com', 'Laborum Ullamco aut', 1),
-(14, 'Mariko Baker', 'zylaferyby@mailinator.com', 'Laborum Ullamco aut', 1),
-(15, 'Mariko Baker', 'zylaferyby@mailinator.com', 'Laborum Ullamco aut', 0);
+INSERT INTO `contactus` (`id`, `name`, `email`, `subject`, `message`, `viewed`) VALUES
+(7, 'Rahim Morgan', 'libicasu@mailinator.com', NULL, 'Tempora velit error', 1),
+(8, 'Mariko Baker', 'zylaferyby@mailinator.com', NULL, 'Laborum Ullamco aut', 1),
+(9, 'Mariko Baker', 'zylaferyby@mailinator.com', NULL, 'Laborum Ullamco aut', 1),
+(10, 'Mariko Baker', 'zylaferyby@mailinator.com', NULL, 'Laborum Ullamco aut', 1),
+(11, 'Mariko Baker', 'zylaferyby@mailinator.com', NULL, 'Laborum Ullamco aut', 1),
+(12, 'Mariko Baker', 'zylaferyby@mailinator.com', NULL, 'Laborum Ullamco aut', 1),
+(13, 'Mariko Baker', 'zylaferyby@mailinator.com', NULL, 'Laborum Ullamco aut', 1),
+(14, 'Mariko Baker', 'zylaferyby@mailinator.com', NULL, 'Laborum Ullamco aut', 1),
+(15, 'Mariko Baker', 'zylaferyby@mailinator.com', NULL, 'Laborum Ullamco aut', 1),
+(16, 'Gareth Wiley', 'zejebyza@mailinator.com', NULL, 'Dolores ipsa accusa', 1),
+(17, 'Paula Houston', 'jevud@mailinator.com', NULL, 'Est ipsa nisi pari', 1);
 
 -- --------------------------------------------------------
 
@@ -131,6 +134,40 @@ INSERT INTO `entries` (`id`, `meal_name`, `protein_grams`, `meal_time`, `user_id
 (0, 'Chicken Breast', 31, '14:22:00', 4),
 (0, 'Milk', 3.4, '11:12:00', 4),
 (0, 'Chicken Breast', 31, '08:00:00', 6);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `history`
+--
+
+CREATE TABLE `history` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `login_time` datetime DEFAULT current_timestamp(),
+  `device` varchar(255) DEFAULT NULL,
+  `ip_address` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `history`
+--
+
+INSERT INTO `history` (`id`, `user_id`, `login_time`, `device`, `ip_address`) VALUES
+(1, 11787, '2024-05-04 19:36:18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', '::1'),
+(2, 10002, '2024-05-04 19:42:26', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(3, 11787, '2024-05-04 20:02:19', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(4, 10002, '2024-05-04 20:02:44', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(5, 11787, '2024-05-04 20:08:14', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(6, 11787, '2024-05-04 20:36:02', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(7, 10002, '2024-05-04 20:36:27', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(8, 11787, '2024-05-04 20:44:55', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(9, 10002, '2024-05-04 21:28:23', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(10, 11787, '2024-05-04 22:09:37', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(11, 10002, '2024-05-04 22:10:01', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(12, 10002, '2024-05-04 22:10:22', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(13, 11787, '2024-05-04 22:12:56', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(14, 11787, '2024-05-04 22:15:17', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1');
 
 -- --------------------------------------------------------
 
@@ -202,6 +239,35 @@ INSERT INTO `np_nutrition` (`id`, `Food_name`, `Protein`, `Calories`, `Amount`) 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `id` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `password_resets`
+--
+
+INSERT INTO `password_resets` (`id`, `email`, `token`, `created_at`) VALUES
+(1, 'prasanga@gmail.com', '96c241fd32916db5439c009b89127ed0', '2024-05-04 15:40:56'),
+(2, 'prasanga@gmail.com', 'ddf31e9b3ad7eee90bf3a1e7a060e762', '2024-05-04 15:41:05'),
+(3, 'prasanga@gmail.com', 'f16db62ad033aca3bac3b4989a440c46', '2024-05-04 15:41:14'),
+(4, 'prasanga@gmail.com', '008babac0f740bfe3c61554f8fe19a8b', '2024-05-04 15:42:28'),
+(5, 'incpractical@gmail.com', '39f5319067e9644af83ebc7bdd480102', '2024-05-04 15:44:59'),
+(6, 'incpractical@gmail.com', '63a9dda99f7f82cd2eb933e0fb4f5f60', '2024-05-04 15:53:07'),
+(7, 'incpractical@gmail.com', '8297d37a418535784e90ce061fbf1fd5', '2024-05-04 15:53:49'),
+(8, 'incpractical@gmail.com', '340c022a230c56025929b38a2490092c', '2024-05-04 15:56:37'),
+(9, 'incpractical@gmail.com', '59a6d508d6548e54919a923989f999ad', '2024-05-04 15:59:58'),
+(10, 'incpractical@gmail.com', '157c80991525fe65762afc85fa983f94', '2024-05-04 16:00:15');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sitesettings`
 --
 
@@ -217,7 +283,7 @@ CREATE TABLE `sitesettings` (
 --
 
 INSERT INTO `sitesettings` (`id`, `site_title`, `header_image`, `site_logo`) VALUES
-(1, 'Prasanga', 'C:/xampp/htdocs/fitnepal/home/assets/8.png', 'C:/xampp/htdocs/fitnepal/home/assets/3.jpg');
+(1, 'Abra Pro', 'C:/xampp/htdocs/fitnepal/home/assets/8.png', 'C:/xampp/htdocs/fitnepal/home/assets/3.jpg');
 
 -- --------------------------------------------------------
 
@@ -252,18 +318,20 @@ CREATE TABLE `users` (
   `activity` enum('normal','intermediate','highly_active') NOT NULL,
   `profile_picture` varchar(255) DEFAULT NULL,
   `registration_time` timestamp NOT NULL DEFAULT current_timestamp(),
-  `status` varchar(10) DEFAULT 'inactive'
+  `status` varchar(10) DEFAULT 'inactive',
+  `role` varchar(50) DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `user_id`, `name`, `email`, `password`, `age`, `weight`, `height`, `activity`, `profile_picture`, `registration_time`, `status`) VALUES
-(3, 11787, 'Prasanga Pokharel', 'prasanga@gmail.com', '$2y$10$H2Y7f6Ph26npbfj0eG33wuyPcrEH/ews9B3YIdGMCclOUDgUNDxMa', 11, 68.00, 93, 'highly_active', 'profilepic/protein logo.png', '2024-05-02 18:09:41', 'active'),
-(15, 87465, 'Yetta Richmond', 'womajalok@mailinator.com', '$2y$10$IJtvj.Sgjm4XnWB.YZyg4.OZwKvQIdrBcfve5.Iu45p/ut9YTW9DW', 27, 13.00, 63, '', NULL, '2024-05-02 18:13:02', 'inactive'),
-(17, 11171, 'Hayley Colon', 'jegaky@mailinator.com', '$2y$10$Gryd2WSQgSB8VzyKx/HJVu1wIRqPCXuG1CMIXRHBqK3E6zfemzV56', 21, 59.00, 52, '', NULL, '2024-05-04 09:47:36', 'inactive'),
-(18, 24872, 'Roanna Mcfarland', 'tukanez@mailinator.com', '$2y$10$o//xJXFHa4saJ7QUIXs94uRE7uXh28Oy55Xin9TorwHQKLolBr5FC', 35, 29.00, 48, 'intermediate', NULL, '2024-05-04 09:48:00', 'inactive');
+INSERT INTO `users` (`id`, `user_id`, `name`, `email`, `password`, `age`, `weight`, `height`, `activity`, `profile_picture`, `registration_time`, `status`, `role`) VALUES
+(3, 11787, 'Prasanga Pokharel', 'prasanga@gmail.com', '$2y$10$H2Y7f6Ph26npbfj0eG33wuyPcrEH/ews9B3YIdGMCclOUDgUNDxMa', 11, 68.00, 93, 'highly_active', 'profilepic/protein logo.png', '2024-05-02 18:09:41', 'active', 'user'),
+(18, 24872, 'Roanna Mcfarland', 'tukanez@mailinator.com', '$2y$10$o//xJXFHa4saJ7QUIXs94uRE7uXh28Oy55Xin9TorwHQKLolBr5FC', 35, 29.00, 48, 'intermediate', NULL, '2024-05-04 09:48:00', 'inactive', 'user'),
+(21, 10002, 'Raman Singh', 'inc@gmail.com', '$2y$10$w/fPyYONqgrfAtyH.CJIq.hSVUKSdchcprNHUefyUeK7u7OZgIQPi', 25, 65.00, 175, 'normal', NULL, '2024-05-04 13:31:47', 'active', 'admin'),
+(22, 54473, 'Sylvester Chandler', 'incpractical@gmail.com', '$2y$10$plJ6UBpDqBmNej3ncAXtrem77aJcxUHyIKietI6w4H2hzGUxZEopq', 51, 40.00, 12, 'normal', NULL, '2024-05-04 15:44:34', 'inactive', 'user'),
+(23, 32300, 'Sawyer Irwin', 'lipogoge@mailinator.com', '$2y$10$fCpqjw6OwX3w0aQwSPikueIP5TONQ.hoPwPgCfizjN97sUSeryWzG', 35, 22.00, 54, 'normal', NULL, '2024-05-04 16:24:11', 'inactive', 'user');
 
 --
 -- Indexes for dumped tables
@@ -289,9 +357,22 @@ ALTER TABLE `diet_items`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `history`
+--
+ALTER TABLE `history`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `np_nutrition`
 --
 ALTER TABLE `np_nutrition`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `password_resets`
+--
+ALTER TABLE `password_resets`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -311,7 +392,8 @@ ALTER TABLE `tracking`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -327,7 +409,7 @@ ALTER TABLE `calorie`
 -- AUTO_INCREMENT for table `contactus`
 --
 ALTER TABLE `contactus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `diet_items`
@@ -336,10 +418,22 @@ ALTER TABLE `diet_items`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
+-- AUTO_INCREMENT for table `history`
+--
+ALTER TABLE `history`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
 -- AUTO_INCREMENT for table `np_nutrition`
 --
 ALTER TABLE `np_nutrition`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+
+--
+-- AUTO_INCREMENT for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `sitesettings`
@@ -357,7 +451,7 @@ ALTER TABLE `tracking`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Constraints for dumped tables
@@ -368,6 +462,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `calorie`
   ADD CONSTRAINT `calorie_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `history`
+--
+ALTER TABLE `history`
+  ADD CONSTRAINT `history_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `tracking`
