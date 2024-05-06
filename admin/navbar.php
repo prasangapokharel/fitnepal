@@ -22,11 +22,14 @@
             justify-content: space-between; /* Even spacing */
             padding: 0px 0; /* Padding top and bottom */
             margin-top: 50px;
+            display: fixed; /* Expanded width */
+
         }
 
         /* Navbar when expanded */
         .navbar.expanded {
-            width: 220px; /* Expanded width */
+            width: 220px;
+            display: fixed; /* Expanded width */
         }
 
         /* Style for navigation links */
@@ -72,7 +75,8 @@
         }
 
         .navbar.expanded + .content {
-            margin-left: 220px; /* Adjust margin when navbar is expanded */
+            margin-left: 220px;
+            position:fixed; /* Adjust margin when navbar is expanded */
         }
     </style>
 </head>

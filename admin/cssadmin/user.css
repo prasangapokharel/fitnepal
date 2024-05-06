@@ -1,6 +1,6 @@
 /* Body styling */
 body {
-    background-color: #124c8e; /* Dark background for cards */
+    background-color: #f6f6f6; /* Dark background for cards */
     color: #f0f0f0; /* Light text for contrast */
     font-family: 'Inter', sans-serif; /* Modern font */
 }
@@ -12,7 +12,7 @@ body {
     border-radius: 10px; /* Rounded corners for smoothness */
     padding: 20px;
     margin-top: 1%;
-    margin-left: 12%;
+    margin-left: 15%;
 
 }
 .next{
