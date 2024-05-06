@@ -1,53 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"> <!-- Inter font -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"> <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- FontAwesome -->
     <style>
-        /* Full-height vertical navigation bar */
+        /* Full-height fixed navigation bar with top margin */
         .navbar {
-            background-color: #124c8e; /* Dark background */
-    font-family: 'Proxima Nova', sans-serif; /* Correctly set the font to Proxima Nova */
-            width: 0; /* Start collapsed */
+            background-color: #124c8e; /* Dark blue background */
+            font-family: 'Inter', sans-serif; /* Font family */
+            width: 220px; /* Fixed width */
             position: fixed; /* Fixed position */
-            top: 0; /* Align to the top */
+            top: 20px; /* Align slightly below the top */
             left: 0; /* Align to the left edge */
-            height: 90vh; /* Full height */
+            height: calc(100vh - 20px); /* Fill remaining height with top margin */
             overflow: hidden; /* Prevent overflow */
-            transition: width 0.5s ease; /* Smooth transition for width */
+            transition: width 0.5s ease; /* Smooth transition */
             border-radius: 0 10px 10px 0; /* Rounded corners on the right */
             z-index: 1000; /* Keep navbar above other content */
-            display: flex; /* Flexbox for even spacing */
-            flex-direction: column; /* Vertical arrangement */
-            justify-content: space-between; /* Even spacing */
-            padding: 0px 0; /* Padding top and bottom */
-            margin-top: 50px;
-            display: fixed; /* Expanded width */
-
+            display: flex; /* Flexbox for layout */
+            flex-direction: column; /* Vertical alignment of links */
+            justify-content: flex-start; /* Align links at the top */
+            padding-top: 20px; /* Top padding */
         }
 
-        /* Navbar when expanded */
-        .navbar.expanded {
-            width: 220px;
-            display: fixed; /* Expanded width */
-        }
-
-        /* Style for navigation links */
+        /* Styling for navbar links */
         .navbar a {
-            display: flex; /* Flex layout for links */
-            align-items: center; /* Vertically center text */
-            justify-content: flex-start; /* Horizontally align text */
+            display: flex; /* Flex layout for icons and text */
+            align-items: center; /* Vertically center content */
             padding: 15px; /* Padding */
             text-decoration: none; /* No underline */
-            color: #f0f0f0; /* Light text color */
-            transition: background-color 0.3s; /* Smooth transition */
-            font-weight: 600; /* Bold font */
+            color: white; /* Text color */
+            transition: background-color 0.3s ease; /* Smooth transition */
         }
 
-        /* Hover effect for navigation links */
+        /* Hover effect for links */
         .navbar a:hover {
-            background-color: #fff; /* Darker on hover */
-            color: #124c8e;
+            background-color: #0b3c70; /* Slightly darker background on hover */
         }
 
         /* Icon styling in navbar */
@@ -55,57 +43,25 @@
             margin-right: 10px; /* Space between icon and text */
         }
 
-        /* Navbar toggle button styling */
-        .navbar-toggle {
-            background-color: #124c8e; /* Match navbar background */
-            color: #f0f0f0; /* Light text */
-            padding: 10px; /* Padding */
-            border-radius: 0 10px 10px 0; /* Rounded corners */
-            position: fixed; /* Fixed position */
-            top: 0px; /* Position at the top */
-            left: 0; /* Align to the left edge */
-            cursor: pointer; /* Pointer cursor */
-            transition: background-color 0.3s; /* Smooth transition */
-        }
-
-        /* Content area with margin adjustment for navbar */
+        /* Content with margin adjusted for the navbar */
         .content {
-            margin-left: 0; /* No margin when navbar is collapsed */
-            transition: margin-left 0.5s; /* Smooth transition */
-        }
-
-        .navbar.expanded + .content {
-            margin-left: 220px;
-            position:fixed; /* Adjust margin when navbar is expanded */
+            margin-left: 220px; /* Adjust margin to account for navbar */
+            transition: margin-left 0.5s ease; /* Smooth transition */
         }
     </style>
 </head>
 <body>
-    <!-- Toggle button to expand/collapse the navbar -->
-    <button class="navbar-toggle" onclick="toggleNavbar()">
-        <i class="fas fa-bars"></i> <!-- Hamburger icon -->
-    </button>
-
-    <!-- Vertical navigation bar -->
-    <div class="navbar" id="navbar">
-        <!-- Navigation links with icons -->
+    <!-- Fixed navigation bar with top margin -->
+    <div class="navbar">
         <a href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
         <a href="user.php"><i class="fas fa-users"></i> Users</a>
-        <a href="meal.php"><i class="fas fa-utensils"></i> Meal</a>
+        <a href="meal.php"><i class="fas fa-utensils"></i> Meals</a>
         <a href="contact.php"><i class="fas fa-envelope"></i> Contact Us</a>
         <a href="settings.php"><i class="fas fa-cogs"></i> Settings</a>
-        <a href="authentication_setup.php"><i class="fas fa-cogs"></i> Authentication</a>
-
-        <a href="history.php"><i class="fa-solid fa-laptop"></i>Recent Devices</a>
+        <a href="authentication_setup.php"><i class="fas fa-key"></i> Authentication</a>
+        <a href="history.php"><i class="fas fa-history"></i> History</a>
     </div>
 
-
-    <!-- JavaScript to toggle the navbar -->
-    <script>
-    function toggleNavbar() {
-        var navbar = document.getElementById("navbar");
-        navbar.classList.toggle("expanded"); // Toggle expanded state
-    }
-    </script>
+    
 </body>
 </html>
