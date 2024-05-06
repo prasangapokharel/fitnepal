@@ -7,7 +7,7 @@
         /* Full-height vertical navigation bar */
         .navbar {
             background-color: #124c8e; /* Dark background */
-            font-family: 'Inter', sans-serif;
+    font-family: 'Proxima Nova', sans-serif; /* Correctly set the font to Proxima Nova */
             width: 0; /* Start collapsed */
             position: fixed; /* Fixed position */
             top: 0; /* Align to the top */
@@ -43,7 +43,8 @@
 
         /* Hover effect for navigation links */
         .navbar a:hover {
-            background-color: #4e4e4e; /* Darker on hover */
+            background-color: #fff; /* Darker on hover */
+            color: #124c8e;
         }
 
         /* Icon styling in navbar */
@@ -89,6 +90,8 @@
         <a href="meal.php"><i class="fas fa-utensils"></i> Meal</a>
         <a href="contact.php"><i class="fas fa-envelope"></i> Contact Us</a>
         <a href="settings.php"><i class="fas fa-cogs"></i> Settings</a>
+        <a href="authentication_setup.php"><i class="fas fa-cogs"></i> Authentication</a>
+
         <a href="history.php"><i class="fa-solid fa-laptop"></i>Recent Devices</a>
     </div>
 

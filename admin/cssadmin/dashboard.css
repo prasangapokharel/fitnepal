@@ -26,7 +26,7 @@ body {
     flex-direction: column; /* Vertical arrangement */
     align-items: center; /* Center items */
     padding: 20px;
-    margin-top: 100px ; /* Uniform padding */
+    margin-top: 50px ; /* Uniform padding */
     width: 90%;
      /* Use full width */
 }
@@ -99,4 +99,49 @@ canvas{
     border-radius: 12px; /* Dark background for cards */
     background-color: transparent; /* Darker red on hover */
 
+}
+.profile-container {
+    position: absolute;
+    top: 22px;
+    right: 125px;
+    text-align: center;
+}
+
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 26px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    z-index: 1;
+    min-width: 150px; /* Ensure the menu is wide enough */
+}
+
+.dropdown-menu a {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+    display: block;
+    white-space: nowrap; /* Prevent line breaks */
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+.profile-container:hover .dropdown-menu {
+    display: block;
 }

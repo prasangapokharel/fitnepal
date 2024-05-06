@@ -3,6 +3,27 @@ include 'session.php'; // Include the session check
 
 include 'db_connection.php';
 
+// Get the logged-in user's ID from the session
+$user_id = $_SESSION['user_id'] ?? null;
+
+// Default profile picture if none is set
+$default_profile_picture = 'profilepic/49d8e82040dfc158d398c2dbefbf11a2.jpg'; // Use a default image if none is found
+
+$profile_picture = $default_profile_picture; // Set default as fallback
+
+if ($user_id) {
+    // Fetch the user's profile picture from the database
+    $sql = "SELECT profile_picture FROM users WHERE user_id = :user_id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $stmt->execute();
+
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    if ($user && $user['profile_picture']) {
+        $profile_picture = $user['profile_picture']; // Use the user's profile picture
+    }
+}
+
 // Query for the total number of users
 $query_total_users = "SELECT COUNT(*) AS total_users FROM users";
 $stmt_total_users = $pdo->prepare($query_total_users);
@@ -51,6 +72,8 @@ $user_counts = array_map(function ($data) {
     return $data['user_count'];
 }, $weekly_users_data);
 
+
+
 include 'navbar.php'; // Include the navbar
 ?>
 
@@ -64,8 +87,17 @@ include 'navbar.php'; // Include the navbar
     <link rel="stylesheet" href="./cssadmin/dashboard.css"> <!-- Custom CSS -->
 </head>
 <body>
+<!-- Profile container with image and dropdown menu -->
+<div class="profile-container">
+<img src="<?php echo htmlspecialchars($profile_picture); ?>" alt="Profile Image" class="profile-image"> <!-- Use dynamic image path -->
+        <!-- Dropdown menu with options -->
+        <div class="dropdown-menu">
+            <a href="adminprofile.php">Change Profile</a>
+            <a href="change_password.php">Change Password</a>
+        </div>
+    </div>
     <!-- Logout button -->
-    <button class="logout-button" onclick="logout()">Logout</button>
+    <br><button class="logout-button" onclick="logout()">Logout</button>
 
     <div class="container"> <!-- Navbar and content container -->
         <?php include 'navbar.php'; ?> <!-- Include the navbar -->
