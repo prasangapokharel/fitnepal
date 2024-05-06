@@ -317,3 +317,29 @@ body {
             margin-left: 24px;
             margin-bottom: 0px;
         }
+        
+.upgrade-container {
+    display: flex; 
+    flex-direction: column; /* Vertical layout */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    height: 50vh; /* Full viewport height */
+    background-color: #124c8e; 
+    color: #ffffff; /* White text */
+    text-align: center; 
+}
+
+.upgrade-button {
+    padding: 12px 30px; /* Add padding for a better look */
+    font-size: 16px; /* Larger font size */
+    color: #ffffff; /* White text */
+    background-color: #ff5733; /* Bright orange background */
+    border: none; /* No border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease-in-out; /* Smooth transition */
+}
+
+.upgrade-button:hover {
+    background-color: #e04e27; /* Darker orange on hover */
+}

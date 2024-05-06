@@ -1,0 +1,71 @@
+/* General body styling */
+body {
+    font-family: 'Arimo', sans-serif;
+    background-color: white; /* Set background color for the body */
+    color: #333; /* Dark text color */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+/* Container styling */
+.container {
+    max-width: 90%; /* Restrict width */
+    margin: 20px auto; /* Center with margin */
+    padding: 20px; /* Add padding */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light gray background */
+}
+
+/* Fixed public account information section */
+.public-account {
+    text-align: center; /* Center text */
+}
+
+.public-account h2 {
+    color: #124c8e; /* Dark blue heading */
+}
+
+.account-details p {
+    font-size: 14px; /* Smaller text for account details */
+}
+
+/* User input section */
+.user-input {
+    margin-top: 20px; /* Add space between sections */
+}
+
+.user-input h3 {
+    color: #124c8e; /* Dark blue heading */
+}
+
+/* Styling for form elements */
+input[type="text"] {
+    width: 100%; /* Full width */
+    padding: 10px; /* Add padding */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 10px; /* Space between inputs */
+}
+
+input[type="file"] {
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 10px; /* Space between inputs */
+}
+
+/* Purchase button styling */
+.purchase-button {
+    background-color: #ff5733; /* Bright orange */
+    color: #ffffff; /* White text */
+    padding: 12px 30px; /* Add padding */
+    font-size: 16px; /* Larger font size */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+.purchase-button:hover {
+    background-color: #e04e27; /* Darker orange on hover */
+}

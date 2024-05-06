@@ -313,6 +313,22 @@ include 'header\header.php';
             <p>This is the third video card with embedded YouTube content.</p>
         </div>
     </div>
+    
+    <div class="upgrade-container">
+        <h1>Upgrade to Premium</h1>
+        <p>Experience premium features and unlock exclusive content.</p>
+
+<!-- Button to navigate to a new page -->
+<button class="upgrade-button" onclick="window.location.href='../Fitnepal/Payment/details.php'">Upgrade Now</button>
+    </div>
+
+    <script>
+        function upgradeToPremium() {
+            // You can add your logic for upgrading here
+            console.log("Upgrade button clicked");
+            alert("Thank you for upgrading!");
+        }
+    </script>
     <script>
         function openModal() {
             document.getElementById("myModal").style.display = "flex"; // Show the modal
