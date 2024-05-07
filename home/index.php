@@ -54,7 +54,7 @@ include 'navbar.php';
   </nav> -->
   <div class="section__container header__container" id="home">
     <div class="header__image">
-      <img src="assets/header.png" alt="header" />
+      <img src="assets/header1.svg" alt="header" />
     </div>
     <div class="header__content">
       <h4>Build Your Body &</h4>
