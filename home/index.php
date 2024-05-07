@@ -33,25 +33,6 @@ include 'navbar.php';
   <title><?php echo $site_title; ?></title>
 </head>
 <header class="header">
-  <!-- <nav>
-    <div class="nav__header">
-      <div class="nav__logo">
-
-        <a href="#"><?php echo $site_logo; ?><?php echo $site_title; ?></a>
-      </div>
-      <div class="nav__menu__btn" id="menu-btn">
-        <span><i class="ri-menu-line"></i></span>
-      </div>
-    </div>
-    <ul class="nav__links" id="nav-links">
-      <li class="link"><a href="#home">Home</a></li>
-      <li class="link"><a href="#class">Classes</a></li>
-      <li class="link"><a href="#price">Pricing</a></li>
-      <li class="link"><a href="#about">About</a></li>
-      <li class="link"><a href="#">Contact</a></li>
-
-    </ul>
-  </nav> -->
   <div class="section__container header__container" id="home">
     <div class="header__image">
       <img src="assets/header.png" alt="header" />
@@ -73,33 +54,30 @@ include 'navbar.php';
 </header>
 
 <section class="section__container class__container" id="class">
-  <h2 class="section__header">Our Classes</h2>
+  <h2 class="section__header">Our Services</h2>
   <p class="section__description">
-    Discover a diverse range of exhilarating classes at our gym designed to
-    cater to all fitness levels and interests. Whether you're a seasoned
-    athlete or just starting your fitness journey, our classes offer
-    something for everyone.
+  FitNepal provides personalized fitness solutions tailored to individual needs and goals
   </p>
   <div class="class__grid">
     <div class="class__card">
-      <img src="assets/dot-bg.png" alt="bg" class="class__bg" />
-      <img src="assets/class-1.jpg" alt="class" />
+      <!-- <img src="assets/dot-bg.png" alt="bg" class="class__bg" /> -->
+      <img src="assets/bmi.png" alt="class" />
       <div class="class__content">
         <h4>Strength Training</h4>
         <p>Resistance Training</p>
       </div>
     </div>
     <div class="class__card">
-      <img src="assets/dot-bg.png" alt="bg" class="class__bg" />
-      <img src="assets/class-2.jpg" alt="class" />
+      <!-- <img src="assets/dot-bg.png" alt="bg" class="class__bg" /> -->
+      <img src="assets/unnamed.png" alt="class" />
       <div class="class__content">
         <h4>Flexibility & Mobility</h4>
         <p>Yoga & Pilates</p>
       </div>
     </div>
     <div class="class__card">
-      <img src="assets/dot-bg.png" alt="bg" class="class__bg" />
-      <img src="assets/class-3.jpg" alt="class" />
+      <!-- <img src="assets/dot-bg.png" alt="bg" class="class__bg" /> -->
+      <img src="assets/calorie.png" alt="class" />
       <div class="class__content">
         <h4>HIIT</h4>
         <p>Circuit Training</p>
@@ -210,6 +188,7 @@ include 'navbar.php';
 </section>
 
 <div class="container">
+  <h2>Contact us</h2><br>
 <form action="subcontact.php" method="post">
             <div class="form-group">
                 <label for="formName">Name</label>

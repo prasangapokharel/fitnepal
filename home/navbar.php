@@ -64,7 +64,7 @@
     </div>
     <div class="nav-links">
       <a href="profile.php">Home</a>
-      <a href="goal.php">BMI</a>
+      <a href="goal.php">Services</a>
       <a href="diet.php">Team</a>
       <a href="workout.php">About</a>
       <a href="?logout=true">Contact US</a>
