@@ -4,8 +4,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"> <!-- Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- FontAwesome -->
     <style>
-        /* Full-height fixed navigation bar with top margin */
+/* Full-height fixed navigation bar with top margin */
         .navbar {
+            height: 100%;
+
             background-color: #DFF5FF; /* Dark blue background */
             font-family: 'Inter', sans-serif; /* Font family */
             width: 220px; /* Fixed width */
@@ -19,7 +21,7 @@
             display: flex; /* Flexbox for layout */
             flex-direction: column; /* Vertical alignment of links */
             justify-content: flex-start; /* Align links at the top */
-            padding-top: 20px; /* Top padding */
+            padding-top: -20px; /* Top padding */
         }
 
         /* Styling for navbar links */
@@ -39,7 +41,8 @@
 
         /* Hover effect for links */
         .navbar a:hover {
-            background-color: #378CE7; /* Slightly darker background on hover */
+            background-color: #378CE7;
+            color: #fff; /* Slightly darker background on hover */
         }
 
         /* Icon styling in navbar */
