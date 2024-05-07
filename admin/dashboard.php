@@ -100,7 +100,10 @@ include 'navbar.php';
     <br><button class="logout-button" onclick="logout()">Logout</button>
 
     <div class="container"> <!-- Navbar and content container -->
+<<<<<<< HEAD
        
+=======
+>>>>>>> 0259a816c5b2831878123c3244defc6a8b15b805
 
         <!-- Content area -->
         <div class="content">

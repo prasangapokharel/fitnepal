@@ -21,7 +21,7 @@ $google_auth_secret = $user_data['google_auth_secret'] ?? null; // Fetch secret 
 if ($google_auth_secret === null) {
     // Generate a new secret key
     $google_auth_secret = $google2fa->generateSecretKey(); // Generate unique secret key
-    $company_name = "YourCompany"; // Company name for QR code
+    $company_name = "Fitnepal"; // Company name for QR code
     $qr_code_url = $google2fa->getQRCodeUrl($company_name, "user_{$user_id}", $google_auth_secret); // Generate QR code URL
 
     // Save the secret key to the database
