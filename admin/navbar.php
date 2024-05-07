@@ -14,10 +14,6 @@
             font-family: 'Inter', sans-serif; /* Font family */
             width: 200px;
             position: fixed; /* Fixed position */
-<<<<<<< HEAD
-            /* top: 20px;  */
-=======
->>>>>>> 0259a816c5b2831878123c3244defc6a8b15b805
             left: 0; /* Align to the left edge */
             height: calc(100vh - 20px); /* Fill remaining height with top margin */
             overflow: hidden; /* Prevent overflow */
