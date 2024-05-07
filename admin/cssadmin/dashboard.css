@@ -1,20 +1,22 @@
 /* Dark background with orange text and Inter font */
 body {
-    background-color: white; /* Dark background */
-    color: rgb(255, 255, 255); /* Orange text */
-    font-family: 'Inter', sans-serif; /* Inter font */
-     /* No default padding */
+    background-color: white;
+    color: rgb(255, 255, 255);
+    font-family: 'Inter', sans-serif;
+    margin: 0px;
+    Padding: 0px;
+
 }
 
-/* Flexbox container with uniform layout */
 .container {
     display: flex; /* Use flexbox */
     flex-direction: column; /* Vertical layout */
     align-items: center; /* Center content */
     justify-content: flex-start; /* Align content at the top */
     height: 100vh; 
-    margin-left: 6%;
+    /* margin-left: 6%; */
     margin-top: 2%;
+    overflow: hidden;
 
     /* Full screen height */
 }
@@ -25,7 +27,7 @@ body {
     display: flex; /* Use flexbox */
     flex-direction: column; /* Vertical arrangement */
     align-items: center; /* Center items */
-    padding: 20px;
+    /* padding: 20px; */
     margin-top: 50px ; /* Uniform padding */
     width: 90%;
      /* Use full width */
@@ -38,7 +40,7 @@ body {
     align-items: stretch; /* Stretch to equal heights */
     gap: 30px; /* Increased gap */
     width: 90%; /* Full width */
-    padding: 20px; /* Consistent padding */
+    /* padding: 20px;  */
 }
 
 /* Information card styling with icons and consistent height */
@@ -88,9 +90,9 @@ body {
 
 /* Bar graph styling with consistent dimensions */
 .bar-graph {
-    width: 90%; /* Full width */
+    width: 85%; /* Full width */
     height: 300px; /* Fixed height */
-    margin: 20px 5%;
+    margin: 50px 5%;
     /* Consistent margin */
 
 }

@@ -4,24 +4,24 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"> <!-- Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- FontAwesome -->
     <style>
-/* Full-height fixed navigation bar with top margin */
+        /* Full-height fixed navigation bar with top margin */
         .navbar {
-            height: 100%;
+            height: 100vh;
 
             background-color: #DFF5FF; /* Dark blue background */
             font-family: 'Inter', sans-serif; /* Font family */
-            width: 220px; /* Fixed width */
+            width: 200px;
             position: fixed; /* Fixed position */
             left: 0; /* Align to the left edge */
             height: calc(100vh - 20px); /* Fill remaining height with top margin */
             overflow: hidden; /* Prevent overflow */
-            transition: width 0.5s ease; /* Smooth transition */
-            border-radius: 0 10px 10px 0; /* Rounded corners on the right */
+            /* transition: width 0.5s ease;  */
+            /* border-radius: 0 10px 10px 0; */
             z-index: 1000; /* Keep navbar above other content */
             display: flex; /* Flexbox for layout */
             flex-direction: column; /* Vertical alignment of links */
             justify-content: flex-start; /* Align links at the top */
-            padding-top: -20px; /* Top padding */
+            padding-top: 20px; /* Top padding */
         }
 
         /* Styling for navbar links */
@@ -32,17 +32,16 @@
             padding: 15px;
             text-decoration: none; /* No underline */
             color: black; /* Text color */
-            transition: background-color 0.3s ease; /* Smooth transition */
+            /* transition: background-color 0.3s ease;  */
+            font-weight: 800;
+            margin: 20px 5px 20px 15px;
+            padding: 8px 0 8px 0;
 
-
-            /* remain to make */
-            /* margin: ; */
         }
 
         /* Hover effect for links */
         .navbar a:hover {
-            background-color: #378CE7;
-            color: #fff; /* Slightly darker background on hover */
+            background-color: #378CE7; /* Slightly darker background on hover */
         }
 
         /* Icon styling in navbar */
@@ -53,7 +52,7 @@
         /* Content with margin adjusted for the navbar */
         .content {
             margin-left: 220px; /* Adjust margin to account for navbar */
-            transition: margin-left 0.5s ease; /* Smooth transition */
+            /* transition: margin-left 0.5s ease; */
         }
     </style>
 </head>
