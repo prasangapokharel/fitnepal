@@ -6,7 +6,7 @@
     <style>
         /* Full-height fixed navigation bar with top margin */
         .navbar {
-            background-color: #124c8e; /* Dark blue background */
+            background-color: #DFF5FF; /* Dark blue background */
             font-family: 'Inter', sans-serif; /* Font family */
             width: 220px; /* Fixed width */
             position: fixed; /* Fixed position */
@@ -29,13 +29,17 @@
             align-items: center; /* Vertically center content */
             padding: 15px;
             text-decoration: none; /* No underline */
-            color: white; /* Text color */
+            color: black; /* Text color */
             transition: background-color 0.3s ease; /* Smooth transition */
+
+
+            /* remain to make */
+            /* margin: ; */
         }
 
         /* Hover effect for links */
         .navbar a:hover {
-            background-color: #0b3c70; /* Slightly darker background on hover */
+            background-color: #378CE7; /* Slightly darker background on hover */
         }
 
         /* Icon styling in navbar */
