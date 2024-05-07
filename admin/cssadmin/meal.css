@@ -3,17 +3,19 @@ body {
     background-color: white; /* Background color */
     color: #124c8e; /* Text color */
     font-family: 'Inter', sans-serif; /* Font */
+    margin: 0px;
+    padding: 0px;
 }
 
 /* Container for the main content */
 .container {
-    padding: 20px; /* Consistent padding */
+    padding: 20px;
     display: flex; /* Use flexbox for layout */
     flex-direction: column; /* Vertical arrangement */
     justify-content: flex-start; /* Align content at the top */
     align-items: center; /* Center content horizontally */
     height: 100vh;
-    margin-left: 12%;
+    margin-left: 15%;
 }
 
 /* Heading for the section */
@@ -21,13 +23,13 @@ h1 {
     color: #124c8e; /* Heading color */
     font-weight: 600; /* Bold font */
 }
-label{
+/* label{
     color: white;
-}
+} */
 
 /* Form styling for adding new diet items */
 form {
-    background-color: #124c8e; /* Background for form */
+    background-color: #DFF5FF; /* Background for form */
     padding: 20px 20px; /* Padding */
     border-radius: 10px; /* Rounded corners */
     width: 90%; /* Fixed width */

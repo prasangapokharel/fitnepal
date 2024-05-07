@@ -11,8 +11,9 @@ body {
 .container {
     background-color: #124c8e; /* Dark background for cards */
     border-radius: 10px; /* Rounded corners for smoothness */
-    padding: 20px;
-    margin: 4% 15%;
+    /* padding: 20px;
+    margin: 4% 15%; */
+    margin: 0 25px 0 50px;
    
 }
 

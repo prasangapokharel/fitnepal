@@ -74,7 +74,7 @@ $user_counts = array_map(function ($data) {
 
 
 
-include 'navbar.php'; // Include the navbar
+include 'navbar.php'; 
 ?>
 
 <!DOCTYPE html>
@@ -100,7 +100,7 @@ include 'navbar.php'; // Include the navbar
     <br><button class="logout-button" onclick="logout()">Logout</button>
 
     <div class="container"> <!-- Navbar and content container -->
-        <?php include 'navbar.php'; ?> <!-- Include the navbar -->
+       
 
         <!-- Content area -->
         <div class="content">
