@@ -4,10 +4,10 @@
   --primary-color: #ffffff;
   --primary-color-dark: rgb(55, 19, 138);
   --secondary-color: #ffffff;
-  --text-dark: #1441aa;
+  --text-dark: #378CE7;
   --text-light: #64748b;
   --white: #07419d;
-  --max-width: 1200px;
+  --max-width: 1600px;
 }
 
 * {
@@ -68,7 +68,7 @@ body{
   font-size: 1rem;
   white-space: nowrap;
   color: white;
-  background-color: rgb(7, 7, 107);
+  background-color: #378CE7;
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
@@ -102,9 +102,9 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-.header {
-  background-color: var(--secondary-color);
-}
+/* .header {
+  background-color: #DFF5FF;
+} */
 
 nav {
   position: fixed;
@@ -361,6 +361,14 @@ nav {
   max-width: 500px;
   padding-inline: 1rem;
   padding-top: 4rem;
+
+  display: inline-flex;
+  flex-wrap: wrap;
+
+      height: 100%;
+    position: relative;
+    transition-property: transform;
+    /* display: block; */
 }
 
 .client__card {
@@ -534,6 +542,17 @@ nav {
     padding-block: 0;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
+
+
+
+
+
+    /* Changes required */
+/* 
+    margin: 0 -100px 0 -100px;
+        align-items: center;
+        display: inline-grid;
+        justify-content: center; */
   }
 
   .header__content {

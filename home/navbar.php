@@ -20,11 +20,11 @@
   body {
     margin: 0;
     padding: 0;
-    background-color: white;
+    /* background-color: white; */
   }
 
   .navbar {
-    background-color: rgb(7, 7, 107);
+    background-color: #DFF5FF;
     display: flex;
     justify-content: space-between;
     overflow: hidden;
@@ -34,12 +34,11 @@
 
   .navbar a {
     display: inline-block;
-    color: white ;
     text-align: center;
     text-decoration: none;
     font-size: 22px;
-
     margin-right: 20px;
+    color: black;
   }
 
   .nav-links {
@@ -65,7 +64,7 @@
     <div class="nav-links">
       <a href="profile.php">Home</a>
       <a href="goal.php">Services</a>
-      <a href="diet.php">Team</a>
+      <a href="diet.php">Pricing</a>
       <a href="workout.php">About</a>
       <a href="?logout=true">Contact US</a>
 
