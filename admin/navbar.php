@@ -10,7 +10,6 @@
             font-family: 'Inter', sans-serif; /* Font family */
             width: 220px; /* Fixed width */
             position: fixed; /* Fixed position */
-            top: 20px; /* Align slightly below the top */
             left: 0; /* Align to the left edge */
             height: calc(100vh - 20px); /* Fill remaining height with top margin */
             overflow: hidden; /* Prevent overflow */
@@ -25,9 +24,10 @@
 
         /* Styling for navbar links */
         .navbar a {
+            height: 100vh;
             display: flex; /* Flex layout for icons and text */
             align-items: center; /* Vertically center content */
-            padding: 15px; /* Padding */
+            padding: 15px;
             text-decoration: none; /* No underline */
             color: white; /* Text color */
             transition: background-color 0.3s ease; /* Smooth transition */
@@ -56,6 +56,9 @@
         <a href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
         <a href="user.php"><i class="fas fa-users"></i> Users</a>
         <a href="meal.php"><i class="fas fa-utensils"></i> Meals</a>
+        <a href="calories.php"><i class="fas fa-utensils"></i> Calories</a>
+        <a href="proteingoal.php"><i class="fas fa-utensils"></i> Protein</a>
+
         <a href="contact.php"><i class="fas fa-envelope"></i> Contact Us</a>
         <a href="settings.php"><i class="fas fa-cogs"></i> Settings</a>
         <a href="authentication_setup.php"><i class="fas fa-key"></i> Authentication</a>

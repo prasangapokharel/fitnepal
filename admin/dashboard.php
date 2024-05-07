@@ -100,7 +100,6 @@ include 'navbar.php'; // Include the navbar
     <br><button class="logout-button" onclick="logout()">Logout</button>
 
     <div class="container"> <!-- Navbar and content container -->
-        <?php include 'navbar.php'; ?> <!-- Include the navbar -->
 
         <!-- Content area -->
         <div class="content">
