@@ -32,10 +32,11 @@ include 'navbar.php';
 
   <title><?php echo $site_title; ?></title>
 </head>
+<div class="container">
 <header class="header">
   <div class="section__container header__container" id="home">
     <div class="header__image">
-      <img src="assets/header1.svg" alt="header" />
+      <img src="assets/header4.svg" alt="header" />
     </div>
     <div class="header__content">
       <h4>Build Your Body &</h4>
@@ -128,7 +129,7 @@ include 'navbar.php';
       <!-- Slides -->
       <div class="swiper-slide">
         <div class="client__card">
-          <img src="assets/client-1.jpg" alt="client" />
+          <img src="assets/dev1.jpg" alt="client" />
           <div class="client__ratings">
             <span><i class="ri-star-fill"></i></span>
             <span><i class="ri-star-fill"></i></span>
@@ -147,7 +148,7 @@ include 'navbar.php';
       </div>
       <div class="swiper-slide">
         <div class="client__card">
-          <img src="assets/client-2.jpg" alt="client" />
+          <img src="assets/dev2.jpg" alt="client" />
           <div class="client__ratings">
             <span><i class="ri-star-fill"></i></span>
             <span><i class="ri-star-fill"></i></span>
@@ -160,13 +161,13 @@ include 'navbar.php';
             during these times have made it a safe haven for me to maintain
             my health and de-stress.
           </p>
-          <h4>Emily Carter</h4>
-          <h5>Registered Nurse</h5>
+          <h4>Kapil Tamang</h4>
+          <h5>Trainer</h5>
         </div>
       </div>
       <div class="swiper-slide">
         <div class="client__card">
-          <img src="assets/client-3.jpg" alt="client" />
+          <img src="assets/dev3.jpg" alt="client" />
           <div class="client__ratings">
             <span><i class="ri-star-fill"></i></span>
             <span><i class="ri-star-fill"></i></span>
@@ -210,7 +211,7 @@ include 'navbar.php';
                 <button type="submit" class="btn btn-primary">Send Message</button>
             </div>
         </form>
-
+        </div>
   <footer class="footer">
     <div class="section__container footer__container">
       <div class="footer__col">

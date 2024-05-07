@@ -24,7 +24,7 @@
   }
 
   .navbar {
-    background-color: #dff5ff;
+    background-color: rgb(7, 7, 107);
     display: flex;
     justify-content: space-between;
     overflow: hidden;
@@ -34,7 +34,7 @@
 
   .navbar a {
     display: inline-block;
-    color: black;
+    color: white ;
     text-align: center;
     text-decoration: none;
     font-size: 22px;
