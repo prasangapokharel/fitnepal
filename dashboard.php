@@ -319,7 +319,7 @@ include 'header\header.php';
         <p>Experience premium features and unlock exclusive content.</p>
 
 <!-- Button to navigate to a new page -->
-<button class="upgrade-button" onclick="window.location.href='../Fitnepal/Payment/details.php'">Upgrade Now</button>
+<button class="upgrade-button" onclick="window.location.href='../Fitnepal/Payment/paynow.php'">Upgrade Now</button>
     </div>
 
     <script>
