@@ -3,6 +3,8 @@ body {
     background-color: #124c8e; /* Dark background for cards */
     color: #f0f0f0; /* Light text for contrast */
     font-family: 'Inter', sans-serif; /* Modern font */
+    margin: 0px;
+    Padding: 0px;
 }
 
 /* Flexbox container with futuristic colors */
@@ -11,8 +13,8 @@ body {
     background-color: #124c8e; /* Dark background for cards */
     border-radius: 10px; /* Rounded corners for smoothness */
     padding: 20px;
-    margin-top: 1%;
-    margin: 1% 5%;
+    margin-top: 0%;
+    margin: 0px 5%;
 
 }
 .next{

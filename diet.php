@@ -52,7 +52,7 @@ include 'header\header.php';
                 <option value="weight-loss" <?php echo $category === 'weight-loss' ? 'selected' : ''; ?>>Weight Loss</option>
                 <option value="weight-gain" <?php echo $category === 'weight-gain' ? 'selected' : ''; ?>>Weight Gain</option>
                 
-                <option value="keto" <?php echo $category === 'keto' ? 'selected' : ''; ?>>Keto</option>
+                <!-- <option value="keto" <?php echo $category === 'keto' ? 'selected' : ''; ?>>Keto</option> -->
                 
             </select>
         </div>

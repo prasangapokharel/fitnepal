@@ -1,4 +1,6 @@
 <?php
+        include 'navbar.php';
+
 // Session and database connection
 include 'session.php'; // Include session check
 include 'db_connection.php'; // Include PDO connection
@@ -47,8 +49,8 @@ if ($google_auth_secret === null) {
     <link rel="stylesheet" href="./cssadmin/authentication_setup.css"> <!-- External CSS -->
 </head>
 <body>
+    <?php   include 'navbar.php'; ?>
     <div class="container">
-        <?php include 'navbar.php' ?>
         <h2>Google Authentication Setup</h2>
         <br>
         <p>Scan the QR code with Google Authenticator, then enter the generated OTP below:</p>

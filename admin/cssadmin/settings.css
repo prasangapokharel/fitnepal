@@ -1,9 +1,14 @@
 /* Common body styling */
+*{
+    margin: 0px;
+    padding: 0px;
+}
 body {
     background-color: #124c8e; /* Consistent background color */
     color: white; /* Light text color */
     font-family: 'Inter', sans-serif; /* Consistent font */
-    
+    margin: 0px;
+    padding: 0px;
 }
 
 
