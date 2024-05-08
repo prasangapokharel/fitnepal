@@ -13,7 +13,7 @@
             width: 200px;
             position: fixed; /* Fixed position */
             left: 0; /* Align to the left edge */
-            height: calc(100vh - 20px); /* Fill remaining height with top margin */
+            height: calc(100vh 20px); /* Fill remaining height with top margin */
             overflow: hidden; /* Prevent overflow */
             /* transition: width 0.5s ease;  */
             /* border-radius: 0 10px 10px 0; */
@@ -21,7 +21,7 @@
             display: flex; /* Flexbox for layout */
             flex-direction: column; /* Vertical alignment of links */
             justify-content: flex-start; /* Align links at the top */
-            padding-top: 20px; /* Top padding */
+            /* padding-top: 20px;  */
         }
 
         /* Styling for navbar links */
