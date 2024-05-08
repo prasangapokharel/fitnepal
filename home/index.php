@@ -232,9 +232,9 @@ include 'navbar.php';
   </div>
 
   <div class="footer__socials">
-    <a href="#"><i class="ri-facebook-fill"></i></a>
-    <a href="#"><i class="ri-instagram-line"></i></a>
-    <a href="#"><i class="ri-twitter-fill"></i></a>
+    <a href="https://www.facebook.com/"><i class="ri-facebook-fill"></i></a>
+    <a href="https://www.instagram.com/"><i class="ri-instagram-line"></i></a>
+    <a href="https://twitter.com/"><i class="ri-twitter-fill"></i></a>
   </div>
   <div class="footer__bar">
     Copyright © 2024 fitnepal . All rights reserved.
