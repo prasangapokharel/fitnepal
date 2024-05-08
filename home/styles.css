@@ -4,10 +4,10 @@
   --primary-color: #ffffff;
   --primary-color-dark: rgb(55, 19, 138);
   --secondary-color: #ffffff;
-  --text-dark: #1441aa;
+  --text-dark: #378ce7;
   --text-light: #64748b;
   --white: #07419d;
-  --max-width: 1200px;
+  --max-width: 1500px;
 }
 
 * {
@@ -15,17 +15,17 @@
   margin: 0;
   box-sizing: border-box;
 }
-body{
+body {
   background-color: #ffffff;
-
 }
 .section__container {
-  max-width: var(--max-width);
+  /* max-width: var(--max-width); */
   margin: auto;
   padding: 5rem 1rem;
   background-color: #ffffff;
+  margin-left: 5%;
 }
-.trsf.a{
+.trsf.a {
   text-decoration: none;
 }
 .section__header {
@@ -51,15 +51,9 @@ body{
   max-width: 900px;
   color: var(--text-light);
 }
-/* .header__btn.button.a{
+
+.trsf {
   color: white;
-} */
-
-/* Join now button text color */
-.trsf{
-  color: white;
-
-
 }
 .btn {
   padding: 0.75rem 1.5rem;
@@ -68,17 +62,28 @@ body{
   font-size: 1rem;
   white-space: nowrap;
   color: white;
-  background-color: rgb(7, 7, 107);
+  background-color: #378ce7;
   border-radius: 5px;
-  cursor: pointer;
+  /* cursor: pointer; */
   transition: 0.3s;
-  width:
+  /* width: ; */
+  /* display: flex; */
+  justify-content: center;
+  /* margin: auto; */
+
+}
+
+.section__container .class__container{
+  padding-bottom: 0px;
+}
+
+.container{
+  max-width: -540px;
 }
 
 .btn:hover {
   background-color: rgb(7, 7, 107);
   color: white;
-
 }
 
 img {
@@ -91,8 +96,6 @@ a {
   white-space: nowrap;
 }
 
-
-
 html,
 body {
   scroll-behavior: smooth;
@@ -102,8 +105,12 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-.header {
-  background-color: var(--secondary-color);
+/* .header {
+  background-color: #DFF5FF;
+} */
+
+.text{
+  margin-left: -100px;
 }
 
 nav {
@@ -163,9 +170,9 @@ nav {
   transition: 0.3s;
 }
 
-.link a:hover {
+/* .link a:hover {
   color: var(--primary-color);
-}
+} */
 
 .nav__menu__btn {
   font-size: 1.5rem;
@@ -175,6 +182,7 @@ nav {
 .header__container {
   display: grid;
   gap: 2rem;
+
 }
 
 .header__image img {
@@ -255,8 +263,10 @@ nav {
 
 .class__grid {
   margin-top: 4rem;
-  display: grid;
+  display: flex;
+  margin-left: -100px;
   gap: 2rem;
+
 }
 
 .class__card {
@@ -318,7 +328,8 @@ nav {
 
 .price__card {
   padding: 2rem 1rem;
-  display: flex;
+  /* display: flex; */
+
   flex-direction: column;
   text-align: center;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
@@ -358,9 +369,17 @@ nav {
 }
 
 .swiper-slide {
-  max-width: 500px;
+  max-width: 450px;
   padding-inline: 1rem;
   padding-top: 4rem;
+
+  display: inline-flex;
+  flex-wrap: wrap;
+
+  height: 100%;
+  /* position: relative; */
+  transition-property: transform;
+  /* display: block; */
 }
 
 .client__card {
@@ -412,6 +431,8 @@ nav {
 .footer__container {
   display: grid;
   gap: 1rem;
+  margin-left: 7%;
+  margin-right: 3%;
 }
 
 .footer__logo a {
@@ -425,7 +446,8 @@ nav {
 }
 
 .footer__logo img {
-  max-width: 40px;  
+  max-width: 40px;
+  margin-left: 15px;
 }
 
 .footer__col p {
@@ -438,6 +460,7 @@ nav {
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
+  margin-bottom: 12px;
 }
 
 .footer__socials a {
@@ -449,8 +472,8 @@ nav {
 }
 
 .footer__socials a:hover {
-  color: var(--primary-color);
-  border-color: var(--primary-color);
+  /* color: ; */
+  /* border-color: var(--primary-color); */
 }
 
 .footer__col h4 {
@@ -463,17 +486,20 @@ nav {
 .footer__links a {
   display: block;
   margin-bottom: 1rem;
-  color: var(--text-light);
+  color: black;
+
+  
 }
 
 .footer__links a:hover {
-  color: var(--primary-color);
+  color: #378CE7;
+  
+
 }
 
 .footer__bar {
   padding: 1rem;
   font-size: 0.8rem;
-  /* color: var(--text-light); */
   text-align: center;
   background-color: #effaff;
 }
@@ -481,6 +507,12 @@ nav {
 .footer__container {
   grid-template-columns: 5fr 1fr;
 }
+
+
+
+
+/* Responsive */
+
 
 @media (width > 480px) {
   .class__grid {
@@ -496,8 +528,6 @@ nav {
   .footer__container {
     /* grid-template-columns: 2fr 1fr; */
     grid-template-columns: 5fr 1fr;
-    
-
   }
 }
 
@@ -534,11 +564,18 @@ nav {
     padding-block: 0;
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
+
+    margin: 0 -100px 0 -100px;
+    align-items: center;
+    display: inline-grid;
+    justify-content: center;
   }
 
   .header__content {
     padding-block: 5rem;
     grid-area: 1/1/2/2;
+    margin-left: 70px;
+
   }
 
   .about__container {
@@ -569,7 +606,7 @@ nav {
 
 @media (width > 1024px) {
   .class__grid {
-    gap: 2rem;
+    gap: 4rem;
   }
 
   .price__grid {
@@ -577,6 +614,6 @@ nav {
   }
 
   .price__card {
-    padding: 2rem;
+    padding: 1rem;
   }
 }
