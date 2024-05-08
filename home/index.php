@@ -54,10 +54,13 @@ include 'navbar.php';
   </header>
 
   <section class="section__container class__container" id="class">
-    <h2 class="section__header">Our Services</h2>
-    <p class="section__description">
-      FitNepal provides personalized fitness solutions tailored to individual needs and goals
-    </p>
+    <div class="text">
+      <h2 class="section__header">Our Services</h2>
+      <p class="section__description">
+        FitNepal provides personalized fitness solutions tailored to individual needs and goals
+      </p>
+    </div>
+
     <div class="class__grid">
       <div class="class__card">
         <!-- <img src="assets/dot-bg.png" alt="bg" class="class__bg" /> -->
@@ -95,19 +98,16 @@ include 'navbar.php';
     <div class="price__card">
       <div class="price__content">
         <h4>Paid Plan</h4>
-        <img src="assets/price-3.png" alt="price" />
+        <img src="assets/price-2.png" alt="price" />
         <p>
-          With this flexible membership, you'll have access to our
-          state-of-the-art gym facilities, expert trainers, and a vibrant
-          fitness community
+          "Upgrade Your Fitness Journey: Empower Your Goals with FitNepal's Premium Plan!"
+
         </p>
         <hr />
         <h4>Key Features</h4>
-        <p>ELITE Gyms & Classes</p>
-        <p>PRO Gyms</p>
-        <p>Smart workout plan</p>
-        <p>At home workouts</p>
-        <p>Personal Training</p>
+        <p>Protein Tracker</p>
+        <p>Calorie Tracker</p>
+        <p>User diet</p>
       </div>
       <button class="btn">Join Now</button>
     </div>
@@ -133,8 +133,8 @@ include 'navbar.php';
             <span><i class="ri-star-line"></i></span>
           </div>
           <p>
-             "FitNepal has truly transformed my fitness journey. From providing reliable information to fostering a supportive environment.I feel confident, empowered, and healthier than ever before."
-        </p>
+            "FitNepal has truly transformed my fitness journey. From providing reliable information to fostering a supportive environment.I feel confident, empowered, and healthier than ever before."
+          </p>
           <h4>Abijeet Raut</h4>
           <h5>App Developer</h5>
         </div>
