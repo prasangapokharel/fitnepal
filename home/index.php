@@ -66,24 +66,24 @@ include 'navbar.php';
         <!-- <img src="assets/dot-bg.png" alt="bg" class="class__bg" /> -->
         <img src="assets/bmi.png" alt="class" />
         <div class="class__content">
-          <h4>Strength Training</h4>
-          <p>Resistance Training</p>
+          <h4>BMI Calculator</h4>
+          <p>Body Mass Index</p>
         </div>
       </div>
       <div class="class__card">
         <!-- <img src="assets/dot-bg.png" alt="bg" class="class__bg" /> -->
         <img src="assets/unnamed.png" alt="class" />
         <div class="class__content">
-          <h4>Flexibility & Mobility</h4>
-          <p>Yoga & Pilates</p>
+          <h4>Protein Tracker</h4>
+          <p>Track your protein</p>
         </div>
       </div>
       <div class="class__card">
         <!-- <img src="assets/dot-bg.png" alt="bg" class="class__bg" /> -->
         <img src="assets/calorie.png" alt="class" />
         <div class="class__content">
-          <h4>HIIT</h4>
-          <p>Circuit Training</p>
+          <h4>Calorie Tracker</h4>
+          <p>Track your calorie</p>
         </div>
       </div>
     </div>
