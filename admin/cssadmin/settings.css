@@ -1,28 +1,25 @@
 /* Common body styling */
 *{
     margin: 0px;
-    padding: 0px;
+    /* padding: 0px; */
 }
 body {
-    background-color: #124c8e; /* Consistent background color */
-    color: white; /* Light text color */
+    background-color: #ffffff; /* Consistent background color */
+    color: rgb(0, 0, 0); /* Light text color */
     font-family: 'Inter', sans-serif; /* Consistent font */
     margin: 0px;
-    padding: 0px;
+    /* padding: 0px; */
 }
 
 
 
 /* Form styling for the settings page */
 form {
-    float:center;
-    margin: 5% 20%;
-    background-color: #124c8e; /* Dark background for consistency */
-    border-radius: 10px; /* Rounded corners */
-    padding: 20px; /* Consistent padding */
+    background-color: #DFF5FF; /* Dark background for consistency */    
     width: 60%; /* Set a specific width */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
     text-align: left; /* Left-align the content */
+    margin-left: 230px;
+    margin-top: 15px;
 }
 
 /* Form group styling */
@@ -33,7 +30,7 @@ form {
 /* Label styling */
 label {
     font-size: 16px; /* Consistent font size */
-    color: white; /* Light text color */
+    color: rgb(0, 0, 0); /* Light text color */
     font-weight: 600; /* Bold text */
 }
 
@@ -41,16 +38,16 @@ label {
 input {
     padding: 10px; /* Padding for comfort */
     font-size: 14px; /* Consistent font size */
-    border: 1px solid #ccc; /* Light border */
-    border-radius: 5px; /* Rounded corners */
-    background-color: #3e3e3e; /* Background color */
-    color: white; /* Light text color */
+    /* border: 1px solid #ccc;  */
+    /* border-radius: 5px; */
+    background-color: #ffffff; /* Background color */
+    color: rgb(0, 0, 0); /* Light text color */
 }
 
 /* Button styling */
 button {
     padding: 10px 20px; /* Padding for comfort */
-    background-color: #124c8e; /* Consistent background color */
+    background-color: #378CE7; /* Consistent background color */
     color: white; /* Light text color */
     border: none; /* No border */
     border-radius: 5px; /* Rounded corners */
@@ -60,12 +57,12 @@ button {
 
 /* Hover effect for buttons */
 button:hover {
-    background-color: #e53935; /* Darker on hover */
+    background-color: #3544e5; /* Darker on hover */
 }
 
 /* Legend styling for current image info */
 p {
-    color: #f0f0f0; /* Consistent text color */
+    color: #000000; /* Consistent text color */
     font-size: 14px; /* Consistent font size */
     margin: 5px 0; /* Add some margin */
 }
