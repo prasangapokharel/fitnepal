@@ -9,16 +9,32 @@ body {
     background-color: #124c8e; /* Dark background for cards */
     color: #f0f0f0; /* Light text for contrast */
     font-family: 'Inter', sans-serif; /* Modern font */
+<<<<<<< HEAD
     margin: 0px;
     Padding: 0px;
+=======
+    display: flex;
+    
+
+>>>>>>> 9c7a95e7d0b20bfa227d5310715744da49dba415
 }
 
 /* Flexbox container with futuristic colors */
 .container {
     background-color: #124c8e; /* Dark background for cards */
+<<<<<<< HEAD
     border-radius: 10px; 
     padding: 20px;/* Rounded corners for smoothness */
     margin: 0% 20%; 
+=======
+    border-radius: 10px; /* Rounded corners for smoothness */
+    /* padding: 20px;
+    margin: 4% 15%; */
+    margin: 0 25px 0 220px;
+    padding: 20px;
+   
+
+>>>>>>> 9c7a95e7d0b20bfa227d5310715744da49dba415
    
 }
 

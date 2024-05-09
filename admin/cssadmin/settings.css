@@ -4,25 +4,30 @@
     padding: 0px;
 }
 body {
-    background-color: #124c8e; /* Consistent background color */
-    color: white; /* Light text color */
+    color: black; /* Light text color */
     font-family: 'Inter', sans-serif; /* Consistent font */
+<<<<<<< HEAD
     margin: 0px;
     padding: 0px;
+=======
+    display: flex;
+>>>>>>> 9c7a95e7d0b20bfa227d5310715744da49dba415
 }
 
 
 
 /* Form styling for the settings page */
 form {
-    float:center;
-    margin: 5% 20%;
-    background-color: #124c8e; /* Dark background for consistency */
-    border-radius: 10px; /* Rounded corners */
+    /* float:center;
+    margin: 5% 20%; */
+    background-color: #DFF5FF; /* Dark background for consistency */
+    /* border-radius: 10px;  */
     padding: 20px; /* Consistent padding */
     width: 60%; /* Set a specific width */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
     text-align: left; /* Left-align the content */
+
+    margin-left: 220px;
 }
 
 /* Form group styling */
@@ -33,7 +38,7 @@ form {
 /* Label styling */
 label {
     font-size: 16px; /* Consistent font size */
-    color: white; /* Light text color */
+    color: black; /* Light text color */
     font-weight: 600; /* Bold text */
 }
 
@@ -43,19 +48,20 @@ input {
     font-size: 14px; /* Consistent font size */
     border: 1px solid #ccc; /* Light border */
     border-radius: 5px; /* Rounded corners */
-    background-color: #3e3e3e; /* Background color */
-    color: white; /* Light text color */
+    background-color: white; /* Background color */
+    color: black; /* Light text color */
 }
 
 /* Button styling */
 button {
     padding: 10px 20px; /* Padding for comfort */
-    background-color: #124c8e; /* Consistent background color */
-    color: white; /* Light text color */
+    background-color: #378CE7; /* Consistent background color */
+    color: black; /* Light text color */
     border: none; /* No border */
     border-radius: 5px; /* Rounded corners */
     cursor: pointer; /* Pointer cursor */
     transition: background-color 0.3s; /* Smooth transition */
+    font-weight: 500;
 }
 
 /* Hover effect for buttons */
@@ -65,7 +71,7 @@ button:hover {
 
 /* Legend styling for current image info */
 p {
-    color: #f0f0f0; /* Consistent text color */
+    color: black; /* Consistent text color */
     font-size: 14px; /* Consistent font size */
     margin: 5px 0; /* Add some margin */
 }

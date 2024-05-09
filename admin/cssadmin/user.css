@@ -17,6 +17,18 @@ body {
     margin: 0px 5%;
 
 }
+.export-button-container{
+    margin: 30px auto;
+
+}
+.csv{
+    background-color: green; /* Dark background for cards */
+border: 2px;
+border-radius: 10px; /* Rounded corners for smoothness */
+text-decoration: none;
+    padding: 9px 12px;
+    color: rgb(255, 255, 255);
+}
 .next{
     display: none;
 }
