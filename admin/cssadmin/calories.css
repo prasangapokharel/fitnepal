@@ -3,6 +3,8 @@ body {
     background-color: #124c8e; /* Dark background */
     color: #f0f0f0; /* Light text */
     font-family: 'Inter', sans-serif; /* Modern font */
+    margin: 0px;
+    Padding: 0px;
 }
 
 /* Flexbox container with futuristic colors */
@@ -10,7 +12,7 @@ body {
     background-color: #124c8e;
     border-radius: 10px;
     padding: 20px;
-    margin: 2% 15%;
+    margin: 0% 15%;
 }
 
 /* Table styling */

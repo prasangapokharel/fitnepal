@@ -1,6 +1,6 @@
 /* Dark background with orange text and Inter font */
 body {
-    background-color: white;
+    background-color: #124c8e; /* Dark background for cards */
     color: rgb(255, 255, 255);
     font-family: 'Inter', sans-serif;
     margin: 0px;
@@ -45,7 +45,7 @@ body {
 
 /* Information card styling with icons and consistent height */
 .info-box {
-    background-color: #124c8e; /* Dark background for cards */
+    background-color:#900c57; /* Dark background for cards */
     border-radius: 10px; /* Rounded corners */
     text-align: center; /* Center text */
     flex: 1; /* Allow flex growth */

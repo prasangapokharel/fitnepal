@@ -100,10 +100,6 @@ include 'navbar.php';
     <br><button class="logout-button" onclick="logout()">Logout</button>
 
     <div class="container"> <!-- Navbar and content container -->
-<<<<<<< HEAD
-       
-=======
->>>>>>> 0259a816c5b2831878123c3244defc6a8b15b805
 
         <!-- Content area -->
         <div class="content">
@@ -148,14 +144,7 @@ include 'navbar.php';
         </div>
     </div>
 
-    <div class="device">
-        <tr>
-        <th>
-            i want history table data here and all other function should be same
-        </th>
-        </tr>
-        
-    </div>
+    
     
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 

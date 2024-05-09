@@ -3,7 +3,25 @@
 include 'db_connection.php';
 
 // Define the absolute path for the upload directory
-$uploadDir = 'C:/xampp/htdocs/fitnepal/uploads/'; // Set the correct path
+$uploadDir = 'admin/uploads/'; // Relative path from the script's location
+
+
+// Handle deletion of a diet item
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['delete_id'])) {
+    $delete_id = $_POST['delete_id'];
+
+    // Delete the diet item with the given ID
+    $sql = "DELETE FROM diets WHERE id = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':id', $delete_id, PDO::PARAM_INT);
+
+    if ($stmt->execute()) {
+        $delete_message = "Diet item deleted successfully.";
+    } else {
+        $delete_message = "Error deleting diet item.";
+    }
+}
+
 
 // Function to upload food images
 function uploadImage($file, $uploadDir) {
@@ -116,6 +134,9 @@ include 'navbar.php'; // Include the navbar
 
             <button type="submit">Add Diet Item</button>
         </form>
+        <?php if (isset($delete_message)): ?>
+            <div class="alert"><?php echo htmlspecialchars($delete_message); ?></div>
+        <?php endif; ?>
 
         <!-- Display existing diet information in a table -->
         <table>
@@ -128,6 +149,8 @@ include 'navbar.php'; // Include the navbar
                     <th>Calories</th>
                     <th>Meal Type</th>
                     <th>Description</th>
+                    <th>Action</th> <!-- New column for the delete button -->
+
                 </tr>
             </thead>
             <tbody>
@@ -140,6 +163,13 @@ include 'navbar.php'; // Include the navbar
                         <td><?php echo $row['calories']; ?></td>
                         <td><?php echo ucfirst($row['meal_type']); ?></td>
                         <td><?php echo htmlspecialchars($row['description']); ?></td>
+                        <td>
+                            <!-- Form for deleting a diet item -->
+                            <form class="dtb" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                <input type="hidden" name="delete_id" value="<?php echo htmlspecialchars($row['id']); ?>">
+                                <button" class="dt" type="submit">Delete</button> <!-- Delete button -->
+                            </form>
+                        </td>
                     </tr>
                 <?php endwhile; ?>
             </tbody>
