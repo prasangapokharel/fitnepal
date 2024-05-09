@@ -19,7 +19,11 @@
             display: flex; /* Flexbox for layout */
             flex-direction: column; /* Vertical alignment of links */
             justify-content: flex-start; /* Align links at the top */
+<<<<<<< HEAD
             padding-top: 20px; 
+=======
+            padding-top: 20px; Top padding
+>>>>>>> 8edae3c084156ceb471e00c1855a6f1ed3be0c3e
         }
 
         /* Styling for navbar links */

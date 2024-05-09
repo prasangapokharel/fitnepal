@@ -1,14 +1,27 @@
 /* Common body styling */
 *{
     margin: 0px;
+<<<<<<< HEAD
     /* padding: 0px; */
+=======
+    padding: 0px;
+>>>>>>> 8edae3c084156ceb471e00c1855a6f1ed3be0c3e
 }
 body {
     background-color: #ffffff; /* Consistent background color */
     color: rgb(0, 0, 0); /* Light text color */
     font-family: 'Inter', sans-serif; /* Consistent font */
+<<<<<<< HEAD
     margin: 0px;
     /* padding: 0px; */
+=======
+<<<<<<< HEAD
+    margin: 0px;
+    padding: 0px;
+=======
+    display: flex;
+>>>>>>> 9c7a95e7d0b20bfa227d5310715744da49dba415
+>>>>>>> 8edae3c084156ceb471e00c1855a6f1ed3be0c3e
 }
 
 

@@ -24,12 +24,12 @@
   }
 
   .navbar {
-    background-color: #DFF5FF;
+    background-color: #378ce7;
     display: flex;
     justify-content: space-between;
     overflow: hidden;
     text-align: right;
-    padding: 14px 20px;
+    padding: 18px 20px;
   }
 
   .navbar a {
@@ -38,7 +38,7 @@
     text-decoration: none;
     font-size: 22px;
     margin-right: 20px;
-    color: black;
+    color: white;
   }
 
   .nav-links {

@@ -41,6 +41,8 @@ include 'navbar.php'; // Include the navbar
     <title>User Management</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"> <!-- Inter font -->
     <link rel="stylesheet" href="./cssadmin/user.css"> <!-- Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- Font Awesome -->
+
 
     <script>
         // Function to open the registration modal
@@ -120,6 +122,12 @@ include 'navbar.php'; // Include the navbar
                         <?php endforeach; ?>
                     </tbody>
                 </table>
+                <!-- Add the Export to CSV button with Excel icon -->
+                <div class="export-button-container" style="text-align: right;">
+                    <a href="export_users.php" class="csv">
+                        <i class="fas fa-file-excel"></i> Export to CSV
+                    </a>
+                </div>
             </div>
 
             <!-- Modal for registering a new user -->
