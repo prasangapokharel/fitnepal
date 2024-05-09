@@ -20,11 +20,10 @@
   body {
     margin: 0;
     padding: 0;
-    /* background-color: white; */
   }
 
   .navbar {
-    background-color: #378ce7;
+    background-color: #DFF5FF;
     display: flex;
     justify-content: space-between;
     overflow: hidden;
@@ -38,7 +37,7 @@
     text-decoration: none;
     font-size: 22px;
     margin-right: 20px;
-    color: white;
+    color: black;
   }
 
   .nav-links {

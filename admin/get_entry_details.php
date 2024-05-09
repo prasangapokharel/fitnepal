@@ -1,5 +1,6 @@
 <?php
 include 'db_connection.php'; // Include PDO connection
+include 'session.php'; // Include the session check
 
 if (isset($_GET['entry_id'])) {
     $entry_id = $_GET['entry_id']; // Get the entry ID from the GET request

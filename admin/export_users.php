@@ -1,5 +1,6 @@
 <?php
 include 'db_connection.php'; // Include the database connection
+include 'session.php'; // Include the session check
 
 // Set the header to force download
 header('Content-Type: text/csv; charset=utf-8');

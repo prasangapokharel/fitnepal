@@ -6,7 +6,7 @@
     <style>
         /* Full-height fixed navigation bar with top margin */
         .navbar {
-            background-color: #124c8e; /* Dark blue background */
+            background-color: #DFF5FF; /* Dark blue background */
             font-family: 'Inter', sans-serif; /* Font family */
             width: 220px; /* Fixed width */
             position: fixed; /* Fixed position */
@@ -19,11 +19,7 @@
             display: flex; /* Flexbox for layout */
             flex-direction: column; /* Vertical alignment of links */
             justify-content: flex-start; /* Align links at the top */
-<<<<<<< HEAD
-            padding-top: 20px; 
-=======
-            padding-top: 20px; Top padding
->>>>>>> 8edae3c084156ceb471e00c1855a6f1ed3be0c3e
+            /* padding-top: 20px;  */
         }
 
         /* Styling for navbar links */
@@ -33,13 +29,14 @@
             align-items: center; /* Vertically center content */
             padding: 15px;
             text-decoration: none; /* No underline */
-            color: white; /* Text color */
+            color: black; /* Text color */
             transition: background-color 0.3s ease; /* Smooth transition */
+            font-weight: 600;
         }
 
         /* Hover effect for links */
         .navbar a:hover {
-            background-color: #0b3c70; /* Slightly darker background on hover */
+            color: #378CE7; /* Slightly darker background on hover */
         }
 
         /* Icon styling in navbar */
