@@ -1,6 +1,7 @@
 <?php
 include 'db_connection.php'; // Include PDO connection
 include 'navbar.php'; // Include the navbar
+include 'session.php'; // Include the session check
 
 // Query to fetch all protein-related data
 $sql = "
