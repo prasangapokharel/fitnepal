@@ -1,7 +1,6 @@
 <!-- contact.php -->
 <?php
 include 'db_connection.php';
-include 'session.php'; // Include the session check
 
 // Query to fetch all contact messages
 $query_contactus = "SELECT * FROM contactus ORDER BY id DESC"; 

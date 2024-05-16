@@ -1,4 +1,5 @@
 <?php
+        include 'navbar.php';
 
 // Session and database connection
 include 'session.php'; // Include session check

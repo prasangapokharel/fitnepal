@@ -1,6 +1,5 @@
 <?php
 require_once 'db_connection.php';
-include 'session.php'; // Include the session check
 
 // Check if user_id is passed via GET or POST
 if (isset($_GET['user_id'])) {

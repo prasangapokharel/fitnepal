@@ -1,7 +1,5 @@
 <?php
 // Include necessary files
-include 'session.php'; // Include the session check
-
 include 'db_connection.php';
 include 'navbar.php'; // Assuming you have a navbar included in your page
 

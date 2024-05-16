@@ -1,7 +1,6 @@
 <?php
 // Include the database connection
 include 'db_connection.php';
-include 'session.php'; // Include the session check
 
 // Define the absolute path for the upload directory
 $uploadDir = 'admin/uploads/'; // Relative path from the script's location

@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"> <!-- Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- FontAwesome -->
     <style>
+        /* Full-height fixed navigation bar with top margin */
         .navbar {
-<<<<<<< HEAD
             background-color: #124c8e; /* Dark blue background */
             font-family: 'Inter', sans-serif; /* Font family */
             width: 220px; /* Fixed width */
@@ -21,66 +20,37 @@
             flex-direction: column; /* Vertical alignment of links */
             justify-content: flex-start; /* Align links at the top */
             padding-top: 20px; 
-=======
-            background-color: #DFF5FF;
-            font-family: 'Inter', sans-serif;
-            width: 220px;
-            position: fixed;
-            left: 0;
-            height: calc(100vh - 20px);
-            overflow: hidden;
-            transition: width 0.5s ease;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
->>>>>>> 07fbae720ac53cb45e2d8b6f4b70cb7cf12a30f9
         }
 
-d        .navbar a {
+        /* Styling for navbar links */
+        .navbar a {
             height: 100vh;
-            display: flex;
-            align-items: center;
-            /* Vertically center content */
+            display: flex; /* Flex layout for icons and text */
+            align-items: center; /* Vertically center content */
             padding: 15px;
-<<<<<<< HEAD
             letter-spacing: .1875rem;
             text-decoration: none; /* No underline */
             color: white; /* Text color */
             transition: background-color 0.3s ease; /* Smooth transition */
-=======
-            text-decoration: none;
-            /* No underline */
-            color: black;
-            /* Text color */
-            transition: background-color 0.3s ease;
-            /* Smooth transition */
-            font-weight: 600;
->>>>>>> 07fbae720ac53cb45e2d8b6f4b70cb7cf12a30f9
         }
 
         /* Hover effect for links */
         .navbar a:hover {
-            color: #378CE7;
-            /* Slightly darker background on hover */
+            background-color: #0b3c70; /* Slightly darker background on hover */
         }
 
         /* Icon styling in navbar */
         .navbar i {
-            margin-right: 10px;
-            /* Space between icon and text */
+            margin-right: 10px; /* Space between icon and text */
         }
 
         /* Content with margin adjusted for the navbar */
         .content {
-            margin-left: 220px;
-            /* Adjust margin to account for navbar */
-            transition: margin-left 0.5s ease;
-            /* Smooth transition */
+            margin-left: 220px; /* Adjust margin to account for navbar */
+            transition: margin-left 0.5s ease; /* Smooth transition */
         }
     </style>
 </head>
-
 <body>
     <!-- Fixed navigation bar with top margin -->
     <div class="navbar">
@@ -96,7 +66,6 @@ d        .navbar a {
         <a href="history.php"><i class="fas fa-history"></i> History</a>
     </div>
 
-
+    
 </body>
-
 </html>
