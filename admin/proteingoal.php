@@ -97,7 +97,7 @@ $entries = $stmt->fetchAll(PDO::FETCH_ASSOC); // Fetch all results
                 });
             });
 
-            // Reset button click event to delete entries after 24 hours
+            // Reset button click event to degit i entries after 24 hours
             $("#deleteButton").click(function() {
                 if (confirm("Are you sure you want to reset all entries after 24 hours?")) {
                     $.ajax({
