@@ -1,3 +1,43 @@
+<?php
+// include './session.php';
+include './db_connection.php';
+
+// Check if the user is logged in
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
+
+// Check if the user is verified
+$user_id = $_SESSION['user_id'];
+$conn = mysqli_connect($servername, $username, $password, $database);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = "SELECT status FROM bankpayment WHERE user_id = '$user_id' AND status = 'verified'";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    $verified = true;
+} else {
+    $verified = false;
+}
+
+// Close the connection
+mysqli_close($conn);
+
+// Logout logic
+if (isset($_GET['logout']) && $_GET['logout'] == 'true') {
+    // Destroy the session
+    session_unset();
+    session_destroy();
+    header("Location: login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,21 +96,20 @@
 </style>
 
 <body>
-  <header class="navbar">
-    <div>
-      <a href="dashboard.php" class="logo">FitNepal</a>
-
-    </div>
-    <div class="nav-links">
-      <a href="profile.php">Profile</a>
-      <a href="goal.php">Goals</a>
-      <a href="diet.php">Diet</a>
-      <a href="workout.php">Workout</a>
-      <a href="?logout=true">Logout</a>
-
-    </div>
-
-  </header>
+<header class="navbar">
+        <div>
+            <a href="dashboard.php" class="logo">FitNepal</a>
+        </div>
+        <div class="nav-links">
+            <a href="profile.php">Profile</a>
+            <?php if ($verified): ?>
+                <a href="goal.php">Goals</a>
+                <a href="workout.php">Workout</a>
+            <?php endif; ?>
+            <a href="diet.php">Diet</a>
+            <a href="?logout=true">Logout</a>
+        </div>
+    </header>
 </body>
 
 </html>

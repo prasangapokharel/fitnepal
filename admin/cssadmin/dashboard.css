@@ -1,6 +1,6 @@
 /* Dark background with orange text and Inter font */
 body {
-    background-color: #124c8e; /* Dark background for cards */
+    background-color: #ffffff; /* Dark background for cards */
     color: rgb(255, 255, 255);
     font-family: 'Inter', sans-serif;
     margin: 0px;
@@ -13,7 +13,7 @@ body {
     flex-direction: column; /* Vertical layout */
     align-items: center; /* Center content */
     justify-content: flex-start; /* Align content at the top */
-    height: 100vh; 
+     
     /* margin-left: 6%; */
     margin-top: 2%;
     overflow: hidden;
@@ -45,7 +45,7 @@ body {
 
 /* Information card styling with icons and consistent height */
 .info-box {
-    background-color:#900c57; /* Dark background for cards */
+    background-color:#291f69;; /* Dark background for cards */
     border-radius: 10px; /* Rounded corners */
     text-align: center; /* Center text */
     flex: 1; /* Allow flex growth */
@@ -88,20 +88,25 @@ body {
     background-color: #e53935; /* Darker red on hover */
 }
 
-/* Bar graph styling with consistent dimensions */
+/* Add this to your existing CSS file (dashboard.css) */
+
 .bar-graph {
-    width: 85%; /* Full width */
-    height: 300px; /* Fixed height */
-    margin: 50px 5%;
-    /* Consistent margin */
-
+    float: left;
+    width: 80%;
+    margin: 40px 5%;
+    background-color: #ffffff;
+    color: #291f69; /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding around the chart */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
 }
-canvas{
-    padding: 8px 14px;
-    border-radius: 12px; /* Dark background for cards */
-    background-color: transparent; /* Darker red on hover */
 
+.bar-graph:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
 }
+
+
+
 .profile-container {
     position: absolute;
     top: 22px;

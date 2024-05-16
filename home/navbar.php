@@ -58,12 +58,12 @@
 <body>
   <header class="navbar">
     <div>
-      <a href="dashboard.php" class="logo">FitNepal</a>
+      <a href="index.php" class="logo">FitNepal</a>
 
     </div>
     <div class="nav-links">
-      <a href="profile.php">Home</a>
-      <a href="goal.php">Services</a>
+      <a href="index.php">Home</a>
+      <a href="bmi.php">BMI</a>
       <a href="diet.php">Pricing</a>
       <a href="workout.php">About</a>
       <a href="?logout=true">Contact US</a>

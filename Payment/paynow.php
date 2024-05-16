@@ -106,7 +106,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+<?php
+// include '../header/header.php';
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
