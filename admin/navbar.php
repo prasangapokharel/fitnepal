@@ -29,6 +29,7 @@
             align-items: center; /* Vertically center content */
             padding: 15px;
             letter-spacing: .1875rem;
+            letter-spacing: .1875rem;
             text-decoration: none; /* No underline */
             color: white; /* Text color */
             transition: background-color 0.3s ease; /* Smooth transition */
