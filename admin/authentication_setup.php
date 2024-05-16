@@ -1,5 +1,5 @@
 <?php
-        include 'navbar.php';
+include 'navbar.php';
 
 // Session and database connection
 include 'session.php'; // Include session check
@@ -24,7 +24,8 @@ if ($google_auth_secret === null) {
     // Generate a new secret key
     $google_auth_secret = $google2fa->generateSecretKey(); // Generate unique secret key
     $company_name = "Fitnepal"; // Company name for QR code
-    $qr_code_url = $google2fa->getQRCodeUrl($company_name, "user_{$user_id}", $google_auth_secret); // Generate QR code URL
+    $qr_code_data = "otpauth://totp/{$company_name}:user_{$user_id}?secret={$google_auth_secret}&issuer={$company_name}";
+    $qr_code_url = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" . urlencode($qr_code_data); // Generate QR code URL
 
     // Save the secret key to the database
     $sql_update = "UPDATE users SET google_auth_secret = :google_auth_secret WHERE id = :user_id";
@@ -36,8 +37,9 @@ if ($google_auth_secret === null) {
         die("Error storing Google Authentication secret key.");
     }
 } else {
-    $company_name = "YourCompany"; // Reuse company name
-    $qr_code_url = $google2fa->getQRCodeUrl($company_name, "user_{$user_id}", $google_auth_secret); // Generate QR code URL from the secret key
+    $company_name = "Fitnepal"; // Reuse company name
+    $qr_code_data = "otpauth://totp/{$company_name}:user_{$user_id}?secret={$google_auth_secret}&issuer={$company_name}";
+    $qr_code_url = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" . urlencode($qr_code_data); // Generate QR code URL from the secret key
 }
 ?>
 
@@ -49,7 +51,7 @@ if ($google_auth_secret === null) {
     <link rel="stylesheet" href="./cssadmin/authentication_setup.css"> <!-- External CSS -->
 </head>
 <body>
-    <?php   include 'navbar.php'; ?>
+    <?php include 'navbar.php'; ?>
     <div class="container">
         <h2>Google Authentication Setup</h2>
         <br>
@@ -57,6 +59,8 @@ if ($google_auth_secret === null) {
         <br>
 
         <?php if (isset($qr_code_url)): ?>
+            <!-- Display QR code -->
+            <img class="qr" src="<?php echo htmlspecialchars($qr_code_url); ?>" alt="QR Code">
             <p>Your secret key: <strong><?php echo htmlspecialchars($google_auth_secret); ?></strong></p> <!-- Display secret key -->
         <?php endif; ?>
 

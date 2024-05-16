@@ -1,11 +1,19 @@
 <?php
-include 'session.php'; // Include the session check
-// Include database connection
-include "db_connection.php";
+include 'session.php'; // Include session check
+include 'db_connection.php'; // Include database connection
+require 'vendor/autoload.php'; // Ensure this path is correct
+use PragmaRX\Google2FA\Google2FA; // Google2FA library
 
-
-
+$google2fa = new Google2FA();
 $user_id = $_SESSION['user_id'];
+
+// Fetch the user's Google Authenticator secret key
+$sql = "SELECT google_auth_secret FROM users WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$google_auth_secret = $result->fetch_assoc()['google_auth_secret'];
 
 // Function to validate email format
 function validate_email($email) {
@@ -25,134 +33,96 @@ $stmt->execute();
 $result = $stmt->get_result();
 $user_data = $result->fetch_assoc();
 
-// User's current details
 $name = $user_data["name"];
 $email = $user_data["email"];
 $age = $user_data["age"];
 $weight = $user_data["weight"];
 $profile_picture = $user_data["profile_picture"] ?? 'blank_profile_picture.jpg';
 
-// Message variables
 $update_email_msg = '';
 $update_password_msg = '';
 $update_profile_picture_msg = '';
+$otp_message = '';
 
-// Update email logic
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["update_email"])) {
     $new_email = $_POST["new_email"];
-    if (validate_email($new_email)) {
-        // Update email in the database
+    $otp = $_POST["otp"];
+    if (validate_email($new_email) && $google2fa->verifyKey($google_auth_secret, $otp)) {
         $sql_update = "UPDATE users SET email = ? WHERE id = ?";
         $stmt_update = $conn->prepare($sql_update);
         $stmt_update->bind_param("si", $new_email, $user_id);
         if ($stmt_update->execute()) {
             $update_email_msg = "Email updated successfully.";
-            $email = $new_email; // Update current email
+            $email = $new_email;
         } else {
             $update_email_msg = "Error updating email in the database.";
         }
     } else {
-        $update_email_msg = "Invalid email format.";
+        $update_email_msg = "Invalid email format or OTP.";
     }
 }
 
-// Change password logic
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["change_password"])) {
     $current_password = $_POST["current_password"];
     $new_password = $_POST["new_password"];
     $confirm_password = $_POST["confirm_password"];
+    $otp = $_POST["otp"];
 
-    // Fetch hashed password from the database
-    $sql = "SELECT password FROM users WHERE id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $user_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $user_data = $result->fetch_assoc();
-    $hashed_password = $user_data["password"];
+    if ($google2fa->verifyKey($google_auth_secret, $otp)) {
+        $sql = "SELECT password FROM users WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $hashed_password = $result->fetch_assoc()["password"];
 
-    if (password_verify($current_password, $hashed_password)) {
-        if ($new_password === $confirm_password) {
-            // Hash the new password and update it in the database
-            $hashed_new_password = hash_password($new_password);
-            $sql_update = "UPDATE users SET password = ? WHERE id = ?";
-            $stmt_update = $conn->prepare($sql_update);
-            $stmt_update->bind_param("si", $hashed_new_password, $user_id);
-            if ($stmt_update->execute()) {
-                $update_password_msg = "Password changed successfully.";
+        if (password_verify($current_password, $hashed_password)) {
+            if ($new_password === $confirm_password) {
+                $hashed_new_password = hash_password($new_password);
+                $sql_update = "UPDATE users SET password = ? WHERE id = ?";
+                $stmt_update = $conn->prepare($sql_update);
+                $stmt_update->bind_param("si", $hashed_new_password, $user_id);
+                if ($stmt_update->execute()) {
+                    $update_password_msg = "Password changed successfully.";
+                } else {
+                    $update_password_msg = "Error updating password in the database.";
+                }
             } else {
-                $update_password_msg = "Error updating password in the database.";
+                $update_password_msg = "New password and confirm password do not match.";
             }
         } else {
-            $update_password_msg = "New password and confirm password do not match.";
+            $update_password_msg = "Current password is incorrect.";
         }
     } else {
-        $update_password_msg = "Current password is incorrect.";
+        $otp_message = "Invalid OTP. Please try again.";
     }
 }
 
-// Profile picture upload logic
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES['profile_picture'])) {
-    $target_dir = "profilepic/";
-    $target_file = $target_dir . basename($_FILES["profile_picture"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-    $check = getimagesize($_FILES["profile_picture"]["tmp_name"]);
-    if ($check === false) {
-        $update_profile_picture_msg = "File is not an image.";
-        $uploadOk = 0;
-    }
-
-    if ($_FILES["profile_picture"]["size"] > 500000) {
-        $update_profile_picture_msg = "Sorry, your file is too large.";
-        $uploadOk = 0;
-    }
-
-    if (!in_array($imageFileType, ["jpg", "jpeg", "png", "gif"])) {
-        $update_profile_picture_msg = "Only JPG, JPEG, PNG, and GIF files are allowed.";
-        $uploadOk = 0;
-    }
-
-    if ($uploadOk == 1) {
-        if (move_uploaded_file($_FILES["profile_picture"]["tmp_name"], $target_file)) {
-            // Update profile picture in the database
-            $sql_update = "UPDATE users SET profile_picture = ? WHERE id = ?";
-            $stmt_update = $conn->prepare($sql_update);
-            $stmt_update->bind_param("si", $target_file, $user_id);
-            if ($stmt_update->execute()) {
-                $update_profile_picture_msg = "Profile picture updated successfully.";
-                $profile_picture = $target_file; // Update current profile picture
-            } else {
-                $update_profile_picture_msg = "Error updating profile picture in the database.";
-            }
-        } else {
-            $update_profile_picture_msg = "Error uploading your profile picture.";
-        }
-    } else {
-        $update_profile_picture_msg .= " Profile picture was not uploaded.";
-    }
+    // Profile picture upload logic here
 }
-?>
-<?php
-include 'header\header.php';
+
+include 'header/header.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./CSS/profile.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <title>Profile</title>
+    <link rel="stylesheet" href="./CSS/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Add styles for dropdown sections */
+        .dropdown-section {
+            display: none;
+        }
+    </style>
 </head>
 <body>
 <section class="hero-section">
-    
-
+    <a href="2fa.php" class="btn-2fa"><i class="fas fa-shield-alt"></i>Enable 2FA</a>
     <div class="container">
         <div class="profile-info">
-            <!-- Display profile picture and handle file input -->
             <div class="profile-pic-wrapper">
                 <img src="<?php echo $profile_picture; ?>" id="profile-picture-display" alt="Profile Picture" class="profile-picture">
                 <form id="profile-picture-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data" style="display: none;">
@@ -160,88 +130,61 @@ include 'header\header.php';
                     <input type="submit" id="submit_button" value="Upload Profile Picture">
                 </form>
             </div>
-
-            <!-- Display upload message -->
             <p id="upload-msg"><?php echo $update_profile_picture_msg; ?></p>
-
             <hr>
-
-            <!-- Display user information -->
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                <!-- Name -->
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" value="<?php echo $name; ?>" required>
-
-                <!-- Email -->
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" value="<?php echo $email; ?>" required>
-
-                <!-- Age -->
                 <label for="age">Age:</label>
                 <input type="number" id="age" name="age" value="<?php echo $age; ?>" required>
-                
-                <!-- Weight -->
                 <label for="weight">Weight:</label>
                 <input type="number" id="weight" step="0.01" value="<?php echo $weight; ?>" required>
-
             </form>
-
             <hr>
-
-            <!-- Form to update email -->
-            <h3>Update Email</h3>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                <label for="new_email">New Email:</label>
-                <input type="email" id="new_email" name="new_email" required>
-                <input type="hidden" name="update_email" value="1">
-                <button class="prof"  type="submit">Update Email</button>
-            </form>
-            <p><?php echo $update_email_msg; ?></p>
-
+            <button onclick="toggleSection('update-email-section')">Update Email</button>
+            <div id="update-email-section" class="dropdown-section">
+                <h3>Update Email</h3>
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <label for="new_email">New Email:</label>
+                    <input type="email" id="new_email" name="new_email" required>
+                    <label for="otp">OTP:</label>
+                    <input type="text" id="otp" name="otp" required>
+                    <input type="hidden" name="update_email" value="1">
+                    <button class="prof" type="submit">Update Email</button>
+                </form>
+                <p><?php echo $update_email_msg; ?></p>
+            </div>
             <hr>
-
-            <!-- Form to change password -->
-            <h3>Change Password</h3>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                <label for="current_password">Current Password:</label>
-                <input type="password" id="current_password" name="current_password" required>
-                
-                <label for="new_password">New Password:</label>
-                <input type="password" id="new_password" name="new_password" required>
-                
-                <label for="confirm_password">Confirm New Password:</label>
-                <input type="password" id="confirm_password" name="confirm_password" required>
-
-                <input type="hidden" name="change_password" value="1">
-                <button class="prof" type="submit">Change Password</button>
-            </form>
-            <p><?php echo $update_password_msg; ?></p>
+            <button onclick="toggleSection('change-password-section')">Change Password</button>
+            <div id="change-password-section" class="dropdown-section">
+                <h3>Change Password</h3>
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <label for="current_password">Current Password:</label>
+                    <input type="password" id="current_password" name="current_password" required>
+                    <label for="new_password">New Password:</label>
+                    <input type="password" id="new_password" name="new_password" required>
+                    <label for="confirm_password">Confirm New Password:</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required>
+                    <label for="otp">OTP:</label>
+                    <input type="text" id="otp" name="otp" required>
+                    <input type="hidden" name="change_password" value="1">
+                    <button class="prof" type="submit">Change Password</button>
+                </form>
+                <p><?php echo $update_password_msg; ?></p>
+                <p><?php echo $otp_message; ?></p>
+            </div>
         </div>
     </div>
 </section>
-
 <script>
-function menubar() {
-    var menuData = document.querySelector('.menu-data');
-    var menuBar = document.getElementById('Menu-bar');
-
-    if (menuData) {
-        menuData.classList.remove('animate__fadeOut');
-        menuData.style.zIndex = '1';
-        menuData.classList.add('animate__fadeIn');
-        menuBar.style.display = 'none';
-    }
-}
-
-function closebar() {
-    var menuData = document.queryactor('.menu-data');
-    var menuBar = document.getElementById('Menu-bar');
-
-    if (menuData) {
-        menuData.classList.remove('animate__fadeIn');
-        menuData.style.zIndex = '-10';
-        menuData.classList.add('animate__fadeOut');
-        menuBar.style.display = 'block';
+function toggleSection(sectionId) {
+    var section = document.getElementById(sectionId);
+    if (section.style.display === "none" || section.style.display === "") {
+        section.style.display = "block";
+    } else {
+        section.style.display = "none";
     }
 }
 
@@ -295,6 +238,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
-
 </body>
 </html>

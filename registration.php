@@ -1,6 +1,4 @@
-<?php
-    include './header/header.php'
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +11,9 @@
 </head>
 
 <body>
+<?php
+include 'home/navbar.php';
+?>
     <div class="container">
         <h2>Sign Up</h2>
         <form id="signupForm" action="register.php" method="post">

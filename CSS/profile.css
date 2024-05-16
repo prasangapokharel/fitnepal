@@ -2,10 +2,17 @@ body {
     font-family: 'Inter', sans-serif;
     margin: 0;
     padding: 0;
-    background-color:#ffffff;
+    background-color:#67C6E3;
+    
+}
+  /* Add styles for dropdown sections */
+  .dropdown-section {
+    display: none;
 }
 
 .data-container {
+    background-color:#67C6E3;
+
     width: 100%;
     display: flex;
     justify-content: center;
@@ -97,7 +104,7 @@ body {
 
 .hero-section-content p {
     font-size: 24px;
-    color: rgb(165, 165, 165);
+    color: rgb(255, 255, 255);
     text-transform: capitalize;
     text-align: center;
     padding: 10px 15px;
@@ -112,7 +119,7 @@ h1 i {
     width: 90%;
             max-width: 100%;
             margin: 20px auto;
-            background-color:#ffffff;
+            background-color:#67C6E3;
             padding: 20px;
             /* border: 1px dotted; */
             border-radius: 10px;
@@ -123,13 +130,13 @@ h2{
 color: #291f69;
 }
 h3 {
-color: #b4b8c1;
+color: #ffffff;
 }
 
 .profile-info {
     width: 80%;
     margin: 0 auto;
-    background-color:#fffeff;
+    background-color:#67C6E3;
     border-radius: 5px;
     padding: 20px;
     color: #291f69;
@@ -150,11 +157,11 @@ input[type="number"] {
     padding: 12px;
     margin-bottom: 15px;
     border: 1px solid #F0F6FC;
-    border-radius: 8px;
+    border-radius: 4px;
     box-sizing: border-box;
     font-size: 16px;
     background-color: transparent;
-color: #b4b8c1;
+color: #ffffff;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
 }
@@ -162,7 +169,7 @@ color: #b4b8c1;
 input[type="submit"] {
     width: 100%;
     background-color: #1255c5;
-color: #b4b8c1;
+color: #ffffff;
     border: none;
     padding: 18px;
     cursor: pointer;
@@ -187,4 +194,37 @@ input[type="submit"]:hover {
 
 #profile-picture-form {
     display: none; /* Hidden form for file input */
+}
+.btn-2fa {
+    position: absolute;
+    top: 90px;
+    right: 50px;
+    background-color: rgb(55, 19, 138);
+    color: #ffffff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: -30px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.btn-2fa:hover {
+    background-color: #378ce7;
+
+}
+a.btn-2fa{
+    text-decoration: none;
+
+}
+
+.btn-2fa i {
+    margin-right: 10px;
+}
+button.prof{
+    padding: 10px 15px;
+
+    background-color: rgb(55, 19, 138);
+    color: #ffffff;
 }

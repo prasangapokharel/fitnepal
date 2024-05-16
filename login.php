@@ -1,10 +1,4 @@
-<?php
-    include './header/header.php'
 
-    
-
-    
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,6 +11,9 @@
 </head>
 
 <body>
+<?php
+include 'home/navbar.php';
+?>
 
     <div class="container">
         <!-- Login form section -->

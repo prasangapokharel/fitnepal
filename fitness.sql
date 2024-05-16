@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2024 at 03:19 AM
+-- Generation Time: May 15, 2024 at 04:48 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,40 @@ SET time_zone = "+00:00";
 --
 -- Database: `fitness`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bankpayment`
+--
+
+CREATE TABLE `bankpayment` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `status` enum('verified','unverified') DEFAULT 'unverified',
+  `transaction_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `account_number` varchar(255) DEFAULT NULL,
+  `branch` varchar(255) DEFAULT NULL,
+  `transaction_hash` varchar(255) DEFAULT NULL,
+  `holderName` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bankpayment`
+--
+
+INSERT INTO `bankpayment` (`id`, `username`, `user_id`, `image`, `status`, `transaction_date`, `account_number`, `branch`, `transaction_hash`, `holderName`) VALUES
+(1, 'Elliott George', 3, 'manualpay/BRS.png', '', '2024-05-11 15:20:25', NULL, NULL, NULL, NULL),
+(2, 'Ethan Skinner', 3, 'manualpay/tgg.jpg', '', '2024-05-11 15:50:51', '733', 'Et quo autem delenit', 'Vel ratione est quos', NULL),
+(3, 'Prasanga Raman Pokharel', 3, 'manualpay/sale bannner social media post .png', 'verified', '2024-05-14 03:42:43', '3123234993', 'Inaruwa', '22b2332r322', NULL),
+(4, 'Prasanga Raman Pokharel', 3, 'manualpay/sale bannner social media post .png', 'verified', '2024-05-14 03:45:10', '3123234993', 'Inaruwa', '22b2332r322', '3123234993'),
+(5, 'Prasanga Raman Pokharel', 3, 'manualpay/sale bannner social media post .png', 'verified', '2024-05-14 03:46:59', '3123234993', 'Inaruwa', '22b2332r322', '3123234993'),
+(6, 'Vincent Underwood', 3, 'Payment/manualpay/TRYME (70 x 70 px).png', 'verified', '2024-05-14 03:47:43', '595', 'Aliqua Libero ut qu', 'Irure do sapiente qu', '595'),
+(7, 'Vincent Underwood', 3, 'Payment/manualpay/cheat.png', 'verified', '2024-05-14 03:48:07', '595', 'Aliqua Libero ut qu', 'Irure do sapiente qu', '595'),
+(8, 'Vincent Underwood', 3, 'manualpay/cheat.png', 'verified', '2024-05-14 03:48:57', '595', 'Aliqua Libero ut qu', 'Irure do sapiente qu', '595'),
+(9, 'Ashsih Khadka', 3, 'manualpay/2.jpg', 'verified', '2024-05-14 04:38:57', '8432432847328', 'Itahari', '38483239f33', '8432432847328');
 
 -- --------------------------------------------------------
 
@@ -42,6 +76,31 @@ CREATE TABLE `calorie` (
 
 INSERT INTO `calorie` (`id`, `user_id`, `date`, `amount`, `calories`, `description`) VALUES
 (6, 3, '2024-05-08 00:00:00', 5, 300, 'Beer');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chat`
+--
+
+CREATE TABLE `chat` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `admin_id` int(11) DEFAULT NULL,
+  `message` text DEFAULT NULL,
+  `sent_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `is_from_user` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `chat`
+--
+
+INSERT INTO `chat` (`id`, `user_id`, `admin_id`, `message`, `sent_at`, `is_from_user`) VALUES
+(1, 21, NULL, 'hi', '2024-05-10 16:41:39', 1),
+(2, 21, NULL, 'hi', '2024-05-10 16:41:58', 1),
+(3, 21, NULL, 'hi', '2024-05-10 16:42:12', 1),
+(4, 21, NULL, 'hi', '2024-05-10 17:01:55', 1);
 
 -- --------------------------------------------------------
 
@@ -233,7 +292,22 @@ INSERT INTO `history` (`id`, `user_id`, `login_time`, `device`, `ip_address`) VA
 (51, 11787, '2024-05-08 17:45:40', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', '::1'),
 (52, 11787, '2024-05-08 21:13:59', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
 (53, 10002, '2024-05-08 21:16:29', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
-(54, 11787, '2024-05-08 21:37:32', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1');
+(54, 11787, '2024-05-08 21:37:32', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(55, 10002, '2024-05-10 22:17:07', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', '::1'),
+(56, 10002, '2024-05-10 22:46:27', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', '::1'),
+(57, 10002, '2024-05-10 23:04:22', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(58, 10002, '2024-05-11 16:16:04', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(59, 10002, '2024-05-11 16:20:01', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', '::1'),
+(60, 11787, '2024-05-11 20:15:32', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(61, 11787, '2024-05-11 20:59:40', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(62, 10002, '2024-05-12 07:08:29', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(63, 11787, '2024-05-12 07:39:35', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(64, 10002, '2024-05-12 07:41:53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(65, 11787, '2024-05-14 09:22:12', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(66, 10002, '2024-05-14 09:40:48', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(67, 11787, '2024-05-14 09:51:12', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(68, 10002, '2024-05-14 10:06:37', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', '::1'),
+(69, 11787, '2024-05-14 10:06:53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1');
 
 -- --------------------------------------------------------
 
@@ -423,11 +497,24 @@ INSERT INTO `users` (`id`, `user_id`, `name`, `email`, `password`, `age`, `weigh
 --
 
 --
+-- Indexes for table `bankpayment`
+--
+ALTER TABLE `bankpayment`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `calorie`
 --
 ALTER TABLE `calorie`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `chat`
+--
+ALTER TABLE `chat`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_user` (`user_id`);
 
 --
 -- Indexes for table `contactus`
@@ -498,10 +585,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `bankpayment`
+--
+ALTER TABLE `bankpayment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `calorie`
 --
 ALTER TABLE `calorie`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `chat`
+--
+ALTER TABLE `chat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `contactus`
@@ -525,7 +624,7 @@ ALTER TABLE `diet_items`
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `np_nutrition`
@@ -572,6 +671,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `calorie`
   ADD CONSTRAINT `calorie_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `chat`
+--
+ALTER TABLE `chat`
+  ADD CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `history`

@@ -313,7 +313,10 @@ include 'header\header.php';
             <p>This is the third video card with embedded YouTube content.</p>
         </div>
     </div>
-    
+    <div class="telegram-popup" id="telegram-popup">
+<img src="https://imgs.search.brave.com/nfxfGoVzRYWCQBnLihL9CVjiurk2WBuZNS95gsEVlZo/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9jZG4t/aWNvbnMtcG5nLmZy/ZWVwaWsuY29tLzI1/Ni8yMTExLzIxMTE2/NDYucG5nP3NlbXQ9/YWlzX2h5YnJpZA">
+    <div class="popup-content">Chat with us on Telegram!</div>
+    </div>
     <div class="upgrade-container">
         <h1>Upgrade to Premium</h1>
         <p>Experience premium features and unlock exclusive content.</p>
@@ -330,6 +333,23 @@ include 'header\header.php';
         }
     </script>
     <script>
+// JavaScript to handle hover effects
+document.addEventListener('DOMContentLoaded', function() {
+            var telegramPopup = document.getElementById('telegram-popup');
+
+            telegramPopup.addEventListener('mouseover', function() {
+                telegramPopup.classList.add('animate__animated', 'animate__pulse');
+            });
+
+            telegramPopup.addEventListener('mouseleave', function() {
+                telegramPopup.classList.remove('animate__animated', 'animate__pulse');
+            });
+
+            telegramPopup.addEventListener('click', function() {
+                window.open('https://t.me/YourTelegramChannel', '_blank');
+            });
+        });
+
         function openModal() {
             document.getElementById("myModal").style.display = "flex"; // Show the modal
         }

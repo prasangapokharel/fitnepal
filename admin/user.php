@@ -20,16 +20,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Query to fetch all users
-$query_users = "SELECT * FROM users ORDER BY user_id DESC"; 
+$query_users = "SELECT user_id, name, email, registration_time FROM users ORDER BY user_id DESC";
 $stmt_users = $pdo->prepare($query_users);
 $stmt_users->execute();
 $users = $stmt_users->fetchAll(PDO::FETCH_ASSOC);
 
-function daysAgo($timestamp) {
+function daysAgo($registration_time) {
     $current_time = time(); // Current timestamp
-    $days = ($current_time - $timestamp) / (60 * 60 * 24); // Calculate days
+    $registration_timestamp = strtotime($registration_time); // Convert registration time to timestamp
+    $days = ($current_time - $registration_timestamp) / (60 * 60 * 24); // Calculate days
     return round($days);
 }
+
 
 include 'navbar.php'; // Include the navbar
 ?>
@@ -112,10 +114,12 @@ include 'navbar.php'; // Include the navbar
                                 <td><?php echo $user['user_id']; ?></td>
                                 <td><?php echo htmlspecialchars($user['name']); ?></td>
                                 <td><?php echo htmlspecialchars($user['email']); ?></td>
-                                <td><?php echo daysAgo($user['user_id']) . ' days ago'; ?></td>
+                                <td><?php echo daysAgo($user['registration_time']) . ' days ago'; ?></td>
                                 <td>
                                     <!-- Edit button triggers modal -->
                                     <button class="action-button edit-button" onclick="openEditModal(<?php echo $user['user_id']; ?>, '<?php echo htmlspecialchars($user['name']); ?>', '<?php echo htmlspecialchars($user['email']); ?>')">Edit</button>
+                                    <button class="action-button login-button" onclick="loginAsUser(<?php echo $user['user_id']; ?>)">Login</button>
+
                                     <a class="action-button delete-button" href="userdelete.php?user_id=<?php echo htmlspecialchars($user['user_id']); ?>">Delete</a> <!-- Link to userdelete.php -->
                                 </td>
                             </tr>
@@ -198,5 +202,27 @@ include 'navbar.php'; // Include the navbar
             </div>
         </div>
     </div>
+    <script>
+    function loginAsUser(userId) {
+        // Create a form element
+        var form = document.createElement('form');
+        form.setAttribute('method', 'post');
+        form.setAttribute('action', 'http://localhost/fitnepal/login.php');
+
+        // Add user ID field
+        var userIdField = document.createElement('input');
+        userIdField.setAttribute('type', 'hidden');
+        userIdField.setAttribute('name', 'user_id');
+        userIdField.setAttribute('value', userId);
+        form.appendChild(userIdField);
+
+        // Add form to the document body
+        document.body.appendChild(form);
+
+        // Submit the form
+        form.submit();
+    }
+</script>
+
 </body>
 </html>
