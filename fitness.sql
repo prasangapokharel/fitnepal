@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: May 26, 2024 at 07:30 AM
+=======
+-- Generation Time: May 15, 2024 at 04:48 AM
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -204,11 +208,30 @@ CREATE TABLE `entries` (
 -- Dumping data for table `entries`
 --
 
+<<<<<<< HEAD
 INSERT INTO `entries` (`id`, `meal_name`, `protein_grams`, `meal_time`, `user_id`, `total_protein`) VALUES
 (0, 'Cottage Cheese', 22, '02:22:00', 3, 105),
 (0, 'Pork Tenderloin', 28, '04:43:00', 3, 105),
 (0, 'Whole Wheat Bread', 22, '03:33:00', 3, 105),
 (0, 'Lean Beef', 33, '03:33:00', 3, 105);
+=======
+INSERT INTO `entries` (`id`, `meal_name`, `protein_grams`, `meal_time`, `user_id`) VALUES
+(0, 'Idona Ferguson', 59, '07:37:00', 3),
+(0, 'Zenaida Donovan', 38, '20:08:00', 3),
+(0, 'Audra Madden', 79, '07:31:00', 3),
+(0, 'Owen Mcbride', 18, '20:26:00', 3),
+(0, 'Maggie Odom', 57, '02:42:00', 3),
+(0, 'Urielle Frost', 31, '13:55:00', 4),
+(0, 'Palmer House', 93, '11:31:00', 4),
+(0, 'Kelly Burris', 73, '04:05:00', 4),
+(0, 'Aimee Gates', 41, '01:59:00', 3),
+(0, 'Brandon Valdez', 89, '21:48:00', 3),
+(0, 'Chicken Breast', 31, '14:22:00', 4),
+(0, 'Milk', 3.4, '11:12:00', 4),
+(0, 'Chicken Breast', 31, '08:00:00', 6),
+(0, 'Salmon', 25, '02:33:00', 3),
+(0, 'Milk', 3.4, '02:23:00', 3);
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
 
 -- --------------------------------------------------------
 
@@ -297,6 +320,7 @@ INSERT INTO `history` (`id`, `user_id`, `login_time`, `device`, `ip_address`) VA
 (66, 10002, '2024-05-14 09:40:48', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
 (67, 11787, '2024-05-14 09:51:12', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
 (68, 10002, '2024-05-14 10:06:37', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', '::1'),
+<<<<<<< HEAD
 (69, 11787, '2024-05-14 10:06:53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
 (70, 11787, '2024-05-20 20:19:53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', '::1'),
 (71, 11787, '2024-05-25 20:13:52', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', '::1'),
@@ -305,6 +329,9 @@ INSERT INTO `history` (`id`, `user_id`, `login_time`, `device`, `ip_address`) VA
 (74, 80619, '2024-05-25 20:46:18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', '::1'),
 (75, 10002, '2024-05-25 21:26:04', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', '::1'),
 (76, 11787, '2024-05-26 10:18:17', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', '::1');
+=======
+(69, 11787, '2024-05-14 10:06:53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1');
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
 
 -- --------------------------------------------------------
 
@@ -474,15 +501,20 @@ CREATE TABLE `users` (
   `status` varchar(10) DEFAULT 'inactive',
   `role` varchar(50) DEFAULT 'user',
   `google_auth_secret` varchar(32) DEFAULT NULL,
+<<<<<<< HEAD
   `verified` enum('Unverified','Verified') DEFAULT 'Unverified',
   `muscle_protein` double DEFAULT NULL,
   `normal_protein` double DEFAULT NULL
+=======
+  `verified` enum('Unverified','Verified') DEFAULT 'Unverified'
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
+<<<<<<< HEAD
 INSERT INTO `users` (`id`, `user_id`, `name`, `email`, `password`, `age`, `weight`, `height`, `activity`, `profile_picture`, `registration_time`, `status`, `role`, `google_auth_secret`, `verified`, `muscle_protein`, `normal_protein`) VALUES
 (3, 11787, 'Prasanga Pokharel', 'prasanga@gmail.com', '$2y$10$H2Y7f6Ph26npbfj0eG33wuyPcrEH/ews9B3YIdGMCclOUDgUNDxMa', 11, 68.00, 93, 'highly_active', 'profilepic/protein logo.png', '2024-05-02 18:09:41', 'active', 'user', 'IAWTC4TZWDMYWSWL', 'Unverified', 136, 54.400000000000006),
 (18, 24872, 'Roanna Mcfarland', 'tukanez@mailinator.com', '$2y$10$o//xJXFHa4saJ7QUIXs94uRE7uXh28Oy55Xin9TorwHQKLolBr5FC', 35, 29.00, 48, 'intermediate', NULL, '2024-05-04 09:48:00', 'inactive', 'user', NULL, 'Unverified', NULL, NULL),
@@ -491,6 +523,15 @@ INSERT INTO `users` (`id`, `user_id`, `name`, `email`, `password`, `age`, `weigh
 (23, 32300, 'Sawyer Irwin', 'lipogoge@mailinator.com', '$2y$10$fCpqjw6OwX3w0aQwSPikueIP5TONQ.hoPwPgCfizjN97sUSeryWzG', 35, 22.00, 54, 'normal', NULL, '2024-05-04 16:24:11', 'inactive', 'user', NULL, 'Unverified', NULL, NULL),
 (24, 13452, 'Zorita Crosby', 'comadu@mailinator.com', '$2y$10$jYevLbvuVWUrKamlW2rd1urOpHwUBYCRI9HXlW/g4GuChhwCJGmpu', 79, 66.00, 77, 'normal', NULL, '2024-05-05 14:51:15', 'inactive', 'user', NULL, 'Unverified', NULL, NULL),
 (25, 80619, 'Angelica Mayo', 'pajelyjiw@mailinator.com', '$2y$10$Q4QPROznAqt72Mh2o/IJcunV.4Q7wJwKFtIWwy7DCzX94lAW4RNRy', 72, 35.00, 25, 'normal', NULL, '2024-05-25 15:01:10', 'inactive', 'user', NULL, 'Unverified', 70, 28);
+=======
+INSERT INTO `users` (`id`, `user_id`, `name`, `email`, `password`, `age`, `weight`, `height`, `activity`, `profile_picture`, `registration_time`, `status`, `role`, `google_auth_secret`, `verified`) VALUES
+(3, 11787, 'Prasanga Pokharel', 'prasanga@gmail.com', '$2y$10$H2Y7f6Ph26npbfj0eG33wuyPcrEH/ews9B3YIdGMCclOUDgUNDxMa', 11, 68.00, 93, 'highly_active', 'profilepic/protein logo.png', '2024-05-02 18:09:41', 'active', 'user', 'IAWTC4TZWDMYWSWL', 'Unverified'),
+(18, 24872, 'Roanna Mcfarland', 'tukanez@mailinator.com', '$2y$10$o//xJXFHa4saJ7QUIXs94uRE7uXh28Oy55Xin9TorwHQKLolBr5FC', 35, 29.00, 48, 'intermediate', NULL, '2024-05-04 09:48:00', 'inactive', 'user', NULL, 'Unverified'),
+(21, 10002, 'Abijeet Raut', 'inc@gmail.com', '$2y$10$w/fPyYONqgrfAtyH.CJIq.hSVUKSdchcprNHUefyUeK7u7OZgIQPi', 22, 65.00, 175, 'normal', 'profilepic/49d8e82040dfc158d398c2dbefbf11a2.jpg', '2024-05-04 13:31:47', 'active', 'admin', 'E6RI4VBSA3MHDBIY', 'Unverified'),
+(22, 54473, 'Sylvester Chandler', 'incpractical@gmail.com', '$2y$10$plJ6UBpDqBmNej3ncAXtrem77aJcxUHyIKietI6w4H2hzGUxZEopq', 51, 40.00, 12, 'normal', NULL, '2024-05-04 15:44:34', 'inactive', 'user', NULL, 'Unverified'),
+(23, 32300, 'Sawyer Irwin', 'lipogoge@mailinator.com', '$2y$10$fCpqjw6OwX3w0aQwSPikueIP5TONQ.hoPwPgCfizjN97sUSeryWzG', 35, 22.00, 54, 'normal', NULL, '2024-05-04 16:24:11', 'inactive', 'user', NULL, 'Unverified'),
+(24, 13452, 'Zorita Crosby', 'comadu@mailinator.com', '$2y$10$jYevLbvuVWUrKamlW2rd1urOpHwUBYCRI9HXlW/g4GuChhwCJGmpu', 79, 66.00, 77, 'normal', NULL, '2024-05-05 14:51:15', 'inactive', 'user', NULL, 'Unverified');
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
 
 --
 -- Indexes for dumped tables
@@ -624,7 +665,11 @@ ALTER TABLE `diet_items`
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
 
 --
 -- AUTO_INCREMENT for table `np_nutrition`

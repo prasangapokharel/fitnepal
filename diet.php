@@ -49,7 +49,13 @@ include 'header\header.php';
             <select id="category" onchange="changeCategory(this.value)">
                 <option value="weight-loss" <?php echo $category === 'weight-loss' ? 'selected' : ''; ?>>Weight Loss</option>
                 <option value="weight-gain" <?php echo $category === 'weight-gain' ? 'selected' : ''; ?>>Weight Gain</option>
+<<<<<<< HEAD
                 <option value="keto" <?php echo $category === 'keto' ? 'selected' : ''; ?>>Keto</option>
+=======
+                
+                <!-- <option value="keto" <?php echo $category === 'keto' ? 'selected' : ''; ?>>Keto</option> -->
+                
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
             </select>
         </div>
 

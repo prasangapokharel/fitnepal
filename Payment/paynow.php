@@ -85,7 +85,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         curl_close($curl);
 
         if ($http_status === 200 && isset($parsed['token'])) {
+<<<<<<< HEAD
             // Success - update bankpayment table
+=======
+            // Success - insert into payment_record table
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
             $payment_date = date('Y-m-d');
             $status = "verified";
             $sql_update = "UPDATE bankpayment SET status = :status WHERE user_id = :user_id";
@@ -104,7 +108,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+<?php
+// include '../header/header.php';
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -192,7 +199,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </center>
         
         <!-- Display error or success message -->
+<<<<<<< HEAD
         <span class="error-message">
+=======
+        <span style="color: red;">
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
             <?php echo $error_message; ?>
         </span>
         <span class="success-message">
@@ -219,10 +230,114 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="otp">OTP:</label>
                 <input type="number" name="otp" placeholder="xxxx" required>
             </div>
+<<<<<<< HEAD
             <div class="amount-display">Amount: Rs. 10</div>
             <button type="submit">Pay Rs. 10</button>
+=======
+            <button type="submit">Pay Rs. 300</button>
+        </form><?php
+// Include necessary files
+include '../db_connection.php';
+include 'session.php';
+
+// Khalti public key for payment initiation
+$khalti_public_key = "test_public_key_09903c0b42f0481e9f450aab5b14300b"; // Replace with your Khalti public key
+
+$error_message = "";
+$success_message = "";
+$price = 300; // Fixed price in rupees
+$amount_in_paisa = $price * 100; // Khalti requires amount in paisa
+$user_id = $_SESSION['user_id']; // User ID from session
+
+// Initiate Khalti payment
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['initiate_payment'])) {
+        $curl = curl_init();
+        
+        // Create a unique product ID for this transaction
+        $purchase_order_id = "Order_" . time(); // Unique identifier for this payment
+        $product_name = "Service Fee"; // Name of the product/service
+        $return_url = "http://localhost/your_success_page/"; // URL to redirect after successful payment
+        $website_url = "http://localhost/your_website/"; // Your website URL
+
+        // Customer information (can be retrieved from the database)
+        $customer_info = [
+            "name" => "Customer Name", // Customer's name
+            "email" => "customer@example.com", // Customer's email
+            "phone" => "9800000001" // Customer's phone number
+        ];
+
+        curl_setopt_array($curl, [
+            CURLOPT_URL => 'https://a.khalti.com/api/v2/epayment/initiate/',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HTTPHEADER => [
+                'Content-Type: application/json',
+                'Authorization: Key ' . $khalti_public_key // Use Khalti public key
+            ],
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => json_encode([
+                "return_url" => $return_url,
+                "website_url" => $website_url,
+                "amount" => $amount_in_paisa,
+                "purchase_order_id" => $purchase_order_id,
+                "purchase_order_name" => $product_name,
+                "customer_info" => $customer_info
+            ])
+        ]);
+
+        $response = curl_exec($curl);
+        $parsed = json_decode($response, true);
+        curl_close($curl);
+
+        if (isset($parsed['payment_url'])) {
+            // Redirect user to the payment URL
+            header("Location: " . $parsed['payment_url']);
+            exit;
+        } else {
+            // Handle errors
+            $error_message = isset($parsed['detail']) ? $parsed['detail'] : "Error initiating payment. Please try again.";
+        }
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pay Now</title>
+    <link rel="stylesheet" href="./CSSpayment/complete.css"> <!-- External CSS -->
+</head>
+<body>
+    <div class="khalticontainer">
+        <center>
+            <img src="khalti.webp" alt="Khalti Logo" width="200"> <!-- Khalti logo -->
+        </center>
+        
+        <!-- Display error message if any -->
+        <span style="color: red;">
+            <?php echo $error_message; ?>
+        </span>
+        
+        <!-- Display success message if any -->
+        <span style="color: green;">
+            <?php echo $success_message; ?>
+        </span>
+        
+        <!-- Payment initiation form -->
+        <form action="paynow.php" method="post">
+            <input type="hidden" name="initiate_payment" value="1"> <!-- Hidden input to trigger payment -->
+            <button type="submit">Initiate Khalti Payment</button>
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
         </form>
+    </div>
+</body>
+</html>
+<<<<<<< HEAD
+=======
+
         <?php endif; ?>
     </div>
 </body>
 </html>
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839

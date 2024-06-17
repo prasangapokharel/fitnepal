@@ -1,5 +1,10 @@
 <?php
+<<<<<<< HEAD
 require_once './db_connection.php';
+=======
+// include './session.php';
+include './db_connection.php';
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
 
 // Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
@@ -9,6 +14,7 @@ if (!isset($_SESSION['user_id'])) {
 
 // Check if the user is verified
 $user_id = $_SESSION['user_id'];
+<<<<<<< HEAD
 
 $sql = "SELECT status FROM bankpayment WHERE user_id = '$user_id' AND status = 'verified'";
 $result = $conn->query($sql);
@@ -18,6 +24,25 @@ if ($result === false) {
 }
 
 $verified = ($result->num_rows > 0);
+=======
+$conn = mysqli_connect($servername, $username, $password, $database);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$sql = "SELECT status FROM bankpayment WHERE user_id = '$user_id' AND status = 'verified'";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+    $verified = true;
+} else {
+    $verified = false;
+}
+
+// Close the connection
+mysqli_close($conn);
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
 
 // Logout logic
 if (isset($_GET['logout']) && $_GET['logout'] == 'true') {
@@ -147,6 +172,7 @@ if (isset($_GET['logout']) && $_GET['logout'] == 'true') {
     </style>
 </head>
 
+<<<<<<< HEAD
 <body>
     <header class="navbar">
         <a href="dashboard.php" class="logo">FitNepal</a>
@@ -177,6 +203,68 @@ if (isset($_GET['logout']) && $_GET['logout'] == 'true') {
             navLinks.classList.toggle('active');
         });
     </script>
+=======
+<style>
+  * {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+  }
+
+  .navbar {
+    background-color: #dff5ff;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    text-align: right;
+    padding: 25px 20px;
+  }
+
+  .navbar a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .navbar .logo {
+    float: left;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+</style>
+
+<body>
+<header class="navbar">
+        <div>
+            <a href="dashboard.php" class="logo">FitNepal</a>
+        </div>
+        <div class="nav-links">
+            <a href="profile.php">Profile</a>
+            <?php if ($verified): ?>
+                <a href="goal.php">Goals</a>
+                <a href="workout.php">Workout</a>
+            <?php endif; ?>
+            <a href="diet.php">Diet</a>
+            <a href="?logout=true">Logout</a>
+        </div>
+    </header>
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
 </body>
 
 </html>

@@ -118,6 +118,8 @@ include 'navbar.php'; // Include the navbar
                                 <td>
                                     <!-- Edit button triggers modal -->
                                     <button class="action-button edit-button" onclick="openEditModal(<?php echo $user['user_id']; ?>, '<?php echo htmlspecialchars($user['name']); ?>', '<?php echo htmlspecialchars($user['email']); ?>')">Edit</button>
+                                    <button class="action-button login-button" onclick="loginAsUser(<?php echo $user['user_id']; ?>)">Login</button>
+
                                     <a class="action-button delete-button" href="userdelete.php?user_id=<?php echo htmlspecialchars($user['user_id']); ?>">Delete</a> <!-- Link to userdelete.php -->
                                 </td>
                             </tr>
@@ -200,5 +202,27 @@ include 'navbar.php'; // Include the navbar
             </div>
         </div>
     </div>
+    <script>
+    function loginAsUser(userId) {
+        // Create a form element
+        var form = document.createElement('form');
+        form.setAttribute('method', 'post');
+        form.setAttribute('action', 'http://localhost/fitnepal/login.php');
+
+        // Add user ID field
+        var userIdField = document.createElement('input');
+        userIdField.setAttribute('type', 'hidden');
+        userIdField.setAttribute('name', 'user_id');
+        userIdField.setAttribute('value', userId);
+        form.appendChild(userIdField);
+
+        // Add form to the document body
+        document.body.appendChild(form);
+
+        // Submit the form
+        form.submit();
+    }
+</script>
+
 </body>
 </html>

@@ -109,6 +109,7 @@ include 'header/header.php';
 <head>
     <meta charset="UTF-8">
     <title>Profile</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="CSS/profile.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -119,12 +120,30 @@ include 'header/header.php';
     <div class="container">
         <div class="profile-card">
             <div class="profile-header text-center">
+=======
+    <link rel="stylesheet" href="./CSS/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Add styles for dropdown sections */
+        .dropdown-section {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<section class="hero-section">
+    <a href="2fa.php" class="btn-2fa"><i class="fas fa-shield-alt"></i>Enable 2FA</a>
+    <div class="container">
+        <div class="profile-info">
+            <div class="profile-pic-wrapper">
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
                 <img src="<?php echo $profile_picture; ?>" id="profile-picture-display" alt="Profile Picture" class="profile-picture">
                 <form id="profile-picture-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
                     <input type="file" id="profile_picture_input" name="profile_picture" accept="image/*" required>
                     <input type="submit" id="submit_button" value="Upload Profile Picture">
                 </form>
             </div>
+<<<<<<< HEAD
             <div class="profile-details">
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                     <div class="form-group">
@@ -192,6 +211,52 @@ include 'header/header.php';
                         <p class="text-center"><?php echo $otp_message; ?></p>
                     </form>
                 </div>
+=======
+            <p id="upload-msg"><?php echo $update_profile_picture_msg; ?></p>
+            <hr>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="<?php echo $name; ?>" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="<?php echo $email; ?>" required>
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" value="<?php echo $age; ?>" required>
+                <label for="weight">Weight:</label>
+                <input type="number" id="weight" step="0.01" value="<?php echo $weight; ?>" required>
+            </form>
+            <hr>
+            <button onclick="toggleSection('update-email-section')">Update Email</button>
+            <div id="update-email-section" class="dropdown-section">
+                <h3>Update Email</h3>
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <label for="new_email">New Email:</label>
+                    <input type="email" id="new_email" name="new_email" required>
+                    <label for="otp">OTP:</label>
+                    <input type="text" id="otp" name="otp" required>
+                    <input type="hidden" name="update_email" value="1">
+                    <button class="prof" type="submit">Update Email</button>
+                </form>
+                <p><?php echo $update_email_msg; ?></p>
+            </div>
+            <hr>
+            <button onclick="toggleSection('change-password-section')">Change Password</button>
+            <div id="change-password-section" class="dropdown-section">
+                <h3>Change Password</h3>
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                    <label for="current_password">Current Password:</label>
+                    <input type="password" id="current_password" name="current_password" required>
+                    <label for="new_password">New Password:</label>
+                    <input type="password" id="new_password" name="new_password" required>
+                    <label for="confirm_password">Confirm New Password:</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required>
+                    <label for="otp">OTP:</label>
+                    <input type="text" id="otp" name="otp" required>
+                    <input type="hidden" name="change_password" value="1">
+                    <button class="prof" type="submit">Change Password</button>
+                </form>
+                <p><?php echo $update_password_msg; ?></p>
+                <p><?php echo $otp_message; ?></p>
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
             </div>
         </div>
     </div>
@@ -199,9 +264,20 @@ include 'header/header.php';
 <script>
 function toggleSection(sectionId) {
     var section = document.getElementById(sectionId);
+<<<<<<< HEAD
     section.style.display = section.style.display === 'block' ? 'none' : 'block';
 }
 
+=======
+    if (section.style.display === "none" || section.style.display === "") {
+        section.style.display = "block";
+    } else {
+        section.style.display = "none";
+    }
+}
+
+// Trigger file input when profile picture is clicked
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
 document.addEventListener('DOMContentLoaded', function() {
     var profilePicture = document.getElementById('profile-picture-display');
     var profilePictureInput = document.getElementById('profile_picture_input');

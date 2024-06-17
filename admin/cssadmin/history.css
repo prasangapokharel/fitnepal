@@ -10,10 +10,9 @@ body {
 }
 .container {
     display: flex;
-    border-radius: 10px; /* Rounded corners for smoothness */
+    border-radius: px; /* Rounded corners for smoothness */
     padding: 20px;
-    margin-top: 5%;
-    margin-left: 15%;
+margin-left: 15%;
 
 }
 
@@ -27,8 +26,8 @@ body {
 table {
     width: 100%; /* Full width */
     border-collapse: collapse; /* Collapse table borders */
-    background-color: #124c8e; /* Dark blue background */
-    border-radius: 10px; /* Rounded corners */
+    background-color: #ffffff; /* Dark blue background */
+    border-radius: 0px; /* Rounded corners */
     overflow: hidden; /* Hide overflow for rounded corners */
 }
 
@@ -50,7 +49,7 @@ td {
 
 /* Alternate row background for better readability */
 tr:nth-child(even) {
-    background-color: #f1f1f1; /* Light gray for alternate rows */
+    background-color: #ffffff; /* Light gray for alternate rows */
 }
 
 /* Styling for the page title */

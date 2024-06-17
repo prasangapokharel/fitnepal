@@ -45,7 +45,11 @@ body {
 
 /* Information card styling with icons and consistent height */
 .info-box {
+<<<<<<< HEAD
     background-color:#291f69;; /* Dark background for cards */
+=======
+    background-color:#3d065f; /* Dark background for cards */
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
     border-radius: 10px; /* Rounded corners */
     text-align: center; /* Center text */
     flex: 1; /* Allow flex growth */
@@ -57,9 +61,10 @@ body {
     justify-content: center; /* Center content vertically */
 }
 
+
 /* Hover effect for information boxes */
 .info-box:hover {
-    background-color: green; /* Darker on hover */
+    background-color: #124c8e; /* Darker on hover */
 }
 
 /* Icon styling */
@@ -102,7 +107,11 @@ body {
 }
 
 .bar-graph:hover {
+<<<<<<< HEAD
     transform: scale(1.02); /* Slightly enlarge on hover */
+=======
+    /* transform: scale(1.02); Slightly enlarge on hover */
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
 }
 
 

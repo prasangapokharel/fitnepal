@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +16,9 @@
 include 'home/navbar.php';
 ?>
 <body>
+<?php
+include 'home/navbar.php';
+?>
     <div class="container">
         <h2>Sign Up</h2>
         <form id="signupForm" action="register.php" method="post">

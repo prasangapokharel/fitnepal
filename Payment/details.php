@@ -1,7 +1,51 @@
 <?php
+<<<<<<< HEAD
 require_once '../admin/db_connection.php';
 include 'session.php';
 
+=======
+include '../admin/db_connection.php';
+include 'session.php';
+// Include your site's header
+
+// Check if form is submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Get form data
+    $accountNumber = $    $holderName = $_POST['holderName'];
+_POST['accountNumber'];
+    $branch = $_POST['branch'];
+    $transactionHash = $_POST['transactionHash'];
+    $transactionScreenshot = $_FILES['transactionScreenshot']['name']; // File name
+
+    // Upload transaction screenshot
+    $targetDir = "manualpay/";
+    $targetFile = $targetDir . basename($transactionScreenshot); // File path
+    move_uploaded_file($_FILES["transactionScreenshot"]["tmp_name"], $targetFile);
+
+    // Insert data into bankpayment table
+    $sql = "INSERT INTO bankpayment (username, user_id, account_number, branch, transaction_hash, holderName, image, status) 
+            VALUES (:username, :user_id, :account_number, :branch, :transaction_hash, :holderName, :image, 'unverified')";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':username', $holderName, PDO::PARAM_STR);
+    $stmt->bindParam(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
+    $stmt->bindParam(':account_number', $accountNumber, PDO::PARAM_STR);
+    $stmt->bindParam(':holderName', $accountNumber, PDO::PARAM_STR);
+
+    $stmt->bindParam(':branch', $branch, PDO::PARAM_STR);
+    $stmt->bindParam(':transaction_hash', $transactionHash, PDO::PARAM_STR);
+    $stmt->bindParam(':image', $targetFile, PDO::PARAM_STR);
+    $stmt->execute();
+
+    // Show thank you message and redirect to dashboard after 3 seconds
+    echo "<script>
+            alert('Thank you! Payment review takes 12 hours.');
+            setTimeout(function() {
+                window.location.href = 'Fitnepal/dashboard.php';
+            }, 3000);
+          </script>";
+}
+?>
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
 
 // Check if form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

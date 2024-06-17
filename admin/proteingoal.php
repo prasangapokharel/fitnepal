@@ -97,9 +97,15 @@ $entries = $stmt->fetchAll(PDO::FETCH_ASSOC); // Fetch all results
                 });
             });
 
+<<<<<<< HEAD
             // Delete all button click event
             $("#deleteAllButton").click(function() {
                 if (confirm("Are you sure you want to delete all entries?")) {
+=======
+            // Reset button click event to degit i entries after 24 hours
+            $("#deleteButton").click(function() {
+                if (confirm("Are you sure you want to reset all entries after 24 hours?")) {
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
                     $.ajax({
                         url: 'deleteprotein.php', // PHP file to delete all entries
                         type: 'POST',

@@ -24,7 +24,8 @@ if ($google_auth_secret === null) {
     // Generate a new secret key
     $google_auth_secret = $google2fa->generateSecretKey(); // Generate unique secret key
     $company_name = "Fitnepal"; // Company name for QR code
-    $qr_code_url = $google2fa->getQRCodeUrl($company_name, "user_{$user_id}", $google_auth_secret); // Generate QR code URL
+    $qr_code_data = "otpauth://totp/{$company_name}:user_{$user_id}?secret={$google_auth_secret}&issuer={$company_name}";
+    $qr_code_url = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" . urlencode($qr_code_data); // Generate QR code URL
 
     // Save the secret key to the database
     $sql_update = "UPDATE users SET google_auth_secret = :google_auth_secret WHERE id = :user_id";
@@ -36,8 +37,9 @@ if ($google_auth_secret === null) {
         die("Error storing Google Authentication secret key.");
     }
 } else {
-    $company_name = "YourCompany"; // Reuse company name
-    $qr_code_url = $google2fa->getQRCodeUrl($company_name, "user_{$user_id}", $google_auth_secret); // Generate QR code URL from the secret key
+    $company_name = "Fitnepal"; // Reuse company name
+    $qr_code_data = "otpauth://totp/{$company_name}:user_{$user_id}?secret={$google_auth_secret}&issuer={$company_name}";
+    $qr_code_url = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" . urlencode($qr_code_data); // Generate QR code URL from the secret key
 }
 ?>
 <!DOCTYPE html>
@@ -61,10 +63,15 @@ if ($google_auth_secret === null) {
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script> <!-- QRCode library -->
 </head>
 <body>
+<<<<<<< HEAD
+=======
+    <?php include 'navbar.php'; ?>
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
     <div class="container">
         <h2>Google Authentication Setup</h2>
         <p>Scan the QR code with Google Authenticator, then enter the generated OTP below:</p>
         <?php if (isset($qr_code_url)): ?>
+<<<<<<< HEAD
             <div id="qrcode"></div>
             <script type="text/javascript">
                 var qrcode = new QRCode(document.getElementById("qrcode"), {
@@ -75,6 +82,11 @@ if ($google_auth_secret === null) {
             </script>
             <p>Your secret key: <strong><?php echo htmlspecialchars($google_auth_secret); ?></strong>
             <button class="copy-button" onclick="copyToClipboard('<?php echo htmlspecialchars($google_auth_secret); ?>')">Copy</button></p> <!-- Display secret key with copy button -->
+=======
+            <!-- Display QR code -->
+            <img class="qr" src="<?php echo htmlspecialchars($qr_code_url); ?>" alt="QR Code">
+            <p>Your secret key: <strong><?php echo htmlspecialchars($google_auth_secret); ?></strong></p> <!-- Display secret key -->
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
         <?php endif; ?>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <label for="otp">One-Time Password (OTP):</label>

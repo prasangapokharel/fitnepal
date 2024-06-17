@@ -1,5 +1,6 @@
 * {
     padding: 0;
+<<<<<<< HEAD
     margin: 0;
     box-sizing: border-box;
     
@@ -9,16 +10,153 @@ body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
     height: 100%;
+=======
+    background-color:#67C6E3;
+    
+}
+  /* Add styles for dropdown sections */
+  .dropdown-section {
+    display: none;
+}
+
+.data-container {
+    background-color:#67C6E3;
+
+    width: 100%;
+    display: flex;
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
     justify-content: center;
     align-items: center;
 }
 
+<<<<<<< HEAD
 .hero-section {
     width: 100%;
     max-width: 100%;
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+=======
+.Logo {
+    width: 70px;
+}
+.lg{
+    color: #291f69;
+    font-size: 30px;
+    background-color: transparent;
+   
+}
+/* a {
+    text-decoration: none;
+    color: #fcfcfc;
+    padding: 10px 15px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease-in;
+    margin: 0 10px;
+    font-weight: 700;
+    font-size: 18px;
+    font-family: 'Inter', sans-serif;
+    background-color: white;
+    color: #291f69;
+} */
+
+.log{
+    color: red;
+}
+.menu-data {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+/* a:hover {
+    background-color: white;
+    color: rgb(0, 12, 34);
+} */
+
+.size-icon {
+    font-size: 26px;
+}
+
+#Menu-bar {
+    display: none;
+    margin-left: auto;
+}
+
+#close {
+    display: none;
+}
+
+@media (max-width: 761px) {
+    .menu-data {
+        position: absolute;
+        flex-direction: column;
+        text-align: left;
+        align-items: flex-end;
+        left: 100%;
+        top: 0;
+        transform: translate(-100%);
+        background-color: black;
+        width: 250px;
+        padding: 20px;
+        z-index: -10;
+    }
+
+    #Menu-bar {
+        display: block;
+    }
+
+    #close {
+        display: block;
+    }
+}
+
+
+
+.hero-section-content h1 {
+    font-size: 40px;
+    text-transform: capitalize;
+    text-align: center;
+    padding: 10px 15px;
+}
+
+.hero-section-content p {
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+    text-transform: capitalize;
+    text-align: center;
+    padding: 10px 15px;
+}
+
+h1 i {
+    color: rgb(255, 96, 123);
+}
+
+.container {
+    height: 100%;
+    width: 90%;
+            max-width: 100%;
+            margin: 20px auto;
+            background-color:#67C6E3;
+            padding: 20px;
+            /* border: 1px dotted; */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); /* White shadow for futuristic effect */
+        }
+h2{
+    text-align: center;
+color: #291f69;
+}
+h3 {
+color: #ffffff;
+}
+
+.profile-info {
+    width: 80%;
+    margin: 0 auto;
+    background-color:#67C6E3;
+    border-radius: 5px;
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
     padding: 20px;
     margin: 20px;
 }
@@ -70,6 +208,7 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="number"] {
+<<<<<<< HEAD
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -85,6 +224,26 @@ button {
     width: 100%;
     padding: 10px;
     border-radius: 25px;
+=======
+  
+    width: calc(100% - 16px);
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #F0F6FC;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: transparent;
+color: #ffffff;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+}
+
+input[type="submit"] {
+    width: 100%;
+    background-color: #1255c5;
+color: #ffffff;
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
     border: none;
     font-size: 16px;
     cursor: pointer;
@@ -96,6 +255,7 @@ button {
     color: #fff;
 }
 
+<<<<<<< HEAD
 .update-btn:hover {
     background-color: #1F6FFF;
 }
@@ -154,3 +314,41 @@ hr {
         padding: 8px;
     }
 }
+=======
+#profile-picture-form {
+    display: none; /* Hidden form for file input */
+}
+.btn-2fa {
+    position: absolute;
+    top: 90px;
+    right: 50px;
+    background-color: rgb(55, 19, 138);
+    color: #ffffff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: -30px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.btn-2fa:hover {
+    background-color: #378ce7;
+
+}
+a.btn-2fa{
+    text-decoration: none;
+
+}
+
+.btn-2fa i {
+    margin-right: 10px;
+}
+button.prof{
+    padding: 10px 15px;
+
+    background-color: rgb(55, 19, 138);
+    color: #ffffff;
+}
+>>>>>>> 82656c606da72bb3beed5af550667ce76c420839
