@@ -1,6 +1,5 @@
 <?php
 include 'session.php'; // Include the session check
-
 include 'db_connection.php';
 
 // Get the logged-in user's ID from the session
@@ -63,7 +62,7 @@ $stmt_weekly_users = $pdo->prepare($query_weekly_users);
 $stmt_weekly_users->execute();
 $weekly_users_data = $stmt_weekly_users->fetchAll(PDO::FETCH_ASSOC);
 
-// Prepare data for Chart.js
+// Prepare data for ApexCharts
 $dates = array_map(function ($data) {
     return date('Y-m-d', strtotime($data['registration_date']));
 }, $weekly_users_data);
@@ -71,8 +70,6 @@ $dates = array_map(function ($data) {
 $user_counts = array_map(function ($data) {
     return $data['user_count'];
 }, $weekly_users_data);
-
-
 
 include 'navbar.php'; 
 ?>
@@ -83,7 +80,8 @@ include 'navbar.php';
     <meta charset="UTF-8">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"> <!-- Inter font -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts/dist/apexcharts.css"> <!-- ApexCharts CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> <!-- Include ApexCharts -->
     <link rel="stylesheet" href="./cssadmin/dashboard.css"> <!-- Custom CSS -->
 </head>
 <body>
@@ -106,7 +104,6 @@ include 'navbar.php';
             <!-- Content row with user statistics -->
             <div class="content-row">
                 <!-- Total users -->
-                <
                 <div class="info-box">
                     <i data-feather="users" class="icon"></i> <!-- Icon before text -->
                     <h2>Total Users</h2>
@@ -138,14 +135,12 @@ include 'navbar.php';
             </div>
  <!-- Bar graph for weekly user registrations -->
  <div class="bar-graph">
-                <canvas id="userRegistrationChart"></canvas> <!-- Chart.js placeholder -->
-            </div>
+     <div id="userRegistrationChart"></div>
+ </div>
            
         </div>
     </div>
 
-    
-    
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
     <!-- Initialize Feather Icons -->
@@ -153,39 +148,47 @@ include 'navbar.php';
         feather.replace(); // Initialize icons
     </script>
 
-    <!-- Initialize the bar graph with Chart.js -->
+    <!-- Initialize the bar graph with ApexCharts -->
     <script>
-        var ctx = document.getElementById("userRegistrationChart").getContext("2d");
-        var userRegistrationChart = new Chart(ctx, {
-            type: "bar", // Bar graph
-            data: {
-                labels: <?php echo json_encode($dates); ?>, // X-axis labels
-                datasets: [{
-                    label: "Users Registered",
-                    data: <?php echo json_encode($user_counts); ?>, // User count data
-                    backgroundColor: ["#3b82f6", "#ef4444", "#f59e0b"], // Bar colors
-                    borderColor: ["#2563eb", "#dc2626", "#d97706"], // Border colors
-                    borderWidth: 1, // Border width
-                }]
+        var options = {
+            chart: {
+                type: 'bar',
+                height: 350
             },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true, // Start y-axis at zero
-                        plugins: {
-                            legend: {
-                                position: "bottom", // Position of the legend
-                            },
-                        },
-                    },
-                },
+            series: [{
+                name: 'Users Registered',
+                data: <?php echo json_encode($user_counts); ?>
+            }],
+            xaxis: {
+                categories: <?php echo json_encode($dates); ?>
             },
-        });
+            colors: ['#3b82f6', '#ef4444', '#f59e0b'],
+            plotOptions: {
+                bar: {
+                    borderRadius: 4,
+                    horizontal: false,
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                show: true,
+                width: 1,
+                colors: ['#2563eb', '#dc2626', '#d97706']
+            },
+            legend: {
+                position: 'bottom'
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#userRegistrationChart"), options);
+        chart.render();
 
         function logout() {
-        // Navigate to the logout script
-        window.location.href = "logout.php"; // Adjust path as needed
-    }
+            // Navigate to the logout script
+            window.location.href = "logout.php"; // Adjust path as needed
+        }
     </script>
 </body>
 </html>

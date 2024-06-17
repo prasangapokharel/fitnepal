@@ -1,341 +1,145 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: white;
-            color: black;
-        }
+    font-family: 'Roboto', sans-serif;
+    background-color: #1E3A8A;
+    color: grey;
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            background-color: #DFF5FF;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-        }
+.container {
+    max-width: 80%;
+    margin: 90px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    background-color: transparent;
+    padding: 40px;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-        .container h2 {
-            color: #fff;
-            margin-bottom: 10px;
-        }
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-        .container p {
-            margin-bottom: 10px;
-            padding: 9px 12px;
-            background-color: white;
-            font-size: 20px;
-            border-radius: 7px;
-            border: 2px;
-            /* font-weight: 700; */
-        }
+.content p {
+    margin-bottom: 10px;
+    padding: 12px;
+    background-color: #f0f8ff;
+    color: #1E3A8A;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    border-radius: 0.5rem;
+}
 
-        .weekdays {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: space-around;
-            background-color: #1F6FFF;
-            color: white;
-            font-weight: bold;
-            border-radius: 12px;
-            overflow: hidden;
-        }
+.content p span {
+    font-weight: bold;
+}
 
-        ul li {
-            display: flex;
-            margin-left: 90px;
-            /* margin: 50px; */
-            padding: 8px 0px;
-            float: left;
-            border: 2px;
-            border-radius: 8px;
-        }
+#chart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .weekdays li {
-            text-align: center;
-            padding: 10px 0;
-            flex: 1;
-        }
+.part2 {
+    text-align: center;
+    margin-top: 20px;
+}
 
-        .days {
-            padding: 15px;
-            list-style-type: none;
-            margin: 20px 0 0 0;
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
-        }
+.styled-button {
+    padding: 12px 24px;
+    background-color: #378CE7;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-        .days li {
-            text-align: center;
-            padding: 20px 0;
-            border-radius: 18px;
-            background-color: #fff;
-            border: 2px solid #1F6FFF;
-            color: #1F6FFF;
-            font-weight: bold;
-        }
+.styled-button a {
+    color: #fff;
+    text-decoration: none;
+}
 
-        .days li span.active {
-            color: #1F6FFF;
-        }
+.styled-button:hover {
+    background-color: #60A5FA;
+}
 
-        .data {
-            border: 2px;
-            border-radius: 12px;
-            background-color: #1F6FFF;
-            margin: 30px 5px;
-            margin-top: 100px;
-        }
+.video {
+    text-align: center;
+    margin-top: 50px;
+}
 
-        span {
-            font-size: 18px;
-        }
+.video h2 {
+    color: #fff;
+}
 
-        .underweight {
-            color: blue;
-        }
+.container2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin: 30px auto;
+    padding: 20px;
+}
 
-        .normal {
-            color: green;
-        }
+.card {
+    background-color: #1E3A8A;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    text-align: center;
+}
 
-        .overweight {
-            color: orange;
-        }
+.card iframe {
+    width: 100%;
+    height: 200px;
+    border: none;
+    border-radius: 8px;
+}
 
-        .obese {
-            color: red;
-        }
+.card h3 {
+    margin: 12px 0;
+    color: #ffffff;
+}
 
-        .content {
-            justify-content: center;
-            margin-left: 10px;
-            font-size: 20px;
-        }
+.card p {
+    color: #378CE7;
+}
 
-        .container {
-            display: flex;
-            justify-content: space-around;
-        }
-
-        .image {
-            margin: 0 50px 0 100px;
-            height: 40%;
-            width: 40%;
-            border: 2px;
-            border-radius: 9px;
-        }
-
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            text-align: center;
-        }
-
-        th,
-        td {
-            border: 1px solid #ccc;
-            padding: 8px;
-        }
-
-        .underweight {
-            background-color: #f0f8ff;
-        }
-
-        .normal {
-            background-color: #d1e7dd;
-        }
-
-        .overweight {
-            background-color: #ffe6b2;
-        }
-
-        .obese {
-            background-color: #f5c6cb;
-        }
-
-        .range h2 {
-            font-weight: 700;
-            color: #67C6E3;
-            size: 15px;
-            margin-bottom: 0px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .range {
-            height: 60%;
-            margin: 50px 10%;
-            /* background-color: #DFF5FF; */
-            border: 2px;
-            border-radius: 9px;
-
-        }
-
-        /* Styling for the button */
-        .styled-button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 16px;
-            text-align: center;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .styled-button:hover {
-            background-color: #45a049;
-        }
-
-        /* Styling for the modal (pop-up box) */
-        .modal {
-            display: none;
-            /* Initially hidden */
-            position: fixed;
-            /* Stay fixed in place */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            /* Semi-transparent black background */
-            justify-content: center;
-            /* Center horizontally */
-            align-items: center;
-            /* Center vertically */
-            z-index: 1;
-            /* Ensure it appears above other content */
-        }
-
-        /* Styling for the modal content */
-        .modal-content {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            width: 300px;
-            /* Fixed width */
-        }
-
-        /* Close button for the modal */
-        .close-button {
-            background-color: #f44336;
-            /* Red */
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        .close-button:hover {
-            background-color: #e53935;
-            /* Darker red on hover */
-        }
-
-        .part2 {
-            margin-top: 20px;
-            float: center;
-            margin: auto 43%;
-        }
-
-        img {
-            height: 600px;
-            width: 1000px;
-            margin: 10% 10%;
-            background-color: green;
-            border: 2px;
-            border-radius: 6px;
-
-        }
-
-
-
-        .container2 {
-            display: flex;
-            /* Use Flexbox to create a row */
-            justify-content: space-between;
-            /* Evenly space the cards */
-            gap: 16px;
-            /* Add space between cards */
-            padding: 20px;
-        }
-
-        .card {
-            flex: 1;
-            /* Each card takes an equal portion of the row */
-            border: 1px solid #ccc;
-            /* Light gray border */
-            border-radius: 8px;
-            /* Rounded corners */
-            background-color: #f9f9f9;
-            /* Light background color */
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-            /* Soft shadow for depth */
-            padding: 16px;
-            /* Padding within the card */
-            text-align: center;
-            /* Center-align text content */
-        }
-
-        .card iframe {
-            width: 100%;
-            /* The video takes the full width of the card */
-            height: 200px;
-            /* Fixed height for consistency */
-            border: none;
-            /* Remove border around the iframe */
-            border-radius: 8px;
-            /* Matches card's border radius */
-        }
-
-        .card h3 {
-            margin: 12px 0;
-            /* Space above and below the title */
-            color: #333;
-            /* Title text color */
-        }
-
-        .card p {
-            margin: 0;
-            color: #666;
-        }
-
-        button,
-        a {
-            text-decoration: none;
-            color: black;
-        }
-
-        .video h2 {
-            margin-left: 24px;
-            margin-bottom: 0px;
-        }
-        
 .upgrade-container {
-    display: flex; 
-    flex-direction: column; /* Vertical layout */
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    height: 40vh; /* Full viewport height */
-    text-align: center; 
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #fff;
+    margin-top: 40px;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .upgrade-button {
-    padding: 12px 30px; /* Add padding for a better look */
-    font-size: 16px; /* Larger font size */
-    color: #ffffff; /* White text */
-    background-color: #378CE7; /* Bright orange background */
-    border: none; /* No border */
-    border-radius: 8px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor */
-    transition: background-color 0.3s ease-in-out; /* Smooth transition */
+    padding: 12px 30px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #378CE7;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
 }
 
+.upgrade-button:hover {
+    background-color: #60A5FA;
+}
 
+canvas#proteinGoalChart {
+    height: 290px; /* Adjusted height */
+    width: 290px; /* Adjusted width */
+    margin: 0 auto; /* Center the chart */
+}

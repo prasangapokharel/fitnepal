@@ -33,14 +33,12 @@ foreach ($diets as $diet) {
 <?php
 include 'header\header.php';
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Diet Planner</title>
     <link rel="stylesheet" href="./CSS/diet.css">
-   
 </head>
 <body>
     <div class="container">
@@ -51,56 +49,53 @@ include 'header\header.php';
             <select id="category" onchange="changeCategory(this.value)">
                 <option value="weight-loss" <?php echo $category === 'weight-loss' ? 'selected' : ''; ?>>Weight Loss</option>
                 <option value="weight-gain" <?php echo $category === 'weight-gain' ? 'selected' : ''; ?>>Weight Gain</option>
-                
                 <option value="keto" <?php echo $category === 'keto' ? 'selected' : ''; ?>>Keto</option>
-                
             </select>
         </div>
 
         <div class="meal-sections">
-    <!-- Breakfast -->
-    <div class="meal-column">
-        <h2>Breakfast</h2>
-        <?php foreach ($meal_types['breakfast'] as $diet): ?> <!-- Corrected variable name -->
-            <div class="diet-card">
-                <img src="<?php echo htmlspecialchars($diet['food_image']); ?>" alt="<?php echo htmlspecialchars($diet['food_name']); ?>" width="100" height="100">
-                <h3><?php echo htmlspecialchars($diet['food_name']); ?></h3>
-                <p><strong>Protein:</strong> <?php echo $diet['protein']; ?>g/100g</p>
-                <p><strong>Calories:</strong> <?php echo $diet['calories']; ?></p>
-                <p><?php echo htmlspecialchars($diet['description']); ?></p>
+            <!-- Breakfast -->
+            <div class="meal-column">
+                <h2>Breakfast</h2>
+                <?php foreach ($meal_types['breakfast'] as $diet): ?> <!-- Corrected variable name -->
+                    <div class="diet-card">
+                        <img src="<?php echo htmlspecialchars($diet['food_image']); ?>" alt="<?php echo htmlspecialchars($diet['food_name']); ?>">
+                        <h3><?php echo htmlspecialchars($diet['food_name']); ?></h3>
+                        <p><strong>Protein:</strong> <?php echo $diet['protein']; ?>g/100g</p>
+                        <p><strong>Calories:</strong> <?php echo $diet['calories']; ?></p>
+                        <p><?php echo htmlspecialchars($diet['description']); ?></p>
+                    </div>
+                <?php endforeach; ?>
             </div>
-        <?php endforeach; ?>
-    </div>
 
-    <!-- Lunch -->
-    <div class="meal-column">
-        <h2>Lunch</h2>
-        <?php foreach ($meal_types['lunch'] as $diet): ?> <!-- Corrected variable name -->
-            <div class="diet-card">
-                <img src="<?php echo htmlspecialchars($diet['food_image']); ?>" alt="<?php echo htmlspecialchars($diet['food_name']); ?>" width="100" height="100">
-                <h3><?php echo htmlspecialchars($diet['food_name']); ?></h3>
-                <p><strong>Protein:</strong> <?php echo $diet['protein']; ?>g/100g</p>
-                <p><strong>Calories:</strong> <?php echo $diet['calories']; ?></p>
-                <p><?php echo htmlspecialchars($diet['description']); ?></p>
+            <!-- Lunch -->
+            <div class="meal-column">
+                <h2>Lunch</h2>
+                <?php foreach ($meal_types['lunch'] as $diet): ?> <!-- Corrected variable name -->
+                    <div class="diet-card">
+                        <img src="<?php echo htmlspecialchars($diet['food_image']); ?>" alt="<?php echo htmlspecialchars($diet['food_name']); ?>">
+                        <h3><?php echo htmlspecialchars($diet['food_name']); ?></h3>
+                        <p><strong>Protein:</strong> <?php echo $diet['protein']; ?>g/100g</p>
+                        <p><strong>Calories:</strong> <?php echo $diet['calories']; ?></p>
+                        <p><?php echo htmlspecialchars($diet['description']); ?></p>
+                    </div>
+                <?php endforeach; ?>
             </div>
-        <?php endforeach; ?>
-    </div>
 
-    <!-- Dinner -->
-    <div class="meal-column">
-        <h2>Dinner</h2>
-        <?php foreach ($meal_types['dinner'] as $diet): ?> <!-- Corrected variable name -->
-            <div class="diet-card">
-                <img src="<?php echo htmlspecialchars($diet['food_image']); ?>" alt="<?php echo htmlspecialchars($diet['food_name']); ?>" width="100" height="100">
-                <h3><?php echo htmlspecialchars($diet['food_name']); ?></h3>
-                <p><strong>Protein:</strong> <?php echo $diet['protein']; ?>g/100g</p>
-                <p><strong>Calories:</strong> <?php echo $diet['calories']; ?></p>
-                <p><?php echo htmlspecialchars($diet['description']); ?></p>
+            <!-- Dinner -->
+            <div class="meal-column">
+                <h2>Dinner</h2>
+                <?php foreach ($meal_types['dinner'] as $diet): ?> <!-- Corrected variable name -->
+                    <div class="diet-card">
+                        <img src="<?php echo htmlspecialchars($diet['food_image']); ?>" alt="<?php echo htmlspecialchars($diet['food_name']); ?>">
+                        <h3><?php echo htmlspecialchars($diet['food_name']); ?></h3>
+                        <p><strong>Protein:</strong> <?php echo $diet['protein']; ?>g/100g</p>
+                        <p><strong>Calories:</strong> <?php echo $diet['calories']; ?></p>
+                        <p><?php echo htmlspecialchars($diet['description']); ?></p>
+                    </div>
+                <?php endforeach; ?>
             </div>
-        <?php endforeach; ?>
-    </div>
-</div>
-
+        </div>
     </div>
 
     <script>

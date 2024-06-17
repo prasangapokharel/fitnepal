@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2024 at 06:46 PM
+-- Generation Time: May 26, 2024 at 07:30 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,40 @@ SET time_zone = "+00:00";
 --
 -- Database: `fitness`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bankpayment`
+--
+
+CREATE TABLE `bankpayment` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `status` enum('verified','unverified') DEFAULT 'unverified',
+  `transaction_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `account_number` varchar(255) DEFAULT NULL,
+  `branch` varchar(255) DEFAULT NULL,
+  `transaction_hash` varchar(255) DEFAULT NULL,
+  `holderName` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bankpayment`
+--
+
+INSERT INTO `bankpayment` (`id`, `username`, `user_id`, `image`, `status`, `transaction_date`, `account_number`, `branch`, `transaction_hash`, `holderName`) VALUES
+(1, 'Elliott George', 3, 'manualpay/BRS.png', '', '2024-05-11 15:20:25', NULL, NULL, NULL, NULL),
+(2, 'Ethan Skinner', 3, 'manualpay/tgg.jpg', '', '2024-05-11 15:50:51', '733', 'Et quo autem delenit', 'Vel ratione est quos', NULL),
+(3, 'Prasanga Raman Pokharel', 3, 'manualpay/sale bannner social media post .png', 'verified', '2024-05-14 03:42:43', '3123234993', 'Inaruwa', '22b2332r322', NULL),
+(4, 'Prasanga Raman Pokharel', 3, 'manualpay/sale bannner social media post .png', 'verified', '2024-05-14 03:45:10', '3123234993', 'Inaruwa', '22b2332r322', '3123234993'),
+(5, 'Prasanga Raman Pokharel', 3, 'manualpay/sale bannner social media post .png', 'verified', '2024-05-14 03:46:59', '3123234993', 'Inaruwa', '22b2332r322', '3123234993'),
+(6, 'Vincent Underwood', 3, 'Payment/manualpay/TRYME (70 x 70 px).png', 'verified', '2024-05-14 03:47:43', '595', 'Aliqua Libero ut qu', 'Irure do sapiente qu', '595'),
+(7, 'Vincent Underwood', 3, 'Payment/manualpay/cheat.png', 'verified', '2024-05-14 03:48:07', '595', 'Aliqua Libero ut qu', 'Irure do sapiente qu', '595'),
+(8, 'Vincent Underwood', 3, 'manualpay/cheat.png', 'verified', '2024-05-14 03:48:57', '595', 'Aliqua Libero ut qu', 'Irure do sapiente qu', '595'),
+(9, 'Ashsih Khadka', 3, 'manualpay/2.jpg', 'verified', '2024-05-14 04:38:57', '8432432847328', 'Itahari', '38483239f33', '8432432847328');
 
 -- --------------------------------------------------------
 
@@ -41,8 +75,32 @@ CREATE TABLE `calorie` (
 --
 
 INSERT INTO `calorie` (`id`, `user_id`, `date`, `amount`, `calories`, `description`) VALUES
-(4, 3, '2024-03-16 00:00:00', 3, 300, 'Beer'),
-(5, 3, '1996-08-29 00:00:00', 5, 30, 'Egg');
+(6, 3, '2024-05-08 00:00:00', 5, 300, 'Beer');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chat`
+--
+
+CREATE TABLE `chat` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `admin_id` int(11) DEFAULT NULL,
+  `message` text DEFAULT NULL,
+  `sent_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `is_from_user` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `chat`
+--
+
+INSERT INTO `chat` (`id`, `user_id`, `admin_id`, `message`, `sent_at`, `is_from_user`) VALUES
+(1, 21, NULL, 'hi', '2024-05-10 16:41:39', 1),
+(2, 21, NULL, 'hi', '2024-05-10 16:41:58', 1),
+(3, 21, NULL, 'hi', '2024-05-10 16:42:12', 1),
+(4, 21, NULL, 'hi', '2024-05-10 17:01:55', 1);
 
 -- --------------------------------------------------------
 
@@ -75,7 +133,8 @@ INSERT INTO `contactus` (`id`, `name`, `email`, `subject`, `message`, `viewed`) 
 (15, 'Mariko Baker', 'zylaferyby@mailinator.com', NULL, 'Laborum Ullamco aut', 1),
 (16, 'Gareth Wiley', 'zejebyza@mailinator.com', NULL, 'Dolores ipsa accusa', 1),
 (17, 'Paula Houston', 'jevud@mailinator.com', NULL, 'Est ipsa nisi pari', 1),
-(18, 'Noah Grant', 'hinyb@mailinator.com', NULL, 'Consequat Veritatis', 1);
+(18, 'Noah Grant', 'hinyb@mailinator.com', NULL, 'Consequat Veritatis', 1),
+(19, 'Constance Thomas', 'wowikor@mailinator.com', NULL, 'Possimus quidem vol', 1);
 
 -- --------------------------------------------------------
 
@@ -99,29 +158,7 @@ CREATE TABLE `diets` (
 --
 
 INSERT INTO `diets` (`id`, `category`, `food_image`, `food_name`, `protein`, `calories`, `meal_type`, `description`) VALUES
-(1, 'weight-loss', 'uploads/6637330316dec-download.png', 'milk', 34.00, 300, 'breakfast', 'a milk'),
-(2, 'weight-loss', 'uploads/6637330a24874-download.png', 'milk', 34.00, 300, 'breakfast', 'a milk'),
-(3, 'weight-loss', 'uploads/6637337b9710c-download.png', 'milk', 34.00, 300, 'breakfast', 'a milk'),
-(4, 'weight-loss', 'uploads/66373458afbb8-download.png', 'milk', 34.00, 300, 'breakfast', 'a milk'),
-(5, 'weight-loss', 'uploads/66373460a170e-download.png', 'milk', 34.00, 300, 'breakfast', 'a milk'),
-(6, 'weight-loss', 'uploads/663734fcecbe4-download.png', 'milk', 34.00, 300, 'breakfast', 'a milk'),
-(7, 'weight-loss', 'uploads/66373555d0b40-tgg.jpg', 'chciken', 76.00, 22, 'lunch', 'a chicekn'),
-(8, 'weight-loss', 'uploads/663736ce0b362-tgg.jpg', 'chciken', 76.00, 22, 'lunch', 'a chicekn'),
-(9, 'weight-loss', 'uploads/6637371b90188-tgg.jpg', 'chciken', 76.00, 22, 'lunch', 'a chicekn'),
-(10, 'weight-loss', 'uploads/66373739ef8e2-tgg.jpg', 'chciken', 76.00, 22, 'lunch', 'a chicekn'),
-(11, 'weight-loss', 'uploads/6637374d502a9-tgg.jpg', 'chciken', 76.00, 22, 'lunch', 'a chicekn'),
-(12, 'weight-loss', 'uploads/66373eb54ac7b-tgg.jpg', 'chciken', 76.00, 22, 'lunch', 'a chicekn'),
-(13, 'weight-loss', 'uploads/66373eff8cb9a-tgg.jpg', 'chciken', 76.00, 22, 'lunch', 'a chicekn'),
-(14, 'weight-gain', 'C:/xampp/htdocs/fitnepal/uploads/6637433b982cf-Green Red Modern Christmas Voucher Coupon.png', 'Tasha Hoover', 78.00, 100, 'dinner', 'Minim dolor quis cum'),
-(15, 'weight-gain', 'C:/xampp/htdocs/fitnepal/uploads/66374b7913c48-Green Red Modern Christmas Voucher Coupon.png', 'Tasha Hoover', 78.00, 100, 'dinner', 'Minim dolor quis cum'),
-(16, 'weight-gain', 'C:/xampp/htdocs/fitnepal/uploads/66374bd89b4c3-Green Red Modern Christmas Voucher Coupon.png', 'Tasha Hoover', 78.00, 100, 'dinner', 'Minim dolor quis cum'),
-(17, 'weight-gain', 'C:/xampp/htdocs/fitnepal/uploads/66374c000bc02-Green Red Modern Christmas Voucher Coupon.png', 'Tasha Hoover', 78.00, 100, 'dinner', 'Minim dolor quis cum'),
-(18, 'weight-gain', 'C:/xampp/htdocs/fitnepal/uploads/66375b6f2d6ff-Green Red Modern Christmas Voucher Coupon.png', 'Tasha Hoover', 78.00, 100, 'dinner', 'Minim dolor quis cum'),
-(19, 'weight-gain', 'C:/xampp/htdocs/fitnepal/uploads/66375b837293b-Green Red Modern Christmas Voucher Coupon.png', 'Tasha Hoover', 78.00, 100, 'dinner', 'Minim dolor quis cum'),
-(20, 'weight-gain', 'C:/xampp/htdocs/fitnepal/uploads/66375be4a9f80-Green Red Modern Christmas Voucher Coupon.png', 'Tasha Hoover', 78.00, 100, 'dinner', 'Minim dolor quis cum'),
-(21, 'weight-gain', 'C:/xampp/htdocs/fitnepal/uploads/66379c51792ad-Green Red Modern Christmas Voucher Coupon.png', 'chciken', 30.00, 300, 'dinner', 'Main protein'),
-(22, 'weight-gain', 'C:/xampp/htdocs/fitnepal/uploads/66379c694ef6e-Green Red Modern Christmas Voucher Coupon.png', 'chciken', 30.00, 300, 'dinner', 'Main protein'),
-(23, 'weight-gain', 'C:/xampp/htdocs/fitnepal/uploads/6638f03838c7d-logo.png', 'Kevin Frye', 39.00, 30, 'breakfast', 'Sed rerum est digni');
+(24, 'keto', 'admin/uploads/663ba554c827a-6278160.jpg', 'Inga Acosta', 61.00, 75, 'lunch', 'Vero qui voluptate p');
 
 -- --------------------------------------------------------
 
@@ -159,27 +196,19 @@ CREATE TABLE `entries` (
   `meal_name` varchar(255) NOT NULL,
   `protein_grams` float NOT NULL,
   `meal_time` time NOT NULL,
-  `user_id` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `total_protein` float DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `entries`
 --
 
-INSERT INTO `entries` (`id`, `meal_name`, `protein_grams`, `meal_time`, `user_id`) VALUES
-(0, 'Idona Ferguson', 59, '07:37:00', 3),
-(0, 'Zenaida Donovan', 38, '20:08:00', 3),
-(0, 'Audra Madden', 79, '07:31:00', 3),
-(0, 'Owen Mcbride', 18, '20:26:00', 3),
-(0, 'Maggie Odom', 57, '02:42:00', 3),
-(0, 'Urielle Frost', 31, '13:55:00', 4),
-(0, 'Palmer House', 93, '11:31:00', 4),
-(0, 'Kelly Burris', 73, '04:05:00', 4),
-(0, 'Aimee Gates', 41, '01:59:00', 3),
-(0, 'Brandon Valdez', 89, '21:48:00', 3),
-(0, 'Chicken Breast', 31, '14:22:00', 4),
-(0, 'Milk', 3.4, '11:12:00', 4),
-(0, 'Chicken Breast', 31, '08:00:00', 6);
+INSERT INTO `entries` (`id`, `meal_name`, `protein_grams`, `meal_time`, `user_id`, `total_protein`) VALUES
+(0, 'Cottage Cheese', 22, '02:22:00', 3, 105),
+(0, 'Pork Tenderloin', 28, '04:43:00', 3, 105),
+(0, 'Whole Wheat Bread', 22, '03:33:00', 3, 105),
+(0, 'Lean Beef', 33, '03:33:00', 3, 105);
 
 -- --------------------------------------------------------
 
@@ -238,7 +267,44 @@ INSERT INTO `history` (`id`, `user_id`, `login_time`, `device`, `ip_address`) VA
 (36, 10002, '2024-05-06 15:18:30', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', '::1'),
 (37, 10002, '2024-05-06 20:14:49', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 OPR/109.0.0.0', '::1'),
 (38, 11787, '2024-05-06 20:23:49', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', '::1'),
-(39, 10002, '2024-05-06 20:28:26', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1');
+(39, 10002, '2024-05-06 20:28:26', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(40, 10002, '2024-05-06 23:06:07', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(41, 10002, '2024-05-07 16:38:11', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(42, 10002, '2024-05-07 16:56:19', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', '::1'),
+(43, 10002, '2024-05-07 16:56:19', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', '::1'),
+(44, 11787, '2024-05-07 17:28:19', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', '::1'),
+(45, 11787, '2024-05-07 17:29:23', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', '::1'),
+(46, 10002, '2024-05-07 22:43:19', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', '::1'),
+(47, 10002, '2024-05-07 22:50:19', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', '::1'),
+(48, 11787, '2024-05-07 22:50:32', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', '::1'),
+(49, 11787, '2024-05-08 17:18:42', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(50, 10002, '2024-05-08 17:45:22', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', '::1'),
+(51, 11787, '2024-05-08 17:45:40', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', '::1'),
+(52, 11787, '2024-05-08 21:13:59', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(53, 10002, '2024-05-08 21:16:29', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(54, 11787, '2024-05-08 21:37:32', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(55, 10002, '2024-05-10 22:17:07', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', '::1'),
+(56, 10002, '2024-05-10 22:46:27', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', '::1'),
+(57, 10002, '2024-05-10 23:04:22', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(58, 10002, '2024-05-11 16:16:04', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(59, 10002, '2024-05-11 16:20:01', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', '::1'),
+(60, 11787, '2024-05-11 20:15:32', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(61, 11787, '2024-05-11 20:59:40', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(62, 10002, '2024-05-12 07:08:29', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(63, 11787, '2024-05-12 07:39:35', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(64, 10002, '2024-05-12 07:41:53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(65, 11787, '2024-05-14 09:22:12', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(66, 10002, '2024-05-14 09:40:48', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(67, 11787, '2024-05-14 09:51:12', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(68, 10002, '2024-05-14 10:06:37', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36 Edg/124.0.0.0', '::1'),
+(69, 11787, '2024-05-14 10:06:53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36', '::1'),
+(70, 11787, '2024-05-20 20:19:53', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', '::1'),
+(71, 11787, '2024-05-25 20:13:52', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', '::1'),
+(72, 11787, '2024-05-25 20:26:11', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', '::1'),
+(73, 11787, '2024-05-25 20:45:37', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', '::1'),
+(74, 80619, '2024-05-25 20:46:18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', '::1'),
+(75, 10002, '2024-05-25 21:26:04', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0', '::1'),
+(76, 11787, '2024-05-26 10:18:17', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', '::1');
 
 -- --------------------------------------------------------
 
@@ -339,6 +405,22 @@ INSERT INTO `password_resets` (`id`, `email`, `token`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `payment_record`
+--
+
+CREATE TABLE `payment_record` (
+  `payment_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `payment_date` date DEFAULT curdate(),
+  `paid_amount` decimal(10,2) DEFAULT NULL,
+  `payable_amount` decimal(10,2) DEFAULT NULL,
+  `payment_mode` varchar(50) DEFAULT 'Unknown',
+  `transaction_reference` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sitesettings`
 --
 
@@ -391,24 +473,34 @@ CREATE TABLE `users` (
   `registration_time` timestamp NOT NULL DEFAULT current_timestamp(),
   `status` varchar(10) DEFAULT 'inactive',
   `role` varchar(50) DEFAULT 'user',
-  `google_auth_secret` varchar(32) DEFAULT NULL
+  `google_auth_secret` varchar(32) DEFAULT NULL,
+  `verified` enum('Unverified','Verified') DEFAULT 'Unverified',
+  `muscle_protein` double DEFAULT NULL,
+  `normal_protein` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `user_id`, `name`, `email`, `password`, `age`, `weight`, `height`, `activity`, `profile_picture`, `registration_time`, `status`, `role`, `google_auth_secret`) VALUES
-(3, 11787, 'Prasanga Pokharel', 'prasanga@gmail.com', '$2y$10$H2Y7f6Ph26npbfj0eG33wuyPcrEH/ews9B3YIdGMCclOUDgUNDxMa', 11, 68.00, 93, 'highly_active', 'profilepic/protein logo.png', '2024-05-02 18:09:41', 'active', 'user', 'IAWTC4TZWDMYWSWL'),
-(18, 24872, 'Roanna Mcfarland', 'tukanez@mailinator.com', '$2y$10$o//xJXFHa4saJ7QUIXs94uRE7uXh28Oy55Xin9TorwHQKLolBr5FC', 35, 29.00, 48, 'intermediate', NULL, '2024-05-04 09:48:00', 'inactive', 'user', NULL),
-(21, 10002, 'Raman Singh', 'inc@gmail.com', '$2y$10$w/fPyYONqgrfAtyH.CJIq.hSVUKSdchcprNHUefyUeK7u7OZgIQPi', 21, 65.00, 175, 'normal', 'profilepic/49d8e82040dfc158d398c2dbefbf11a2.jpg', '2024-05-04 13:31:47', 'active', 'admin', 'E6RI4VBSA3MHDBIY'),
-(22, 54473, 'Sylvester Chandler', 'incpractical@gmail.com', '$2y$10$plJ6UBpDqBmNej3ncAXtrem77aJcxUHyIKietI6w4H2hzGUxZEopq', 51, 40.00, 12, 'normal', NULL, '2024-05-04 15:44:34', 'inactive', 'user', NULL),
-(23, 32300, 'Sawyer Irwin', 'lipogoge@mailinator.com', '$2y$10$fCpqjw6OwX3w0aQwSPikueIP5TONQ.hoPwPgCfizjN97sUSeryWzG', 35, 22.00, 54, 'normal', NULL, '2024-05-04 16:24:11', 'inactive', 'user', NULL),
-(24, 13452, 'Zorita Crosby', 'comadu@mailinator.com', '$2y$10$jYevLbvuVWUrKamlW2rd1urOpHwUBYCRI9HXlW/g4GuChhwCJGmpu', 79, 66.00, 77, 'normal', NULL, '2024-05-05 14:51:15', 'inactive', 'user', NULL);
+INSERT INTO `users` (`id`, `user_id`, `name`, `email`, `password`, `age`, `weight`, `height`, `activity`, `profile_picture`, `registration_time`, `status`, `role`, `google_auth_secret`, `verified`, `muscle_protein`, `normal_protein`) VALUES
+(3, 11787, 'Prasanga Pokharel', 'prasanga@gmail.com', '$2y$10$H2Y7f6Ph26npbfj0eG33wuyPcrEH/ews9B3YIdGMCclOUDgUNDxMa', 11, 68.00, 93, 'highly_active', 'profilepic/protein logo.png', '2024-05-02 18:09:41', 'active', 'user', 'IAWTC4TZWDMYWSWL', 'Unverified', 136, 54.400000000000006),
+(18, 24872, 'Roanna Mcfarland', 'tukanez@mailinator.com', '$2y$10$o//xJXFHa4saJ7QUIXs94uRE7uXh28Oy55Xin9TorwHQKLolBr5FC', 35, 29.00, 48, 'intermediate', NULL, '2024-05-04 09:48:00', 'inactive', 'user', NULL, 'Unverified', NULL, NULL),
+(21, 10002, 'Abijeet Raut', 'inc@gmail.com', '$2y$10$w/fPyYONqgrfAtyH.CJIq.hSVUKSdchcprNHUefyUeK7u7OZgIQPi', 22, 65.00, 175, 'normal', 'profilepic/49d8e82040dfc158d398c2dbefbf11a2.jpg', '2024-05-04 13:31:47', 'active', 'admin', 'E6RI4VBSA3MHDBIY', 'Unverified', NULL, NULL),
+(22, 54473, 'Sylvester Chandler', 'incpractical@gmail.com', '$2y$10$plJ6UBpDqBmNej3ncAXtrem77aJcxUHyIKietI6w4H2hzGUxZEopq', 51, 40.00, 12, 'normal', NULL, '2024-05-04 15:44:34', 'inactive', 'user', NULL, 'Unverified', NULL, NULL),
+(23, 32300, 'Sawyer Irwin', 'lipogoge@mailinator.com', '$2y$10$fCpqjw6OwX3w0aQwSPikueIP5TONQ.hoPwPgCfizjN97sUSeryWzG', 35, 22.00, 54, 'normal', NULL, '2024-05-04 16:24:11', 'inactive', 'user', NULL, 'Unverified', NULL, NULL),
+(24, 13452, 'Zorita Crosby', 'comadu@mailinator.com', '$2y$10$jYevLbvuVWUrKamlW2rd1urOpHwUBYCRI9HXlW/g4GuChhwCJGmpu', 79, 66.00, 77, 'normal', NULL, '2024-05-05 14:51:15', 'inactive', 'user', NULL, 'Unverified', NULL, NULL),
+(25, 80619, 'Angelica Mayo', 'pajelyjiw@mailinator.com', '$2y$10$Q4QPROznAqt72Mh2o/IJcunV.4Q7wJwKFtIWwy7DCzX94lAW4RNRy', 72, 35.00, 25, 'normal', NULL, '2024-05-25 15:01:10', 'inactive', 'user', NULL, 'Unverified', 70, 28);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `bankpayment`
+--
+ALTER TABLE `bankpayment`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `calorie`
@@ -416,6 +508,13 @@ INSERT INTO `users` (`id`, `user_id`, `name`, `email`, `password`, `age`, `weigh
 ALTER TABLE `calorie`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `chat`
+--
+ALTER TABLE `chat`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_user` (`user_id`);
 
 --
 -- Indexes for table `contactus`
@@ -455,6 +554,13 @@ ALTER TABLE `password_resets`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `payment_record`
+--
+ALTER TABLE `payment_record`
+  ADD PRIMARY KEY (`payment_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `sitesettings`
 --
 ALTER TABLE `sitesettings`
@@ -479,22 +585,34 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `bankpayment`
+--
+ALTER TABLE `bankpayment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `calorie`
 --
 ALTER TABLE `calorie`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `chat`
+--
+ALTER TABLE `chat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `contactus`
 --
 ALTER TABLE `contactus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `diets`
 --
 ALTER TABLE `diets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `diet_items`
@@ -506,7 +624,7 @@ ALTER TABLE `diet_items`
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `np_nutrition`
@@ -519,6 +637,12 @@ ALTER TABLE `np_nutrition`
 --
 ALTER TABLE `password_resets`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `payment_record`
+--
+ALTER TABLE `payment_record`
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `sitesettings`
@@ -536,7 +660,7 @@ ALTER TABLE `tracking`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Constraints for dumped tables
@@ -549,10 +673,22 @@ ALTER TABLE `calorie`
   ADD CONSTRAINT `calorie_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
+-- Constraints for table `chat`
+--
+ALTER TABLE `chat`
+  ADD CONSTRAINT `fk_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
 -- Constraints for table `history`
 --
 ALTER TABLE `history`
   ADD CONSTRAINT `history_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `payment_record`
+--
+ALTER TABLE `payment_record`
+  ADD CONSTRAINT `payment_record_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL;
 
 --
 -- Constraints for table `tracking`

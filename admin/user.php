@@ -20,16 +20,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Query to fetch all users
-$query_users = "SELECT * FROM users ORDER BY user_id DESC"; 
+$query_users = "SELECT user_id, name, email, registration_time FROM users ORDER BY user_id DESC";
 $stmt_users = $pdo->prepare($query_users);
 $stmt_users->execute();
 $users = $stmt_users->fetchAll(PDO::FETCH_ASSOC);
 
-function daysAgo($timestamp) {
+function daysAgo($registration_time) {
     $current_time = time(); // Current timestamp
-    $days = ($current_time - $timestamp) / (60 * 60 * 24); // Calculate days
+    $registration_timestamp = strtotime($registration_time); // Convert registration time to timestamp
+    $days = ($current_time - $registration_timestamp) / (60 * 60 * 24); // Calculate days
     return round($days);
 }
+
 
 include 'navbar.php'; // Include the navbar
 ?>
@@ -41,6 +43,8 @@ include 'navbar.php'; // Include the navbar
     <title>User Management</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"> <!-- Inter font -->
     <link rel="stylesheet" href="./cssadmin/user.css"> <!-- Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- Font Awesome -->
+
 
     <script>
         // Function to open the registration modal
@@ -110,7 +114,7 @@ include 'navbar.php'; // Include the navbar
                                 <td><?php echo $user['user_id']; ?></td>
                                 <td><?php echo htmlspecialchars($user['name']); ?></td>
                                 <td><?php echo htmlspecialchars($user['email']); ?></td>
-                                <td><?php echo daysAgo($user['user_id']) . ' days ago'; ?></td>
+                                <td><?php echo daysAgo($user['registration_time']) . ' days ago'; ?></td>
                                 <td>
                                     <!-- Edit button triggers modal -->
                                     <button class="action-button edit-button" onclick="openEditModal(<?php echo $user['user_id']; ?>, '<?php echo htmlspecialchars($user['name']); ?>', '<?php echo htmlspecialchars($user['email']); ?>')">Edit</button>
@@ -120,6 +124,12 @@ include 'navbar.php'; // Include the navbar
                         <?php endforeach; ?>
                     </tbody>
                 </table>
+                <!-- Add the Export to CSV button with Excel icon -->
+                <div class="export-button-container" style="text-align: right;">
+                    <a href="export_users.php" class="csv">
+                        <i class="fas fa-file-excel"></i> Export to CSV
+                    </a>
+                </div>
             </div>
 
             <!-- Modal for registering a new user -->

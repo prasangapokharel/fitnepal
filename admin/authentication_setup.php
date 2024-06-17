@@ -1,5 +1,5 @@
 <?php
-        include 'navbar.php';
+include 'navbar.php';
 
 // Session and database connection
 include 'session.php'; // Include session check
@@ -40,33 +40,47 @@ if ($google_auth_secret === null) {
     $qr_code_url = $google2fa->getQRCodeUrl($company_name, "user_{$user_id}", $google_auth_secret); // Generate QR code URL from the secret key
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Google Authentication Setup</title>
-    <link rel="stylesheet" href="./cssadmin/authentication_setup.css"> <!-- External CSS -->
+    <link rel="stylesheet" href="./CSS/authentication_setup.css"> <!-- External CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Secret key copied to clipboard!");
+            }).catch(err => {
+                alert("Failed to copy text: " + err);
+            });
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> <!-- jQuery library -->
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script> <!-- QRCode library -->
 </head>
 <body>
-    <?php   include 'navbar.php'; ?>
     <div class="container">
         <h2>Google Authentication Setup</h2>
-        <br>
         <p>Scan the QR code with Google Authenticator, then enter the generated OTP below:</p>
-        <br>
-
         <?php if (isset($qr_code_url)): ?>
-            <p>Your secret key: <strong><?php echo htmlspecialchars($google_auth_secret); ?></strong></p> <!-- Display secret key -->
+            <div id="qrcode"></div>
+            <script type="text/javascript">
+                var qrcode = new QRCode(document.getElementById("qrcode"), {
+                    text: "<?php echo $qr_code_url; ?>",
+                    width: 200,
+                    height: 200,
+                });
+            </script>
+            <p>Your secret key: <strong><?php echo htmlspecialchars($google_auth_secret); ?></strong>
+            <button class="copy-button" onclick="copyToClipboard('<?php echo htmlspecialchars($google_auth_secret); ?>')">Copy</button></p> <!-- Display secret key with copy button -->
         <?php endif; ?>
-
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <label for="otp">One-Time Password (OTP):</label>
             <input type="text" id="otp" name="otp" required>
-            <br>
             <button type="submit">Verify OTP</button>
         </form>
-
         <?php
         // Handling OTP verification
         if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["otp"])) {

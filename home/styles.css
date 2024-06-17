@@ -2,11 +2,11 @@
 
 :root {
   --primary-color: #ffffff;
-  --primary-color-dark: rgb(55, 19, 138);
+  --primary-color-dark: linear-gradient(135deg, #60A5FA, #1E3A8A);
   --secondary-color: #ffffff;
   --text-dark: #378ce7;
   --text-light: #64748b;
-  --white: #07419d;
+  --white: linear-gradient(135deg, #60A5FA, #1E3A8A);
   --max-width: 1500px;
 }
 
@@ -187,7 +187,9 @@ nav {
 
 .header__image img {
   max-width: 500px;
-  margin: auto;
+  margin: 100px auto;
+  border: 3px;
+  border-radius: 50%;
 }
 
 .header__content h4 {

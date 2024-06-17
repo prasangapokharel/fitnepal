@@ -1,7 +1,7 @@
 /* Body styling */
 body {
-    background-color: #124c8e; /* Dark background for cards */
-    color: #f0f0f0; /* Light text for contrast */
+    background-color: #ffffff; /* Dark background for cards */
+    color: #124c8e; /* Light text for contrast */
     font-family: 'Inter', sans-serif; /* Modern font */
     margin: 0px;
     Padding: 0px;
@@ -10,12 +10,23 @@ body {
 /* Flexbox container with futuristic colors */
 .container {
     display: flex;
-    background-color: #124c8e; /* Dark background for cards */
+    background-color: #ffffff; /* Dark background for cards */
     border-radius: 10px; /* Rounded corners for smoothness */
     padding: 20px;
     margin-top: 0%;
     margin: 0px 5%;
 
+}
+.export-button-container{
+    margin: 30px auto;
+
+}
+.csv{
+    background-color: #124c8e; /* Dark background for cards */
+border: 0px;
+text-decoration: none;
+    padding: 9px 12px;
+    color: rgb(255, 255, 255);
 }
 .next{
     display: none;
@@ -32,7 +43,7 @@ body {
 table {
     width: 90%; /* Full width */
     border-collapse: collapse; /* Collapse table borders */
-    background-color: #124c8e; /* Dark background for cards */
+    background-color: #ffffff; /* Dark background for cards */
     border-radius: 10px; /* Rounded corners */
     overflow: hidden; /* Hide overflow for rounded corners */
 }
@@ -55,12 +66,13 @@ td {
 
 /* Alternate row background for better readability */
 tr:nth-child(even) {
-    background-color: #124c8e; /* Dark background for cards */
+    background-color: #ffffff; /* Dark background for cards */
 }
 
 /* Hover effect for table rows */
 tr:hover {
-    background-color: green; /* Change background on hover */
+    background-color: #124c8e; /* Slightly darker background */
+    color: #ffffff; /* Change background on hover */
 }
 
 /* Styling for action buttons */
@@ -74,7 +86,7 @@ tr:hover {
 
 /* Specific styles for edit and delete buttons */
 .edit-button {
-    background-color: #4CAF50; /* Green for edit */
+    background-color: #124c8e; /* Green for edit */
     color: white; /* White text for contrast */
 }
 
@@ -162,8 +174,8 @@ label {
     padding: 10px 20px; /* Padding for the button */
     border: none; /* No border */
     border-radius: 4px; /* Rounded corners */
-    background-color: green; /* Blue background */
-    color: white; /* White text */
+    background-color: none; /* Blue background */
+    color: #007bff; /* White text */
     cursor: pointer; /* Pointer cursor */
     transition: background-color 0.3s; 
     float: right;

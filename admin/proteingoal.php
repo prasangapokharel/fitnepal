@@ -37,7 +37,7 @@ $entries = $stmt->fetchAll(PDO::FETCH_ASSOC); // Fetch all results
 <body>
     <div class="container">
         <h2>Protein Data</h2>
-        <button id="deleteButton" class="delete-button">Reset After 24 Hours</button> <!-- Reset button -->
+        <button id="deleteAllButton" class="delete-button">Delete All Entries</button> <!-- Delete all button -->
         
         <table>
             <thead>
@@ -97,17 +97,18 @@ $entries = $stmt->fetchAll(PDO::FETCH_ASSOC); // Fetch all results
                 });
             });
 
-            // Reset button click event to delete entries after 24 hours
-            $("#deleteButton").click(function() {
-                if (confirm("Are you sure you want to reset all entries after 24 hours?")) {
+            // Delete all button click event
+            $("#deleteAllButton").click(function() {
+                if (confirm("Are you sure you want to delete all entries?")) {
                     $.ajax({
-                        url: 'reset_entries.php', // PHP file to reset entries
+                        url: 'deleteprotein.php', // PHP file to delete all entries
                         type: 'POST',
                         success: function() {
-                            alert("Entries reset initiated. They will be deleted in 24 hours.");
+                            alert("All entries deleted successfully.");
+                            location.reload(); // Reload the page after deletion
                         },
                         error: function() {
-                            alert("Error initiating reset. Please try again.");
+                            alert("Error deleting entries. Please try again.");
                         }
                     });
                 }

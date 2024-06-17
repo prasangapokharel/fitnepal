@@ -28,6 +28,7 @@
             display: flex; /* Flex layout for icons and text */
             align-items: center; /* Vertically center content */
             padding: 15px;
+            letter-spacing: .1875rem;
             text-decoration: none; /* No underline */
             color: white; /* Text color */
             transition: background-color 0.3s ease; /* Smooth transition */
@@ -55,10 +56,11 @@
     <div class="navbar">
         <a href="dashboard.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
         <a href="user.php"><i class="fas fa-users"></i> Users</a>
+        <a href="paymentview.php"><i class="fas fa-users"></i> Payment</a>
+        <a href="payhistory.php"><i class="fas fa-users"></i>Status</a>
         <a href="meal.php"><i class="fas fa-utensils"></i> Meals</a>
         <a href="calories.php"><i class="fas fa-utensils"></i> Calories</a>
         <a href="proteingoal.php"><i class="fas fa-utensils"></i> Protein</a>
-
         <a href="contact.php"><i class="fas fa-envelope"></i> Contact Us</a>
         <a href="settings.php"><i class="fas fa-cogs"></i> Settings</a>
         <a href="authentication_setup.php"><i class="fas fa-key"></i> Authentication</a>

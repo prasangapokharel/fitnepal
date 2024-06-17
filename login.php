@@ -1,11 +1,3 @@
-<?php
-    include './header/header.php'
-
-    
-
-    
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="./CSS/login.css">
 </head>
-
+<?php
+include 'home/navbar.php';
+?>
 <body>
 
     <div class="container">
@@ -23,26 +17,23 @@
         <h2>Login</h2>
         <form action="login_process.php" method="post">
             <div class="input-wrapper">
-                <i class="fa fa-envelope icon" style="color: #3e4684"></i>
+                <i class="fa fa-envelope icon"></i>
                 <input type="email" id="email" name="email" placeholder="Email" required>
             </div>
 
             <div class="input-wrapper">
-                <i class="fa fa-lock icon" style="color: #3e4684"></i>
+                <i class="fa fa-lock icon"></i>
                 <input type="password" id="password" name="password" placeholder="Password" required>
-
                 <div class="see">
-                    <i class="fa fa-eye icon icon-right" onclick="togglePasswordVisibility()"></i>
-
+                    <i class="fa fa-eye icon-right" onclick="togglePasswordVisibility()"></i>
                 </div>
             </div>
-
 
             <input class="log" type="submit" value="Login">
         </form>
 
         <div class="register-link">
-            Don't have an account ? <a href="registration.php">Register Now</a>
+            Don't have an account? <a href="registration.php">Register Now</a>
         </div>
     </div>
 
